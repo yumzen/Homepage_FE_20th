@@ -29,10 +29,10 @@ useEffect(() => {
 }, []);
 
 let Links =[
-    {name:"소개하기",link:"#about"},
-    {name:"공연 영상 보기",link:"#performance"},
-    {name:"예매하기",link:"#tickets"},
-    {name:"지원하기",link:"#recruit"},
+    {name:"소개하기",link:"/about"},
+    {name:"공연 영상 보기",link:"/performance"},
+    {name:"예매하기",link:"/tickets"},
+    {name:"지원하기",link:"/recruit"},
 ];
 
 return (
