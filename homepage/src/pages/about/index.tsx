@@ -1,7 +1,7 @@
 export default function Main() {
     return (
         <div>
-            Kahlua page!
+            about page!
         </div>
     )
 }
