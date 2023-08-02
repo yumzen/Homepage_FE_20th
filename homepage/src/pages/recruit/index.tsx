@@ -1,6 +1,7 @@
-export default function Main() {
+
+export default function Recruit() {
     return (
-        <div>
+        <div className="font-['pretendard']">
             recruit page!
         </div>
     )

@@ -30,18 +30,18 @@ useEffect(() => {
 
 let Links =[
     {name:"소개하기",link:"/about"},
-    {name:"공연 영상 보기",link:"/performance"},
+    {name:"공연영상",link:"/performance"},
     {name:"예매하기",link:"/tickets"},
     {name:"지원하기",link:"/recruit"},
 ];
 
 return (
-    <nav className="w-full shadow-sm bg-white fixed z-10 py-[20px] px-[20px] border-b">
+    <nav className="w-full shadow-sm bg-white z-10 py-[20px] px-[20px] border-b font-['pretendard']">
         <div className="mx-auto lg:max-w-7xl md:items-center md:flex gap-[16px]">
             {/* LOGO */}
             <div className="flex items-center justify-between">
                 <Link href="/">
-                    <Image src="/Logo.png" alt="Logo" width={192} height={36} style={{maxWidth:"192px", maxHeight:"36px"}} />
+                    <Image src="/Logo.png" alt="Logo" width={192} height={36} className= "w-[192px] h-[192px] max-w-[192px] max-h-[36px]" priority/>
                 </Link>
             
                 <div className="md:hidden">
@@ -63,13 +63,13 @@ return (
 
             <div
             className={`${
-                showMenu ? "mt-8 mb-8 flex flex-col" : "hidden flex-row justify-between px-8 md:px-0"
+                showMenu ? "mt-8 mb-8 flex flex-col" : "hidden flex-row justify-between md:pl-8"
             } md:flex w-full items-center`}
             >
                 <ul className={`${ showMenu ? "flex-col py-[40px] mt-12 mb-4": "flex-col md:flex md:flex-row md:gap-[15px]"}`}>
                     {
                         Links.map((link) => (
-                        <li key={link.name} className={` text-[#000] text-center hover:font-semibold ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[13px] w-[85px] h-[32px] font-medium flex-shrink-0 flex justify-center items-center"}`}>
+                        <li key={link.name} className={` text-[#000] text-center hover:font-bold ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[15px] w-[84px] h-[32px] font-medium flex-shrink-0 flex justify-center items-center"}`}>
                             <Link href={link.link} onClick={closeMenu} >{link.name}</Link>
                         </li>
                         ))
