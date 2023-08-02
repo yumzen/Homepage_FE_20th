@@ -1,8 +1,8 @@
 
-export default function About() {
+export default function Recruit() {
     return (
         <div className="font-['pretendard']">
-            about page!
+            recruit page!
         </div>
     )
 }

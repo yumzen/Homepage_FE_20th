@@ -1,8 +1,8 @@
 
-export default function About() {
+export default function Performance() {
     return (
         <div className="font-['pretendard']">
-            about page!
+            performance page!
         </div>
     )
 }
