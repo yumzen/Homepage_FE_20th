@@ -14,7 +14,8 @@ module.exports = {
       },
 
       fontFamily:{
-        'Salvar':['Salvar']
+        'pretendard':['pretendard'],
+        'Salvar':['Salvar'],
       },
     },
 
