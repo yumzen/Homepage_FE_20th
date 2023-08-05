@@ -11,6 +11,8 @@ export default function ImageSlider() {
     "/assets/images/about/concert3.jpg",
     "/assets/images/about/concert4.jpg",
     "/assets/images/about/concert5.jpg",
+    "/assets/images/about/concert6.jpg",
+    "/assets/images/about/concert7.jpg",
   ];
 
   const zoomInProperties = {
