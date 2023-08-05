@@ -15,11 +15,11 @@ export default function RepNotice() {
                 <br/>
                 면접기간 : 2023.03.10(월) ~ 2023.03.11(화)
             </p>
-            <button className="flex justify-center space-x-4 items-center h-[96px] w-5/6 rounded-3xl bg-ocean-700 mt-6">
+            <a className="flex justify-center space-x-4 items-center h-[96px] w-5/6 rounded-3xl bg-ocean-700 mt-6" href="/application">
                 <Image src={recruit_rocket} alt=".."/>
-                <p className="text-5xl font-semibold">KAHLUA 23기 지원하기</p>
+                <p className="text-4xl font-semibold">KAHLUA 23기 지원하기</p>
                 <Image src={recruit_rocket} alt=".."/>
-            </button>
+            </a>
         </div>
     )
 }

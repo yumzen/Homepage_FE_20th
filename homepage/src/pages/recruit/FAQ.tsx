@@ -6,7 +6,7 @@ import person4 from "/public/assets/images/recruit/person4.png"
 
 export default function FAQ(){
     return(
-        <div className="py-10">
+        <div className="pt-8 pb-16">
             <p className="text-center text-xl font-bold text-white mb-16">
                 FAQ
             </p>
