@@ -1,3 +1,4 @@
+import FAQ from "./FAQ";
 import Notice from "./notice";
 import RepNotice from "./rep_notice";
 
@@ -6,6 +7,7 @@ export default function Recruit() {
         <div className="font-pretendard py-8">
             <RepNotice/>
             <Notice/>
+            <FAQ/>
         </div>
     )
 }
