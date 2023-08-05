@@ -1,6 +1,7 @@
-export default function Main() {
+
+export default function About() {
     return (
-        <div>
+        <div className="font-['pretendard']">
             about page!
         </div>
     )

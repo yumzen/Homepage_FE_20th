@@ -1,6 +1,7 @@
-export default function Main() {
+
+export default function Performance() {
     return (
-        <div>
+        <div className="font-['pretendard']">
             performance page!
         </div>
     )

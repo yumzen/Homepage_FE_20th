@@ -1,7 +1,9 @@
-export default function Main() {
+
+export default function Tickets() {
     return (
-        <div>
+    <div className="font-['pretendard']">
             tickets page!
         </div>
+
     )
 }
