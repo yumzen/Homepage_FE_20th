@@ -12,7 +12,12 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+
+      fontFamily:{
+        'Salvar':['Salvar']
+      },
     },
+
     colors: {
       "ocean": {
         50: '#e8f7ff',
@@ -28,6 +33,7 @@ module.exports = {
         950: '#0a225c',
       },
     }
+
   },
   plugins: [],
 

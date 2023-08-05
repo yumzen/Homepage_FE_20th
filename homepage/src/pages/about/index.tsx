@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import loudspeaker from "@/app/components/icons/loudspeaker.png";
-import mainImg from "@/app/components/images/about/concert3.jpg";
+import loudspeaker from "/public/assets/icons/loudspeaker.png";
+import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
 
 export default function About() {
