@@ -45,13 +45,14 @@ export default function ImageSlider3() {
     <div className="w-full h-[332px]]">
       <Zoom {...zoomInProperties}>
         {images.map((each, index) => (
-          <div key={index} className="flex justify-center item-center">
+          <div
+            key={index}
+            className="flex justify-center item-center relative w-[460px] h-[320px]"
+          >
             <Image
               src={each}
               alt="image-slider"
-              width={480}
-              height={240}
-              layout="fixed"
+              layout="fill"
               className="rounded-[30px] z-10"
             />
           </div>

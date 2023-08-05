@@ -10,7 +10,7 @@ export default function ImageSlider1() {
     "/assets/images/about/concert2.jpg",
     "/assets/images/about/concert3.jpg",
     "/assets/images/about/concert4.jpg",
-    "/assets/images/about/concert5.jpg",
+    "/assets/images/about/concert5.png",
     "/assets/images/about/concert6.jpg",
     "/assets/images/about/concert7.jpg",
   ];
@@ -38,13 +38,14 @@ export default function ImageSlider1() {
     <div className="w-full h-[332px]]">
       <Zoom {...zoomInProperties}>
         {images.map((each, index) => (
-          <div key={index} className="flex justify-center item-center">
+          <div
+            key={index}
+            className="flex justify-center item-center relative w-[460px] h-[320px]"
+          >
             <Image
               src={each}
               alt="image-slider"
-              width={480}
-              height={240}
-              layout="fixed"
+              layout="fill"
               className="rounded-[30px] z-10"
             />
           </div>
