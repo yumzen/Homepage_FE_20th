@@ -1,10 +1,11 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import loudspeaker from "/public/assets/icons/loudspeaker.png";
 import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
-import ImageSlider from "./ImageSlider";
+import ImageSlider1 from "./ImageSlider1";
+import ImageSlider2 from "./ImageSlider2";
+import ImageSlider3 from "./ImageSlider3";
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
         <Image
           src={mainImg}
           alt="about-main-image"
-          width={960}
+          width={800}
           height={360}
           className="rounded-[30px] m-16"
         />
@@ -36,7 +37,7 @@ export default function About() {
           정기 모임 외에도 또 어떤 활동들을 할까요?
         </p>
         <div className={styles.imgContainer}>
-          <ImageSlider />
+          <ImageSlider1 />
         </div>
         <p className={styles.detailText}>
           밴드의 꽃은 바로 공연!
@@ -53,7 +54,7 @@ export default function About() {
           밴드학회만의 낭만이랍니다.
         </p>
         <div className={styles.imgContainer}>
-          <ImageSlider />
+          <ImageSlider2 />
         </div>
         <p className={styles.detailText}>
           7월에는 깔루아의 창립일을 기념하는 창립제, 12월에는 다함께 연말을
@@ -66,7 +67,7 @@ export default function About() {
           중 하나입니다.
         </p>
         <div className={styles.imgContainer}>
-          <ImageSlider />
+          <ImageSlider3 />
         </div>
         <p className={styles.detailText}>
           이 외에도 친목을 다질 수 있는 MT, 바다 여행, 놀이공원 등의 활동과

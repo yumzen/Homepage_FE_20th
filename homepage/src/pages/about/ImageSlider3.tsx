@@ -2,18 +2,24 @@ import React from "react";
 import "react-slideshow-image/dist/styles.css";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Zoom, Slide } from "react-slideshow-image";
-import styles from "./ImageSlider.module.css";
 import Image from "next/image";
 
-export default function ImageSlider() {
+export default function ImageSlider3() {
   const images = [
-    "/assets/images/about/concert1.jpg",
-    "/assets/images/about/concert2.jpg",
-    "/assets/images/about/concert3.jpg",
-    "/assets/images/about/concert4.jpg",
-    "/assets/images/about/concert5.jpg",
-    "/assets/images/about/concert6.jpg",
-    "/assets/images/about/concert7.jpg",
+    "/assets/images/about/play1.jpg",
+    "/assets/images/about/play2.jpg",
+    "/assets/images/about/play3.jpg",
+    "/assets/images/about/play4.jpg",
+    "/assets/images/about/play5.jpg",
+    "/assets/images/about/play6.jpg",
+    "/assets/images/about/play7.jpg",
+    "/assets/images/about/play8.jpg",
+    "/assets/images/about/play9.jpg",
+    "/assets/images/about/play10.jpg",
+    "/assets/images/about/play11.jpg",
+    "/assets/images/about/play12.jpg",
+    "/assets/images/about/play13.jpg",
+    "/assets/images/about/play14.jpg",
   ];
 
   const zoomInProperties = {
@@ -46,7 +52,7 @@ export default function ImageSlider() {
               width={480}
               height={240}
               layout="fixed"
-              className={styles.image}
+              className="rounded-[30px] z-10"
             />
           </div>
         ))}
