@@ -1,5 +1,6 @@
 import React from "react";
 import "react-slideshow-image/dist/styles.css";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Zoom, Slide } from "react-slideshow-image";
 import styles from "./ImageSlider.module.css";
 import Image from "next/image";
@@ -20,6 +21,18 @@ export default function ImageSlider() {
     duration: 5000,
     transitionDuration: 300,
     infinity: true,
+
+    // icons
+    prevArrow: (
+      <div className="flex ml-10 justify-center items-center content-center text-center">
+        <ArrowLeftIcon className="h-8 w-8 text-white cursor-pointer" />
+      </div>
+    ),
+    nextArrow: (
+      <div className="flex mr-10 justify-center items-center content-center text-center ">
+        <ArrowRightIcon className="h-8 w-8 text-white cursor-pointer" />
+      </div>
+    ),
   };
 
   return (
@@ -30,8 +43,8 @@ export default function ImageSlider() {
             <Image
               src={each}
               alt="image-slider"
-              width={604}
-              height={320}
+              width={480}
+              height={240}
               layout="fixed"
               className={styles.image}
             />
