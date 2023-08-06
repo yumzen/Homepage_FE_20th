@@ -1,9 +1,11 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import loudspeaker from "/public/assets/icons/loudspeaker.png";
 import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
+import ImageSlider1 from "./ImageSlider1";
+import ImageSlider2 from "./ImageSlider2";
+import ImageSlider3 from "./ImageSlider3";
 
 export default function About() {
   return (
@@ -16,9 +18,9 @@ export default function About() {
         <Image
           src={mainImg}
           alt="about-main-image"
-          width={1024}
-          height={400}
-          style={{ borderRadius: 30, margin: "4rem" }}
+          width={800}
+          height={360}
+          className="rounded-[30px] m-16"
         />
         <p className={styles.detailText}>
           깔루아는
@@ -34,7 +36,9 @@ export default function About() {
           <br />
           정기 모임 외에도 또 어떤 활동들을 할까요?
         </p>
-        <div className="w-full bg-black h-[390px] my-[4rem]"></div>
+        <div className={styles.imgContainer}>
+          <ImageSlider1 />
+        </div>
         <p className={styles.detailText}>
           밴드의 꽃은 바로 공연!
           <br />
@@ -49,7 +53,9 @@ export default function About() {
           누군가 연주를 시작하면 하나둘씩 소리를 더해가며 곡을 완성해내는 것이
           밴드학회만의 낭만이랍니다.
         </p>
-        <div className="w-full bg-black h-[390px] my-[4rem]"></div>
+        <div className={styles.imgContainer}>
+          <ImageSlider2 />
+        </div>
         <p className={styles.detailText}>
           7월에는 깔루아의 창립일을 기념하는 창립제, 12월에는 다함께 연말을
           마무리하는 송년회가 열립니다.
@@ -60,7 +66,9 @@ export default function About() {
           이렇게 많은 선배들, 동기들, 후배들을 사귈 수 있는 것이 깔루아의 자랑
           중 하나입니다.
         </p>
-        <div className="w-full bg-black h-[390px] my-[4rem]"></div>
+        <div className={styles.imgContainer}>
+          <ImageSlider3 />
+        </div>
         <p className={styles.detailText}>
           이 외에도 친목을 다질 수 있는 MT, 바다 여행, 놀이공원 등의 활동과
           <br />
