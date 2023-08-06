@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return(
-        <div className="w-full h-[148px] bg-[#EEEEEE] fixed bottom-0 font-['pretendard']">
+        <div className="w-full h-[148px] bg-[#EEEEEE] bottom-0 font-['pretendard']">
             <div className="flex flex-col w-full">
                 <div className="flex item-center justify-center mt-[24px]">
                     <svg width="187" height="33" viewBox="0 0 187 33" fill="none" xmlns="http://www.w3.org/2000/svg">

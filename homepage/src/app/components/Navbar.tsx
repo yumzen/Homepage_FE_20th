@@ -37,7 +37,7 @@ let Links =[
 ];
 
 return (
-    <nav className="w-full shadow-sm bg-white z-10 py-[20px] px-[20px] border-b font-['pretendard']">
+    <nav className="w-full shadow-sm bg-white z-10 py-[20px] px-[20px] font-['pretendard']">
         <div className="mx-auto lg:max-w-7xl md:items-center md:flex gap-[16px]">
             <div className="flex items-center justify-between">
                 <Link href="/">
