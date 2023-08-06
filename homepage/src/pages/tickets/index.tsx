@@ -1,10 +1,12 @@
 "use client"
-
+import dotenv from 'dotenv';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
-import apikey from "./apikey";
+dotenv.config();
+
+const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 
 const data = [
     {
@@ -47,9 +49,7 @@ export default function Tickets() {
     useEffect(() => {
         setNowUrl(window.location.href);
         const script = document.createElement("script");
-        const KAKAOMAP_API = apikey;
-        script.src =
-        `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAOMAP_API}&autoload=false`;
+        script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apikey}&autoload=false`;
         document.head.appendChild(script);
     
         script.onload = () => {
