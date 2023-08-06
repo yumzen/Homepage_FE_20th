@@ -8,3 +8,10 @@
     font-weight: 400;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'salvar';
+    src: url('/assets/fonts/Salvar-Regular.TTF');
+    font-weight: 400;
+    font-style: normal;
+}
