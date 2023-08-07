@@ -1,0 +1,15 @@
+.input-with-placeholder input[type="text"] {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #464646;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+}
+
+.input-with-placeholder input::placeholder {
+    color: #888888;
+    opacity: 0.75;
+}
