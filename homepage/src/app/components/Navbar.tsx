@@ -55,7 +55,7 @@ return (
                     { Links.map((link) => (
                         <li key={link.name} className={` text-[#000] text-center hover:font-bold ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[15px] w-[84px] h-[32px] font-medium flex-shrink-0 flex justify-center items-center"}`}>
                             <Link href={link.link} onClick={() => setFocusedLink(link.name)}>
-                                <div className={focusedLink === link.name || pathname === link.link ? "font-bold" : ""}>{link.name}</div>
+                                <div className={focusedLink === link.name || pathname?.startsWith(link.link) ? "font-bold" : ""}>{link.name}</div>
                             </Link>
                         </li>
                         ))}
