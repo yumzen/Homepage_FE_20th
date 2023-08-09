@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+    
 const [showMenu, setShowMenu] = useState(false);
 const [focusedLink, setFocusedLink] = useState("");
 const pathname = usePathname();
@@ -49,18 +50,16 @@ return (
                     </button>
                 </div>
             </div>
-
             <div className={`${ showMenu ? "mt-8 mb-8 flex flex-col" : "hidden flex-row justify-between md:pl-8" } md:flex w-full items-center`}>
                 <ul className={`${ showMenu ? "flex-col py-[40px] mt-12 mb-4": "flex-col md:flex md:flex-row md:gap-[15px]"}`}>
                     { Links.map((link) => (
                         <li key={link.name} className={` text-[#000] text-center hover:font-bold ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[15px] w-[84px] h-[32px] font-medium flex-shrink-0 flex justify-center items-center"}`}>
                             <Link href={link.link} onClick={() => setFocusedLink(link.name)}>
-                                <div className={focusedLink === link.name || pathname === link.link ? "font-bold" : ""}>{link.name}</div>
+                                <div className={focusedLink === link.name || pathname?.startsWith(link.link) ? "font-bold" : ""}>{link.name}</div>
                             </Link>
                         </li>
                         ))}
                 </ul>
-
                 <ul className={`${ showMenu ? " my-12 flex flex-row gap-[60px] items-center justify-center mx-12":"hidden lg:flex lg:flex-row flex-row gap-[12px] items-center justify-center"}`}>
                     <li className="w-[100%] h-[100%] mx-2 ">
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
