@@ -49,7 +49,6 @@ return (
                     </button>
                 </div>
             </div>
-
             <div className={`${ showMenu ? "mt-8 mb-8 flex flex-col" : "hidden flex-row justify-between md:pl-8" } md:flex w-full items-center`}>
                 <ul className={`${ showMenu ? "flex-col py-[40px] mt-12 mb-4": "flex-col md:flex md:flex-row md:gap-[15px]"}`}>
                     { Links.map((link) => (
@@ -60,7 +59,6 @@ return (
                         </li>
                         ))}
                 </ul>
-
                 <ul className={`${ showMenu ? " my-12 flex flex-row gap-[60px] items-center justify-center mx-12":"hidden lg:flex lg:flex-row flex-row gap-[12px] items-center justify-center"}`}>
                     <li className="w-[100%] h-[100%] mx-2 ">
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
