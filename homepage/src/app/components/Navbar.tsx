@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+    
 const [showMenu, setShowMenu] = useState(false);
 const [focusedLink, setFocusedLink] = useState("");
 const pathname = usePathname();
