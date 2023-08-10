@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Transition } from "@headlessui/react";
 
 export default function ImageSlider2() {
@@ -50,6 +49,7 @@ export default function ImageSlider2() {
                   src={each}
                   width={480}
                   height={320}
+                  objectFit="fill"
                   alt="image slider"
                 />
               </Transition>
