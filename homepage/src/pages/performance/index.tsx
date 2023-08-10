@@ -52,13 +52,18 @@ export default function Performance() {
             <Image src={arrow} alt="arrow-icon" width={18} height={12} />
           </div>
         </div>
-        <div className="grid gap-[60px] justify-center grid-cols-3">
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+        <div className="w-full">
+          <div
+            id="gridContainer"
+            className="grid gap-[60px] justify-center grid-cols-3"
+          >
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
+          </div>
         </div>
       </div>
     </div>
