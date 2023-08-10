@@ -42,11 +42,17 @@ export default function Form(){
                     </div>
                 </div>
                 <div className="mt-8">
-                        <p className="text-xl font-bold">거주지</p>
-                        <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 적어주세요"/>
-                        </div>
+                    <p className="text-xl font-bold">전화번호</p>
+                    <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
+                        <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'"/>
                     </div>
+                </div>
+                <div className="mt-8">
+                    <p className="text-xl font-bold">거주지</p>
+                    <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
+                        <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요"/>
+                    </div>
+                </div>
             </div>
 
             <div className="mt-2 h-[3px] w-5/6 bg-[#000000]"/>
