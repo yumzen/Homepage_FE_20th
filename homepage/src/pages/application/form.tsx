@@ -55,7 +55,7 @@ export default function Form(){
                 </div>
             </div>
 
-            <div className="mt-2 h-[3px] w-5/6 bg-[#000000]"/>
+            <div className="mt-2 h-[3px] w-5/6 bg-[#000]"/>
 
             <div className="py-8 px-2">
                 <div className="flex justify-center space-x-16 items-start">
