@@ -25,13 +25,13 @@ export default function Form(){
                     <div className="">
                         <p className="text-xl font-bold">이름</p>
                         <div className="input-with-placeholder relative w-[560px] h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4 " placeholder="지원자 이름"/>
+                            <input type="text" className="text-base w-full h-full rounded-[10px] p-4 " placeholder="지원자 이름"/>
                         </div>
                     </div>
                     <div className="">
                         <p className="text-xl font-bold">생년월일</p>
                         <div className="input-with-placeholder relative w-[560px] h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="8자리로 입력해주세요"/>
+                            <input type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="8자리로 입력해주세요"/>
                         </div>
                     </div>
                 </div>
@@ -44,13 +44,13 @@ export default function Form(){
                 <div className="mt-8">
                     <p className="text-xl font-bold">전화번호</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                        <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'"/>
+                        <input type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'"/>
                     </div>
                 </div>
                 <div className="mt-8">
                     <p className="text-xl font-bold">거주지</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                        <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요"/>
+                        <input type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요"/>
                     </div>
                 </div>
             </div>
@@ -62,20 +62,20 @@ export default function Form(){
                     <div className="">
                         <p className="text-xl font-bold">1지망 선택 (필수)</p>
                         <div className="input-with-placeholder relative w-[560px] h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="보컬/드럼/기타/베이스/신디 중 1가지 선택"/>
+                            <input type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="보컬/드럼/기타/베이스/신디 중 1가지 선택"/>
                         </div>
                     </div>
                     <div className="">
                         <p className="text-xl font-bold">2지망 선택 (필수)</p>
                         <div className="input-with-placeholder relative w-[560px] h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base placeholder-shown:w-full h-full rounded-[10px] p-4" placeholder="보컬/드럼/기타/베이스/신디 중 1가지 선택"/>
+                            <input type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="보컬/드럼/기타/베이스/신디 중 1가지 선택"/>
                         </div>
                     </div>
                 </div>
                 <div className="mt-8">
                     <p className="text-xl font-bold">다룰 줄 아는 악기 (선택)</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                        <input type="text" className="text-base placeholder-shown: w-full h-full rounded-[10px] p-4" placeholder=""/>
+                        <input type="text" className="text-base  w-full h-full rounded-[10px] p-4" placeholder=""/>
                     </div>
                 </div>
             </div>
