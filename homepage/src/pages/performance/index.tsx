@@ -24,20 +24,11 @@ const thumbnails = [
 ];
 
 export default function Performance() {
-  const [playlist, setPlaylist] = useState<any[]>([]);
+  const [isClicked, setIsClicked] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
-      )
-      .then((res) => {
-        console.log(res);
-        setPlaylist(res.data.items);
-      })
-      .catch(() => {});
-  }, []);
-  console.log(playlist);
+  function clickHandler() {
+    setIsClicked(!isClicked);
+  }
 
   return (
     <div className="font-['pretendard']">
@@ -73,7 +64,14 @@ export default function Performance() {
             id="gridContainer"
             className="grid gap-[64px] justify-center grid-cols-3"
           >
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuvOWc_mlR5d5eC3EnYZPiH"
+                )
+              }
+            >
               <Image
                 src={thumbnails[0]}
                 alt="thumbnail"
@@ -97,7 +95,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9Luus1TGr0V9kNhXqSRJJbJkTW"
+                )
+              }
+            >
               <Image
                 src={thumbnails[1]}
                 alt="thumbnail"
@@ -121,7 +126,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9Luusvf1KLF90v1FQBAOejv8_g"
+                )
+              }
+            >
               <Image
                 src={thumbnails[2]}
                 alt="thumbnail"
@@ -141,7 +153,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuutWQhQJW-c1j1_rkFdwsRYt"
+                )
+              }
+            >
               <Image
                 src={thumbnails[3]}
                 alt="thumbnail"
@@ -163,7 +182,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9Luuuq168b0ZO6X0bE5p5W8LbX"
+                )
+              }
+            >
               <Image
                 src={thumbnails[4]}
                 alt="thumbnail"
@@ -184,7 +210,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9Luusva097pGe_sxwVQ5LwBeLN"
+                )
+              }
+            >
               <Image
                 src={thumbnails[5]}
                 alt="thumbnail"
@@ -206,7 +239,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuutTG8UD9hNIWbv_F3JotPS-"
+                )
+              }
+            >
               <Image
                 src={thumbnails[6]}
                 alt="thumbnail"
@@ -229,7 +269,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuuvV3XHuq5t_xgpziwANqfau"
+                )
+              }
+            >
               <Image
                 src={thumbnails[7]}
                 alt="thumbnail"
@@ -248,7 +295,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuIldOPyDdJ-G84HM2zGYR5"
+                )
+              }
+            >
               <Image
                 src={thumbnails[8]}
                 alt="thumbnail"
@@ -268,7 +322,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuutEF-XP649aTv4I8xTaaNKd"
+                )
+              }
+            >
               <Image
                 src={thumbnails[9]}
                 alt="thumbnail"
@@ -290,7 +351,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9Luuv5NBskT0N_LHOGiPNET16p"
+                )
+              }
+            >
               <Image
                 src={thumbnails[10]}
                 alt="thumbnail"
@@ -308,7 +376,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuHdbZ3r2wiFAIXYSHmHNBx"
+                )
+              }
+            >
               <Image
                 src={thumbnails[11]}
                 alt="thumbnail"
@@ -329,7 +404,14 @@ export default function Performance() {
                 </div>
               </div>
             </div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform">
+            <div
+              className="w-[360px] h-[326px] rounded-[30px] bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuyEwS6WeHKNWWnsAGjwV3c"
+                )
+              }
+            >
               <Image
                 src={thumbnails[12]}
                 alt="thumbnail"
