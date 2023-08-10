@@ -56,10 +56,13 @@ export default function Performance() {
         <div className="grid gap-[60px] justify-center grid-cols-3">
           <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform">
             <div className="w-full">
-              {playlist && (
-                <Image src={playlist[0].snippet.thumbnails["url"]} alt="p1" />
-              )}
-              <a href={"/playlist/" + playlist[0].id} />
+              <Image
+                src={playlist[0].snippet.thumbnails.medium["url"]}
+                alt="playlist 1"
+                width={360}
+                height={120}
+              />
+              {/* <a href={"/playlist/" + id} /> */}
             </div>
             <div>
               <p>{playlist[0].snippet.localized["title"]}</p>
