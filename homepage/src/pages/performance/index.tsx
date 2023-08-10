@@ -5,8 +5,7 @@ import arrow from "/public/assets/icons/arrow.png";
 import axios from "axios";
 import Link from "next/link";
 
-const CHANNEL_ID = "UC282oT6m-7lx37VOmgHoocg";
-const API_KEY = "AIzaSyCUrweLnrBfcElC2lVmg6UddXmJgoSWsEA";
+require("dotenv").config();
 
 export default function Performance() {
   const [playlist, setPlaylist] = useState<any[]>([]);
@@ -14,7 +13,7 @@ export default function Performance() {
   useEffect(() => {
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${CHANNEL_ID}&maxResults=50&key=${API_KEY}`
+        `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
       )
       .then((res) => {
         console.log(res);
@@ -54,25 +53,12 @@ export default function Performance() {
           </div>
         </div>
         <div className="grid gap-[60px] justify-center grid-cols-3">
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform">
-            <div className="w-full">
-              <Image
-                src={playlist[0].snippet.thumbnails.medium["url"]}
-                alt="playlist 1"
-                width={360}
-                height={120}
-              />
-              {/* <a href={"/playlist/" + id} /> */}
-            </div>
-            <div>
-              <p>{playlist[0].snippet.localized["title"]}</p>
-            </div>
-          </div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform"></div>
-          <div className="w-[360px] h-[326px] rounded-[30px] bg-zinc-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
+          <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
         </div>
       </div>
     </div>

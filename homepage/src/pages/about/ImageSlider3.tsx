@@ -195,9 +195,8 @@ export default function ImageSlider3() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
@@ -228,9 +227,8 @@ export default function ImageSlider3() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}

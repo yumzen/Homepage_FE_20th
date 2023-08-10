@@ -131,22 +131,6 @@ export default function ImageSlider1() {
             }}
           />
         </SwiperSlide>
-        <SwiperSlide>
-          <p className="text-sm font-bold"># 2022 크리스마스 공연</p>
-          <Image
-            src={images[6]}
-            alt="image"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto",
-              marginTop: "0.5rem",
-              borderRadius: "30px",
-            }}
-          />
-        </SwiperSlide>
       </Swiper>
     </>
   );

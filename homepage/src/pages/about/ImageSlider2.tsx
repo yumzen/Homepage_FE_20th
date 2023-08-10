@@ -49,9 +49,8 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
@@ -98,9 +97,8 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
@@ -115,9 +113,8 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
@@ -132,9 +129,8 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
@@ -149,15 +145,14 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
           />
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <p className="text-sm font-bold"># 19기 첫 합주</p>
           <Image
             src={images[7]}
@@ -166,14 +161,13 @@ export default function ImageSlider2() {
             height={0}
             sizes="100vw"
             style={{
-              backgroundSize: "100%",
               width: "100%",
-              height: "335px",
+              height: "auto",
               marginTop: "0.5rem",
               borderRadius: "30px",
             }}
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide>
           <p className="text-sm font-bold"># 19기 & 20기 여름 합주</p>
           <Image
