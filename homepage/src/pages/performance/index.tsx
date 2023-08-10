@@ -7,6 +7,7 @@ import Link from "next/link";
 
 require("dotenv").config();
 
+const thumbnails = [];
 export default function Performance() {
   const [playlist, setPlaylist] = useState<any[]>([]);
 
@@ -35,34 +36,38 @@ export default function Performance() {
         <p className="text-center font-bold text-2xl mt-[4rem]">
           정기 공연 및 연합 공연 영상
         </p>
-        <div className="inline-flex relative w-[620px] h-[60px] rounded-[30px] my-[4rem] bg-zinc-300">
-          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg">
+        <div className="inline-flex relative w-[620px] h-[60px] rounded-[30px] my-[4rem] bg-[#EEEEEE]">
+          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg cursor-pointer">
             ALL
           </div>
-          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg">
+          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg cursor-pointer">
             2023
           </div>
-          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg">
+          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg cursor-pointer">
             2022
           </div>
-          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg">
+          <div className="flex justify-center items-center min-w-[140px] h-inherit font-bold text-lg cursor-pointer">
             2021
           </div>
-          <div className="flex justify-center items-center min-w-[60px] h-inherit">
+          <div className="flex justify-center items-center min-w-[60px] h-inherit cursor-pointer">
             <Image src={arrow} alt="arrow-icon" width={18} height={12} />
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full flex mx-[10rem] justify-center">
           <div
             id="gridContainer"
-            className="grid gap-[60px] justify-center grid-cols-3"
+            className="grid gap-[64px] justify-center grid-cols-3"
           >
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-200 cursor-pointer overflow-hidden will-change-transform"></div>
-            <div className="w-[360px] h-[326px] rounded-[30px] bg-ocean-300 cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
+            <div className="w-[360px] h-[326px] rounded-[30px]  bg-[#EEEEEE] cursor-pointer overflow-hidden will-change-transform"></div>
           </div>
         </div>
       </div>
