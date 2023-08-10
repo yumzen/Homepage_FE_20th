@@ -1,113 +1,228 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Transition } from "@headlessui/react";
+import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// Images
+const images = [
+  "/assets/images/about/ensemble1.jpg",
+  "/assets/images/about/ensemble2.jpg",
+  "/assets/images/about/ensemble3.jpg",
+  "/assets/images/about/ensemble4.jpg",
+  "/assets/images/about/ensemble5.jpg",
+  "/assets/images/about/ensemble6.jpg",
+  "/assets/images/about/ensemble7.jpg",
+  "/assets/images/about/ensemble8.jpg",
+  "/assets/images/about/ensemble9.jpg",
+  "/assets/images/about/ensemble10.jpg",
+  "/assets/images/about/ensemble11.jpg",
+];
 
 export default function ImageSlider2() {
-  const [active, setActive] = useState<number>(0);
-  const images = [
-    "/assets/images/about/ensemble2.jpg",
-    "/assets/images/about/ensemble3.jpg",
-    "/assets/images/about/ensemble4.jpg",
-    "/assets/images/about/ensemble5.jpg",
-    "/assets/images/about/ensemble6.jpg",
-    "/assets/images/about/ensemble7.jpg",
-    "/assets/images/about/ensemble8.jpg",
-  ];
-
-  function prevIndexHandler() {
-    if (active === 0) {
-      setActive(images.length - 1);
-    } else {
-      setActive(active - 1);
-    }
-  }
-
-  function nextIndexHandler() {
-    if (active === images.length - 1) {
-      setActive(0);
-    } else {
-      setActive(active + 1);
-    }
-  }
+  const [swiperRef, setSwiperRef] = useState<SwiperClass | null>(null);
 
   return (
-    <div className="relative w-full h-full">
-      {/* Testimonial image */}
-      <div>
-        <div className="flex justify-center item-center">
-          <div>
-            {images.map((each, index) => (
-              <Transition
-                key={index}
-                show={active === index}
-                className="flex justify-center item-center"
-              >
-                <Image
-                  key={index}
-                  className="relative top-4 left-1/2 -translate-x-1/2 rounded-[30px]"
-                  src={each}
-                  width={480}
-                  height={320}
-                  objectFit="fill"
-                  alt="image slider"
-                />
-              </Transition>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Buttons */}
-      <button
-        id="data-carousel-prev"
-        type="button"
-        onClick={prevIndexHandler}
-        className="absolute top-0 left-0 z-30 flex justify-center items-center h-full px-4 ml-16 cursor-pointer group focus:outline-none"
+    <>
+      <Swiper
+        onSwiper={setSwiperRef}
+        slidesPerView={3}
+        loop={true}
+        spaceBetween={30}
+        pagination={{
+          type: "fraction",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
       >
-        <span className="inline-flex justify-center items-center w-16 h-16 ml-16 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            className="w-4 h-4 text-black dark:text-gray-800"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4"
-            />
-          </svg>
-        </span>
-      </button>
-
-      <button
-        id="data-carousel-next"
-        type="button"
-        onClick={nextIndexHandler}
-        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 mr-16 cursor-pointer group focus:outline-none"
-      >
-        <span className="inline-flex items-center justify-center w-16 h-16 mr-16 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            className="w-4 h-4 text-black dark:text-gray-800"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 19 & 20기 합주</p>
+          <Image
+            src={images[0]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 20기 첫 합주</p>
+          <Image
+            src={images[1]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 22기 첫 합주</p>
+          <Image
+            src={images[2]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 공연 준비</p>
+          <Image
+            src={images[3]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 공연 준비</p>
+          <Image
+            src={images[4]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 공연 준비</p>
+          <Image
+            src={images[5]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 공연 준비</p>
+          <Image
+            src={images[6]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 19기 첫 합주</p>
+          <Image
+            src={images[7]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              backgroundSize: "100%",
+              width: "100%",
+              height: "335px",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 19기 & 20기 여름 합주</p>
+          <Image
+            src={images[8]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+        {/* <SwiperSlide>
+          <p className="text-sm font-bold"># 공연 준비</p>
+          <Image
+            src={images[9]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide> */}
+        <SwiperSlide>
+          <p className="text-sm font-bold"># 19기 & 20기 스튜디오 촬영</p>
+          <Image
+            src={images[10]}
+            alt="image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
+          />
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 }

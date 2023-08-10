@@ -19,7 +19,6 @@ const images = [
 ];
 
 export default function ImageSlider1() {
-  const [active, setActive] = useState<number>(0);
   const [swiperRef, setSwiperRef] = useState<SwiperClass | null>(null);
 
   return (
@@ -27,7 +26,7 @@ export default function ImageSlider1() {
       <Swiper
         onSwiper={setSwiperRef}
         slidesPerView={3}
-        centeredSlides={true}
+        loop={true}
         spaceBetween={30}
         pagination={{
           type: "fraction",
@@ -44,7 +43,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -55,7 +59,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -66,7 +75,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -77,7 +91,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -88,7 +107,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -99,7 +123,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
         <SwiperSlide>
@@ -110,7 +139,12 @@ export default function ImageSlider1() {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              height: "auto",
+              marginTop: "0.5rem",
+              borderRadius: "30px",
+            }}
           />
         </SwiperSlide>
       </Swiper>
