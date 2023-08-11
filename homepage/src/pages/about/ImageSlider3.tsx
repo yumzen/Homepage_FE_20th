@@ -43,7 +43,7 @@ export default function ImageSlider3() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <p className="text-sm font-bold"># 20&21&22기 MT</p>
+          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[0]}
             alt="image"
@@ -59,7 +59,7 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 20&21&22기 MT</p>
+          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[1]}
             alt="image"
@@ -91,7 +91,7 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 20&21&22기 MT</p>
+          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[3]}
             alt="image"

@@ -57,7 +57,7 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 20기 첫 합주</p>
+          <p className="text-sm font-bold"># 새내기 첫 합주</p>
           <Image
             src={images[1]}
             alt="image"
@@ -73,7 +73,7 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 22기 첫 합주</p>
+          <p className="text-sm font-bold"># 새내기 첫 합주</p>
           <Image
             src={images[2]}
             alt="image"
