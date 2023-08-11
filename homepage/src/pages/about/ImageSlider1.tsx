@@ -100,7 +100,7 @@ export default function ImageSlider1() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 2022 크리스마스 공연</p>
+          <p className="text-sm font-bold"># 2019 깔루아&고스락 연합공연</p>
           <Image
             src={images[4]}
             alt="image"
@@ -116,7 +116,7 @@ export default function ImageSlider1() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 2022 크리스마스 공연</p>
+          <p className="text-sm font-bold"># 2019 3월 정기공연</p>
           <Image
             src={images[5]}
             alt="image"
