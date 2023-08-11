@@ -18,8 +18,8 @@ export default function About() {
         <Image
           src={mainImg}
           alt="about-main-image"
-          width={800}
-          height={360}
+          width={810}
+          height={540}
           className="rounded-[30px] m-16"
         />
         <p className={styles.detailText}>
