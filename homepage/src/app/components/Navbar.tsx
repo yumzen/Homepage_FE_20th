@@ -42,7 +42,7 @@ return (
         <div className="mx-auto lg:max-w-7xl md:items-center md:flex gap-[16px]">
             <div className="flex items-center justify-between">
                 <Link href="/">
-                    <Image src="/Logo.png" alt="Logo" width={192} height={36} className= "w-[192px] h-[192px] max-w-[192px] max-h-[36px]" priority/>
+                    <Image src="/assets/images/layout/Logo.png" alt="Logo" width={192} height={36} className= "w-[192px] h-[192px] max-w-[192px] max-h-[36px]" priority/>
                 </Link>
                 <div className="md:hidden">
                     <button className="p-2 outline-none" onClick={toggleMenu}>
@@ -63,12 +63,12 @@ return (
                 <ul className={`${ showMenu ? " my-12 flex flex-row gap-[60px] items-center justify-center mx-12":"hidden lg:flex lg:flex-row flex-row gap-[12px] items-center justify-center"}`}>
                     <li className="w-[100%] h-[100%] mx-2 ">
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/youtube.png" alt="유튜브" width={24} height={18} />
+                        <Image src="/assets/images/layout/youtube.png" alt="유튜브" width={24} height={18} />
                     </Link>
                     </li>
                     <li className="w-[100%] h-[100%] mx-2">
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/kakaotalk.png" alt="카카오톡 채널" width={22} height={22} />
+                        <Image src="/assets/images/layout/kakaotalk.png" alt="카카오톡 채널" width={22} height={22} />
                     </Link>
                     </li>
                     <li className="w-[100%] h-[100%] mx-2">
@@ -76,7 +76,7 @@ return (
                         href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
                         passHref
                     >
-                        <Image src="/instagram.png" alt="인스타그램" width={20} height={20} />
+                        <Image src="/assets/images/layout/instagram.png" alt="인스타그램" width={20} height={20} />
                     </Link>
                     </li>
                 </ul>

@@ -28,7 +28,7 @@ export default function Footer() {
                 passHref
               >
                 <Image
-                  src="/foot_instagram.svg"
+                  src="/assets/images/layout/foot_instagram.svg"
                   alt="instagram"
                   width={16}
                   height={16}
@@ -39,7 +39,7 @@ export default function Footer() {
             <li className="bg-[#464646] rounded-full w-[24px] h-[24px]">
               <Link href="https://www.youtube.com/@kahluaband8409" passHref>
                 <Image
-                  src="/foot_kakaotalk.svg"
+                  src="/assets/images/layout/foot_kakaotalk.svg"
                   alt="kakaotalk"
                   width={18}
                   height={18}
@@ -50,7 +50,7 @@ export default function Footer() {
             <li className="bg-[#464646] rounded-full w-[24px] h-[24px]">
               <Link href="https://www.youtube.com/@kahluaband8409" passHref>
                 <Image
-                  src="/foot_youtube.svg"
+                  src="/assets/images/layout/foot_youtube.svg"
                   alt="youtube"
                   width={18}
                   height={18}
@@ -61,7 +61,7 @@ export default function Footer() {
             <li className="bg-[#464646] rounded-full w-[24px] h-[24px]">
               <Link href="https://github.com/kahluaband" passHref>
                 <Image
-                  src="/foot_github.svg"
+                  src="/assets/images/layout/foot_github.svg"
                   alt="github"
                   width={18}
                   height={18}
