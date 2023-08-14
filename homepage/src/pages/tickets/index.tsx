@@ -10,7 +10,7 @@ const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 
 const data = [
     {
-    image: '/포스터1.png', 
+    image: '/assets/images/tickets/poster.png', 
     title: "2023년 9월 정기 공연",
     where: "001 클럽",
     when: "2023년 9월 1일 오후 6시",
@@ -92,9 +92,9 @@ function copyUrl() {
                 <div className="flex flex-row">
                     <div className="mt-[19px] ml-[8px] flex flex-shrink-0 text-black font-[600] text-[20px]">{data[0].title}</div>
                     <div className="ml-[389px] flex mt-[19px]">
-                        <Image src='/instagram.png' alt='인스타그램' width={22} height={23} className="w-[22px] h-[23px]"/>
+                        <Image src='/assets/images/layout/instagram.png' alt='인스타그램' width={22} height={23} className="w-[22px] h-[23px]"/>
                         <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" className="ml-[2px] mt-[3px] font-[400] text-[10px] flex items-center justify-center w-[78px] h-[17px]" passHref>게시물 보러가기</Link>
-                        <Image src='/share.png' alt='share' width={21} height={23} className="w-[21px] h-[23px] ml-[16px]"/>
+                        <Image src='/assets/images/tickets/share.png' alt='share' width={21} height={23} className="w-[21px] h-[23px] ml-[16px]"/>
                         <div onClick={copyUrl} className="ml-[2px] mt-[3px] font-[400] text-[10px] flex items-center justify-center w-[78px] h-[17px]">링크 공유하기</div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ function copyUrl() {
                         <div className="mt-[92px] w-[264px] h-[33px] flex flex-row flex-shrink-0 rounded-[20px] border border-solid border-[#939393]">
                             <div className="flex w-[123px] h-[33px] justify-center items-center flex-shrink-0 text-center text-[10px] font-[400px] text-[#464646]">이미 티켓을 구매하셨나요?</div>
                             <div className="flex flex-shrink-0 justify-center items-center">
-                                <Image src='/handpoint.png' alt='poiner' width={16} height={8} className="ml-[40px] w-[16px] h-[8px]"/>
+                                <Image src='/assets/images/tickets/handpoint.png' alt='poiner' width={16} height={8} className="ml-[40px] w-[16px] h-[8px]"/>
                             </div>
                             <button className="flex w-[90px] h-[33px] justify-center items-center flex-shrink-0 text-center text-[10px] font-[400px] text-[#464646]">확인하러 가기</button>
 
