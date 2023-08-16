@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
+import Modal from "./Modal";
 dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
@@ -45,6 +46,7 @@ const SelectBox = (props: any) => {
 
 export default function Tickets() {
     const [nowUrl, setNowUrl] = useState("");
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         setNowUrl(window.location.href);
@@ -76,12 +78,15 @@ export default function Tickets() {
         };
     }, []);
 
-function copyUrl() {
-    navigator.clipboard.writeText(nowUrl).then(res => {
-    alert("주소가 복사되었습니다!");
-    });
-}
+    function copyUrl() {
+        navigator.clipboard.writeText(nowUrl).then(res => {
+        alert("주소가 복사되었습니다!");
+        });
+    }
 
+    const handleModal = () => {
+        setModal(!modal);
+    };
 
     return (
     <div className="font-['pretendard'] mx-auto flex flex-col items-center justify-center mb-[84px]">
@@ -129,16 +134,15 @@ function copyUrl() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-[92px] w-[264px] h-[33px] flex flex-row flex-shrink-0 rounded-[20px] border border-solid border-[#939393]">
+                        <button onClick={() => handleModal()} className="mt-[92px] w-[264px] h-[33px] flex flex-row flex-shrink-0 rounded-[20px] border border-solid border-[#939393]">
                             <div className="flex w-[123px] h-[33px] justify-center items-center flex-shrink-0 text-center text-[10px] font-[400px] text-[#464646]">이미 티켓을 구매하셨나요?</div>
                             <div className="flex flex-shrink-0 justify-center items-center">
-                                <Image src='/assets/images/tickets/handpoint.png' alt='poiner' width={16} height={8} className="ml-[40px] w-[16px] h-[8px]"/>
+                                <Image src='/assets/images/tickets/handpoint.png' alt='poiner' width={16} height={8} className="ml-[40px] mt-[12px] w-[16px] h-[8px]"/>
                             </div>
-                            <button className="flex w-[90px] h-[33px] justify-center items-center flex-shrink-0 text-center text-[10px] font-[400px] text-[#464646]">확인하러 가기</button>
-
-                        </div>
+                            <div className="flex w-[90px] h-[33px] justify-center items-center flex-shrink-0 text-center text-[10px] font-[400px] text-[#464646]">확인하러 가기</div>
+                        </button>
                     </div>
-                    <div id="map" className=" ml-[78px] w-[304px] h-[312px] flex-shrink-0"></div>
+                    <div id="map" className=" ml-[78px] w-[304px] h-[312px] flex-shrink-0 z-0"></div>
                 </div>
             </div>
         </div>
@@ -191,6 +195,9 @@ function copyUrl() {
                 </div>
             </div>
         </div>
+        {modal && (
+                <Modal/>
+            )}
     </div>
     )
 }
