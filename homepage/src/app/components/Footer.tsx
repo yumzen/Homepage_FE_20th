@@ -6,7 +6,17 @@ export default function Footer() {
     <div className="w-full h-[240px] bg-[#EEEEEE] bottom-0 font-['pretendard']">
       <div className="flex flex-col w-full ">
           <ul className="flex mt-[60px] mr-[4px] items-center justify-center gap-2">
-            <li className="w-[28px] h-[28px]">
+            <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
+              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+                <Image
+                  src="/assets/images/layout/kakaotalk.png"
+                  alt="kakaotalk"
+                  width={1000}
+                  height={1000}
+                />
+              </Link>
+            </li>
+            <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
               <Link
                 href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
                 passHref
@@ -14,35 +24,24 @@ export default function Footer() {
                 <Image
                   src="/assets/images/layout/instagram.png"
                   alt="instagram"
-                  width={28}
-                  height={28}
-                  className="w-[28px] h-[28px] mx-[4px] my-[3.9px]"
-                />
-              </Link>
-            </li>
-            <li className="w-[28px] h-[28px]">
-              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                <Image
-                  src="/assets/images/layout/kakaotalk.png"
-                  alt="kakaotalk"
-                  width={28}
-                  height={28}
-                  className=" mx-[3.6px] my-[2.8px]"
-                />
-              </Link>
-            </li>
-            <li className="w-[28px] h-[28px]">
-              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                <Image
-                  src="/assets/images/layout/youtube.png"
-                  alt="youtube"
-                  width={28}
-                  height={28}
-                  className="w-[28px] h-[28px] mx-[3.5px] my-[3.2px]"
+                  width={1000}
+                  height={1000}
+                  className="w-[28px] h-[28px] "
                 />
               </Link>
             </li>
             <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
+              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+                <Image
+                  src="/assets/images/layout/youtube.png"
+                  alt="youtube"
+                  width={1000}
+                  height={1000}
+                  className="w-[28px] h-[28px] "
+                />
+              </Link>
+            </li>
+            <li className="rounded-full bg-[#8E8E8E] ml-[3.0px] mt-[4px] w-[full] h-[full]">
               <Link href="https://github.com/kahluaband" passHref>
                 <Image
                   src="/assets/images/layout/foot_github.svg"
@@ -68,7 +67,7 @@ export default function Footer() {
         <div className="mt-[20px]">
         <div className="mt-[16px] flex item-center justify-center">
           <div className="text-[12px] text-[#6A6A6A] font-[600] tracking-[0.015rem] leading-5">
-            © 2023 Kahlua. All rights reserved.
+          © 2023 KAHLUA. All rights reserved.
           </div>
         </div>
       </div>
