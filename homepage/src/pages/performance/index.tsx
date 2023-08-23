@@ -4,6 +4,7 @@ import ferrisWheel from "/public/assets/icons/ferris-wheel.png";
 import arrowDown from "../../../public/assets/icons/arrow-down.png";
 import arrowUp from "../../../public/assets/icons/arrow-up.png";
 import All from "./All";
+import Background from "@/app/components/Background";
 
 require("dotenv").config();
 
@@ -43,6 +44,8 @@ export default function Performance() {
   }
 
   return (
+    <div className={`${selectedYear === 0 ? "h-[2500px]" : " h-[1300px]"}  flex items-center justify-center`}>
+    <Background>
     <div className="font-['pretendard']">
       <div className="flex flex-col justify-center items-center mt-[4rem] mb-[16rem]">
         <Image
@@ -565,6 +568,8 @@ export default function Performance() {
           </div>
         </div>
       </div>
+    </div>
+    </Background>
     </div>
   );
 }
