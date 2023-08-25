@@ -1,5 +1,5 @@
 import Image from "next/image";
-import alarm from "/public/assets/icons/alarm.png";
+import alarm from "/public/assets/images/recruit/divider_medium.png";
 
 export default function Caution(){
     return(

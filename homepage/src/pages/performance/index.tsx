@@ -1,8 +1,8 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import ferrisWheel from "/public/assets/icons/ferris-wheel.png";
-import arrowDown from "../../../public/assets/icons/arrow-down.png";
-import arrowUp from "../../../public/assets/icons/arrow-up.png";
+import ferrisWheel from "/public/assets/images/performance/divider_medium.png";
+import arrowDown from "/public/assets/images/performance/divider_medium.png";
+import arrowUp from "/public/assets/images/performance/divider_medium.png";
 import All from "./All";
 import Background from "@/app/components/Background";
 
