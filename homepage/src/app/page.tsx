@@ -1,8 +1,10 @@
+import Background from "./components/Background";
 
 export default function Home() {
   return (
-    <div>
-      Main page!
+    <div className="h-screen flex items-center justify-center">
+    <Background>
+    </Background>
     </div>
   );
 }
