@@ -90,7 +90,7 @@ export default function Tickets() {
     };
 
     return (
-        <div className="h-screen flex items-center justify-center z-0">
+        <div className="h-[1000px] flex items-center justify-center z-0 ">
         <Background>
                 <div className="font-['pretendard'] mx-auto flex flex-col items-center justify-center mb-[84px]">
                     <div className=" mt-[30px] flex flex-row flex-shrink-0 ">

@@ -3,13 +3,11 @@ import '../app/globals.css';
 import RootLayout from '@/app/layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const showNavbarAndFooter = !pageProps.noNavbarAndFooter;
     return (
         <>
-            {showNavbarAndFooter && <RootLayout>
+            <RootLayout>
                 <Component {...pageProps} />
-            </RootLayout>}
-            {!showNavbarAndFooter && <Component {...pageProps} />}
+            </RootLayout>
         </>
     );
 }
