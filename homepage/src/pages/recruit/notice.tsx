@@ -1,5 +1,5 @@
 import Image from "next/image"
-import recruit_icon from "/public/assets/icons/recruit.png"
+import recruit_icon from "/public/assets/images/recruit/divider_medium.png";
 
 export default function Notice(){
     return(

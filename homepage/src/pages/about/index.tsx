@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import loudspeaker from "/public/assets/icons/loudspeaker.png";
+import loudspeaker from "/public/assets/images/about/divider_medium.png";
 import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
 import ImageSlider1 from "./ImageSlider1";
@@ -10,7 +10,7 @@ import Background from "@/app/components/Background";
 
 export default function About() {
   return (
-    <div className="h-[3600px] flex items-center justify-center">
+    <div className="h-[3600px] flex relative items-center justify-center">
     <Background>
       <div className="font-pretendard py-8">
         <div className="flex flex-col justify-center items-center mt-[4rem] mb-[16rem]">
