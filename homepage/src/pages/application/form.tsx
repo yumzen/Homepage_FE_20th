@@ -20,7 +20,7 @@ const SelectBox = (props: any) => {
 export default function Form(){
     return(
         <>
-            <div className="py-8 px-2">
+            <div className="py-8 px-2 ">
                 <div className="flex justify-center space-x-16 items-start">
                     <div className="">
                         <p className="text-xl font-bold">이름</p>
@@ -55,7 +55,7 @@ export default function Form(){
                 </div>
             </div>
 
-            <div className="mt-2 h-[3px] w-5/6 bg-[#000]"/>
+            <div className="mt-2 h-[3px] w-5/6 mx-auto bg-[#000]"/>
 
             <div className="py-8 px-2">
                 <div className="flex justify-center space-x-16 items-start">
@@ -80,7 +80,7 @@ export default function Form(){
                 </div>
             </div>
 
-            <div className="mt-2 h-[3px] w-5/6 bg-[#000000]"/>
+            <div className="mt-2 h-[3px] w-5/6 mx-auto bg-[#000000]"/>
             
             <div className="pt-8 pb-16 px-2 ">
                 <p className="text-xl font-bold">지원 동기 (자유롭게 작성)</p>

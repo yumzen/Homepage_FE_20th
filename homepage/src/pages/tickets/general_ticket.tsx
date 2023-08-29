@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import './index.css';
-import Navbar from "@/app/components/Navbar";
+import Background from "@/app/components/Background";
 
 export default function general_ticket(){
     const [count, setCount] = useState(1);
@@ -25,9 +25,9 @@ export default function general_ticket(){
     setIsPick(event.target.value);
     };
     return (
-        <>
-        <Navbar/>
-        <div className="font-['pretendard'] mx-auto flex items-center flex-col mb-[84px]">
+        <div className="h-[1800px]">
+        <Background>
+        <div className="font-['pretendard'] mt-[50px] mx-auto flex items-center flex-col mb-[84px]">
             <div className="flex flex-col items-center justify-center text-center mt-[40px]">
                 <Image src="/ticket.png" alt="티켓" width={24} height={24}/>
                 <div className="mt-[20px] flex flex-row">
@@ -111,10 +111,7 @@ export default function general_ticket(){
                 </div>
             </div>
         </div>
-        </>
+        </Background>
+        </div>
     );
 }
-
-general_ticket.getInitialProps = async () => {
-    return { noNavbarAndFooter: true };
-};
