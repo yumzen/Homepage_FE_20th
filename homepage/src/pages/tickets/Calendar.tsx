@@ -25,26 +25,25 @@ while (day <= endDate) {
     days = [];
 }
 
-const isConcertMonth = (date: Date) => {
-    return isSameMonth(date, selectedDate);
-};
-
 const isConcertDay = (date: Date) => {
     return isSameDay(date, new Date(concertDay));
 };
 
 const handleDateClick = (date: Date) => {
+    if (!isSameMonth(date, monthStart)) {
+        return;
+    }
     setSelectedDate(date);
 };
 
 return (
-    <div className="w-[236px] h-[208px]">
-    <div className="w-[236px] h-[208px] flex-shrink-0 rounded-[30px] border-solid border-[#6C6C6C] border text-center text-[12px] font-[600] pt-[8px] px-[20px]">
+    <div className="w-[270px] h-[200px] ">
+    <div className="w-[270px] h-[200px] bg-[white] flex-shrink-0 rounded-[30px] border-solid border-[#6C6C6C] border text-center text-[12px] font-[600] pt-[8px] px-[20px]">
         {format(selectedDate, "yyyy년 M월")}
-        <div className="w-[100%] h-[100%] mt-[4px]">
-            <div className="flex font-[400] text-[12px]">
+        <div className="w-[100%] h-[100%] mx-auto my-auto mt-[4px]">
+            <div className="flex font-[400] text-[12px] mx-auto my-auto ">
                 {dayNames.map((dayName) => (
-                <div key={dayName} className="w-[20px] h-[20px] flex-shrink-0 mb-[4px] mx-[4px]">
+                <div key={dayName} className="mx-auto w-[20px] h-[20px] flex-shrink-0 mb-[4px] ">
                     <div className="w-[20px] h-[20px] text-[4px] font-[500] flex items-center justify-center">
                     {dayName}
                     </div>
@@ -56,7 +55,7 @@ return (
                     {week.map((date, dayIndex) => (
                     <div
                         key={dayIndex}
-                        className={`w-[20px] h-[20px] flex-shrink-0 my-[1px] mx-[4px] 
+                        className={`w-[20px] h-[20px] flex-shrink-0 my-auto mx-auto
                         ${
                             isConcertDay(date) && !isSameDay(selectedDate, concertDay)
                             ? "border border-solid border-[#c6c6c6] rounded-full flex items-center"
@@ -77,9 +76,6 @@ return (
                 ))}
             </div>
         </div>
-        {isSameMonth(selectedDate, concertDay) && isSameDay(selectedDate, concertDay) ? (
-        <div className="mt-[8px] text-[12px] text-center rounded-[30px] border-b border-[#C6C6C6]">{format(concertDay, "yyyy년 M월 d일")}</div>) 
-        : ( <div className="mt-[8px] text-[12px] text-center rounded-[30px] border-b border-[#C6C6C6]">날짜를 선택해주세요.</div> )}
     </div>
 );
 };
