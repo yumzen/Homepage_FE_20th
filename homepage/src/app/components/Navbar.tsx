@@ -39,7 +39,7 @@ let Links =[
 ];
 
 return (
-    <nav className="w-[full] flex relative bg-[white] z-50 font-['pretendard']">
+    <nav className="w-[full] h-[104px] flex relative bg-[white] z-50 font-['pretendard']">
         <NavBg>
         <div className="lg:flex">
             <div className="flex justify-between">
