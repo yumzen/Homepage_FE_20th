@@ -44,7 +44,7 @@ return (
         <div className="lg:flex">
             <div className="flex justify-between">
                 <Link href="/" key="home">
-                    <Image src="/assets/images/layout/Logo.png" alt="Logo" width={165} height={30} onClick={showMenu?toggleMenu:undefined} className= "ml-[20px] lg:ml-[12.5vw] w-[165px] h-[30px] max-w-[165px] max-h-[30px]" priority/>
+                    <Image src="/assets/images/layout/Logo.svg" alt="Logo" width={165} height={30} onClick={showMenu?toggleMenu:undefined} className= "ml-[20px] lg:ml-[12.5vw] w-[165px] h-[30px] max-w-[165px] max-h-[30px]" priority/>
                 </Link>
                 <div className="lg:hidden">
                     <button className="px-2 outline-none" onClick={toggleMenu}>
@@ -62,7 +62,7 @@ return (
                                         : "= border-t-4 flex items-center justify-center border-t-[#281CFF]"
                                     : ""
                                 }`}>
-                                <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] text-center hover:text-[#8E8E8E] ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[16px] w-[80px] h-[32px] font-[600] leading-[19px] flex-shrink-0 flex justify-center items-center"}`}>
+                                <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] text-center ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[16px] w-[80px] h-[32px] font-[600] leading-[19px] flex-shrink-0 flex justify-center items-center"}`}>
                                 {link.name}
                                 </li>
                             </div>
@@ -73,7 +73,7 @@ return (
                     <div className={`${ showMenu ? "flex flex-row gap-[20px]" :"w-[12.5vw] flex items-center justify-between"}`}>
                     <li className={`${ showMenu ? "w-[100%] h-[100%]" : "w-[100%] h-[100%] flex items-center justify-center"}`}>
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/assets/images/layout/kakaotalk.png" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]"/>
+                        <Image src="/assets/images/layout/kakaotalk.svg" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]"/>
                     </Link>
                     </li>
                     <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
@@ -81,12 +81,12 @@ return (
                         href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
                         passHref
                     >
-                        <Image src="/assets/images/layout/instagram.png" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
+                        <Image src="/assets/images/layout/instagram.svg" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
                     </Link>
                     </li>
                     <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/assets/images/layout/youtube.png" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
+                        <Image src="/assets/images/layout/youtube.svg" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
                     </Link>
                     </li>
                     </div>
