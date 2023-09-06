@@ -87,6 +87,9 @@ export default function Form(){
                 <textarea className="text-base w-[1184px] h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder=""/>
             </div>
 
+            <button className=" w-80 h-16 bg-ocean-700 rounded-[10px] mb-16 text-[#FFFFFF]">
+                제출하기
+            </button>
         </>
 
     )
