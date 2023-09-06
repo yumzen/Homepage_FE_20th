@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col w-full ">
           <ul className="flex mt-[60px] mr-[4px] items-center justify-center gap-2">
             <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
-              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+              <Link href="http://pf.kakao.com/_UaIZG" target='_blank' passHref >
                 <Image
                   src="/assets/images/layout/kakaotalk.svg"
                   alt="kakaotalk"
@@ -19,6 +19,7 @@ export default function Footer() {
             <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
               <Link
                 href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
+                target='_blank'
                 passHref
               >
                 <Image
@@ -31,7 +32,7 @@ export default function Footer() {
               </Link>
             </li>
             <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
-              <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+              <Link href="https://www.youtube.com/@kahluaband8409" target='_blank' passHref>
                 <Image
                   src="/assets/images/layout/youtube.svg"
                   alt="youtube"
@@ -42,7 +43,7 @@ export default function Footer() {
               </Link>
             </li>
             <li className="rounded-full bg-[#8E8E8E] ml-[3.0px] mt-[4px] w-[full] h-[full]">
-              <Link href="https://github.com/kahluaband" passHref>
+              <Link href="https://github.com/kahluaband" target='_blank' passHref>
                 <Image
                   src="/assets/images/layout/foot_github.svg"
                   alt="github"

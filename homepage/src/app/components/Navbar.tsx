@@ -72,20 +72,21 @@ return (
                 <ul className={`${ showMenu ? " my-12 flex flex-row items-center justify-center mx-12":"hidden lg:flex flex-row ml-[5vw]"}`}>
                     <div className={`${ showMenu ? "flex flex-row gap-[20px]" :"w-[12.5vw] flex items-center justify-between"}`}>
                     <li className={`${ showMenu ? "w-[100%] h-[100%]" : "w-[100%] h-[100%] flex items-center justify-center"}`}>
-                    <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+                    <Link href="http://pf.kakao.com/_UaIZG" target='_blank' passHref>
                         <Image src="/assets/images/layout/kakaotalk.svg" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]"/>
                     </Link>
                     </li>
                     <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
                     <Link
                         href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
+                        target='_blank'
                         passHref
                     >
                         <Image src="/assets/images/layout/instagram.svg" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
                     </Link>
                     </li>
                     <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
-                    <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+                    <Link href="https://www.youtube.com/@kahluaband8409" target='_blank' passHref>
                         <Image src="/assets/images/layout/youtube.svg" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
                     </Link>
                     </li>
