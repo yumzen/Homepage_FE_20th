@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import loudspeaker from "/public/assets/images/about/divider_medium.png";
+import loudspeaker from "/public/assets/images/about/divider_medium.svg";
 import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
 import ImageSlider1 from "./ImageSlider1";
