@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
+import NavBg from "./NavBg";
 
 export default function Navbar() {
     
@@ -38,50 +39,61 @@ let Links =[
 ];
 
 return (
-    <nav className="w-full shadow-sm bg-white z-10 py-[20px] px-[20px] font-['pretendard']">
-        <div className="mx-auto lg:max-w-7xl md:items-center md:flex gap-[16px]">
-            <div className="flex items-center justify-between">
-                <Link href="/">
-                    <Image src="/Logo.png" alt="Logo" width={192} height={36} className= "w-[192px] h-[192px] max-w-[192px] max-h-[36px]" priority/>
+    <nav className="w-[full] flex relative bg-[white] z-50 font-['pretendard']">
+        <NavBg>
+        <div className="lg:flex">
+            <div className="flex justify-between">
+                <Link href="/" key="home">
+                    <Image src="/assets/images/layout/Logo.png" alt="Logo" width={165} height={30} onClick={showMenu?toggleMenu:undefined} className= "ml-[20px] lg:ml-[12.5vw] w-[165px] h-[30px] max-w-[165px] max-h-[30px]" priority/>
                 </Link>
-                <div className="md:hidden">
-                    <button className="p-2 outline-none" onClick={toggleMenu}>
-                    {showMenu ? (<Image src="/close.svg" width={32} height={32} alt="logo" /> ) : ( <Image src="/hamburger.svg" width={32} height={32} alt="logo" className="focus:border-none active:border-none" />)}
+                <div className="lg:hidden">
+                    <button className="px-2 outline-none" onClick={toggleMenu}>
+                    {showMenu ? (<Image src="assets/images/layout/close.svg" width={32} height={32} alt="logo" /> ) : ( <Image src="assets/images/layout/hamburger.svg" width={32} height={32} alt="logo" className="focus:border-none active:border-none" />)}
                     </button>
                 </div>
             </div>
-            <div className={`${ showMenu ? "mt-8 mb-8 flex flex-col" : "hidden flex-row justify-between md:pl-8" } md:flex w-full items-center`}>
-                <ul className={`${ showMenu ? "flex-col py-[40px] mt-12 mb-4": "flex-col md:flex md:flex-row md:gap-[15px]"}`}>
+            <div className={`${ showMenu ? "flex flex-col absolute mt-[20px] bg-[white] " : "hidden flex-row lg:pl-[2.6vw]" } lg:flex w-full items-center`}>
+                <ul className={`${ showMenu ? "flex-col py-[40px] mt-12 mb-4 ": "lg:gap-[7vw] flex-col lg:flex lg:flex-row"}`}>
                     { Links.map((link) => (
-                        <li key={link.name} className={` text-[#000] text-center hover:font-bold ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[15px] w-[84px] h-[32px] font-medium flex-shrink-0 flex justify-center items-center"}`}>
-                            <Link href={link.link} onClick={() => setFocusedLink(link.name)}>
-                                <div className={focusedLink === link.name || pathname?.startsWith(link.link) ? "font-bold" : ""}>{link.name}</div>
-                            </Link>
-                        </li>
+                        <Link key={link.name} href={link.link} onClick={() => setFocusedLink(link.name)}>
+                            <div className={`${ focusedLink === link.name || pathname?.startsWith(link.link)
+                                    ? showMenu
+                                        ? "font-[700]"
+                                        : "= border-t-4 flex items-center justify-center border-t-[#281CFF]"
+                                    : ""
+                                }`}>
+                                <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] text-center hover:text-[#8E8E8E] ${ showMenu ? "text-[20px] w-[100%] h-[100%] mb-4":"text-[16px] w-[80px] h-[32px] font-[600] leading-[19px] flex-shrink-0 flex justify-center items-center"}`}>
+                                {link.name}
+                                </li>
+                            </div>
+                        </Link>
                         ))}
                 </ul>
-                <ul className={`${ showMenu ? " my-12 flex flex-row gap-[60px] items-center justify-center mx-12":"hidden lg:flex lg:flex-row flex-row gap-[12px] items-center justify-center"}`}>
-                    <li className="w-[100%] h-[100%] mx-2 ">
+                <ul className={`${ showMenu ? " my-12 flex flex-row items-center justify-center mx-12":"hidden lg:flex flex-row ml-[5vw]"}`}>
+                    <div className={`${ showMenu ? "flex flex-row gap-[20px]" :"w-[12.5vw] flex items-center justify-between"}`}>
+                    <li className={`${ showMenu ? "w-[100%] h-[100%]" : "w-[100%] h-[100%] flex items-center justify-center"}`}>
                     <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/youtube.png" alt="유튜브" width={24} height={18} />
+                        <Image src="/assets/images/layout/kakaotalk.png" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]"/>
                     </Link>
                     </li>
-                    <li className="w-[100%] h-[100%] mx-2">
-                    <Link href="https://www.youtube.com/@kahluaband8409" passHref>
-                        <Image src="/kakaotalk.png" alt="카카오톡 채널" width={22} height={22} />
-                    </Link>
-                    </li>
-                    <li className="w-[100%] h-[100%] mx-2">
+                    <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
                     <Link
                         href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
                         passHref
                     >
-                        <Image src="/instagram.png" alt="인스타그램" width={20} height={20} />
+                        <Image src="/assets/images/layout/instagram.png" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
                     </Link>
                     </li>
+                    <li className={`${ showMenu ? "w-[100%] h-[100%] " : "w-[100%] h-[100%] flex items-center justify-center"}`}>
+                    <Link href="https://www.youtube.com/@kahluaband8409" passHref>
+                        <Image src="/assets/images/layout/youtube.png" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
+                    </Link>
+                    </li>
+                    </div>
                 </ul>
             </div>
         </div>
+        </NavBg>
     </nav>
 );
 }

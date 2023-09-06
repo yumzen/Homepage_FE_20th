@@ -1,34 +1,37 @@
 import React from "react";
 import Image from "next/image";
-import loudspeaker from "/public/assets/icons/loudspeaker.png";
+import loudspeaker from "/public/assets/images/about/divider_medium.png";
 import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
 import ImageSlider1 from "./ImageSlider1";
 import ImageSlider2 from "./ImageSlider2";
 import ImageSlider3 from "./ImageSlider3";
+import Background from "@/app/components/Background";
 
 export default function About() {
   return (
-    <div className="font-['pretendard']">
-      <div className="flex flex-col justify-center items-center mt-[4rem] mb-[16rem]">
-        <Image src={loudspeaker} alt="about-page-logo" width={24} height={24} />
-        <p className="text-center font-bold text-2xl mt-[4rem]">
-          아 우리는 <br /> 깔 깔 깔 깔루아 !
-        </p>
-        <Image
-          src={mainImg}
-          alt="about-main-image"
-          width={800}
-          height={360}
-          className="rounded-[30px] m-16"
-        />
-        <p className={styles.detailText}>
-          깔루아는
-          <br />
-          2003년부터 지금까지 21년의 전통을 이어오고 있는
-          <br />
-          홍익대학교 컴퓨터공학과 밴드학회입니다.
-        </p>
+    <div className="h-[3600px] flex relative items-center justify-center">
+    <Background>
+      <div className="font-pretendard py-8">
+        <div className="flex flex-col justify-center items-center mt-[4rem] mb-[16rem]">
+          <Image src={loudspeaker} alt="about-page-logo" width={24} height={24} />
+          <p className="text-center font-bold text-2xl mt-[4rem]">
+            아 우리는 <br /> 깔 깔 깔 깔루아 !
+          </p>
+          <Image
+            src={mainImg}
+            alt="about-main-image"
+            width={810}
+            height={540}
+            className="rounded-[30px] m-16"
+          />
+          <p className={styles.detailText}>
+            깔루아는
+            <br />
+            2003년부터 지금까지 21년의 전통을 이어오고 있는
+            <br />
+            홍익대학교 컴퓨터공학과 밴드학회입니다.
+          </p>
         <p className="font-medium text-xl mt-[8rem] mb-[4rem]">ACTIVITIES</p>
         <p className={styles.detailText}>
           매주 월요일은 깔요일 !<br />
@@ -79,6 +82,8 @@ export default function About() {
           사이랍니다.
         </p>
       </div>
+    </div>
+    </Background>
     </div>
   );
 }

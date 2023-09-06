@@ -1,5 +1,5 @@
 import Image from "next/image";
-import recruit_rocket from "/public/assets/icons/recruit_rocket.png";
+import recruit_rocket from "/public/assets/images/recruit/divider_medium.png";
 
 export default function ApplicationNotice(){
     return(
