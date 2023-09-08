@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface Order {
@@ -13,36 +13,57 @@ const Modal = () => {
     const [searchResult, setSearchResult] = useState<Order[]>([]);
     const [searched, setSearched] = useState(false);
     const [validOrderNumber, setValidOrderNumber] = useState(true);
-
-    const handleSearch = () => {
-        const tempSearchResult = [
-            { id: 1, orderNumber: "123456", name: "서지현", cancelable: true },
-            { id: 2, orderNumber: "789012", name: "임가은", cancelable: false },
-        ];
-
-        const filteredSearchResult = tempSearchResult.filter(order => order.orderNumber === orderNumber);
-        if (filteredSearchResult.length > 0) {
-            setSearchResult(filteredSearchResult);
-            setSearched(true);
-        } else {
-            setSearched(false);
-            setValidOrderNumber(false);
-        }
-    };
-
-
     const [isClose, setIsClose] = useState(false);
 
+    const handleSearch = () => {
+        const tempSearchResult: Order[] = [
+        { id: 1, orderNumber: "123456", name: "서지현", cancelable: true },
+        { id: 2, orderNumber: "789012", name: "임가은", cancelable: false },
+        ];
+    
+        const filteredSearchResult = tempSearchResult.filter(
+        (order) => order.orderNumber === orderNumber
+        );
+        if (filteredSearchResult.length > 0) {
+        setSearchResult(filteredSearchResult);
+        setSearched(true);
+        setValidOrderNumber(true);
+        } else {
+        setSearched(false);
+        setValidOrderNumber(false);
+        }
+    };
+    
+    const handleInputKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+        handleSearch();
+        }
+    };
+    
     const handleIsClose = () => {
         setIsClose(true);
     };
-
-    const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    
+    const handleOverlayClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
         if (event.target === event.currentTarget) {
         handleIsClose();
         }
     };
-
+    
+    const handleKeyPress = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+        handleIsClose();
+        }
+    };
+    
+    useEffect(() => {
+        document.addEventListener("keydown", handleKeyPress);
+        return () => {
+        document.removeEventListener("keydown", handleKeyPress);
+        };
+    }, []);
     return !isClose ? (
         <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
             <div className="font-['pretendard'] w-[580px] h-[592px] bg-[#FFF] flex-shrink-0 fixed border-[#000] border-solid border-[1px] z-20">
@@ -60,6 +81,7 @@ const Modal = () => {
                         onChange={(e) => setOrderNumber(e.target.value)}
                         placeholder="예매번호를 입력해 주세요."
                         className="flex-grow px-[16px] outline-none text-[14px]"
+                        onKeyDown={handleInputKeyPress}
                     />
                     <div onClick={handleSearch} className="relative bg-[#D9D9D9] rounded-[4px] w-[24px] h-[24px] my-[12px] mr-[16px] cursor-pointer">
                         <Image src="/assets/images/tickets/search.png" alt="돋보기" width={100} height={100} className="flex w-[16px] h-[16px] mx-auto mt-[5px] "/>
