@@ -19,13 +19,13 @@ export default function Notice(){
 
 function Info_AQ(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
-                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
+                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">01</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
-                    <p className="text-2xl text-ocean-700 font-bold">지원자격</p>
+                    <p className="text-2xl text-ocean font-bold">지원자격</p>
                     <p className="text-xs text-[#B9B9B9]">Application Qualification</p>
                 </div>
             </div>
@@ -39,13 +39,13 @@ function Info_AQ(){
 
 function Info_Session(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
-                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
+                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">02</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
-                    <p className="text-2xl text-ocean-700 font-bold">모집 세션</p>
+                    <p className="text-2xl text-ocean font-bold">모집 세션</p>
                     <p className="text-xs text-[#B9B9B9]">Recruiting Session</p>
                 </div>
             </div>
@@ -58,13 +58,13 @@ function Info_Session(){
 
 function Info_Schedule(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
-                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
+                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">03</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
-                    <p className="text-2xl text-ocean-700 font-bold">모집 일정</p>
+                    <p className="text-2xl text-ocean font-bold">모집 일정</p>
                     <p className="text-xs text-[#B9B9B9]">Recruiting Schedule</p>
                 </div>
             </div>
@@ -78,13 +78,13 @@ function Info_Schedule(){
 
 function Info_Audition(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
-                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
+                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">04</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
-                    <p className="text-2xl text-ocean-700 font-bold">오디션 일정</p>
+                    <p className="text-2xl text-ocean font-bold">오디션 일정</p>
                     <p className="text-xs text-[#B9B9B9]">Audition Schedule</p>
                 </div>
             </div>
@@ -98,13 +98,13 @@ function Info_Audition(){
 
 function Info_Precautions(){
     return(
-        <div className="w-[580px] h-auto rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[580px] h-auto rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
-                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
+                <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">05</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
-                    <p className="text-2xl text-ocean-700 font-bold">유의사항</p>
+                    <p className="text-2xl text-ocean font-bold">유의사항</p>
                     <p className="text-xs text-[#B9B9B9]">Precautions</p>
                 </div>
             </div>

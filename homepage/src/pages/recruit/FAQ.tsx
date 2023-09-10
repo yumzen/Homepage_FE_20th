@@ -17,7 +17,7 @@ export default function FAQ(){
             <div dir="rtl" className="py-8 pt-24 px-16 flex flex-row items-center m:px-64">
                 <Image src={person1} alt="질문자" className="-mx-16 z-40 -mt-8"/>
                 <p className="w-64 h-64 rounded-[100%] z-10 bg-[#F1F5FF] -ml-[72px] -mr-44 -mt-24"/>
-                <div className="bg-ocean-700 w-[352px] h-20 flex items-center rounded-3xl ps-8 text-[#EEEEEE] text-sm z-20 mt-2">
+                <div className="bg-ocean w-[352px] h-20 flex items-center rounded-3xl ps-8 text-[#EEEEEE] text-sm z-20 mt-2">
                     .다룰 줄 아는 악기가 없지만 깔루아에 들어가고 싶어요<br/>
                     ?깔루아에 지원해도 될까요
                 </div>
@@ -37,7 +37,7 @@ export default function FAQ(){
             <div dir="rtl" className="px-16 pt-8 flex flex-row items-center m:px-64">
                 <Image src={person3} alt="질문자" className="-mx-16 z-40 -mt-8 " width={200}/>
                 <p className="w-64 h-64 rounded-[100%] z-10 bg-[#F1F5FF] -ml-16 -mr-48 -mt-16"/>
-                <div className="bg-ocean-700 w-[476px] h-12 flex items-center rounded-3xl ps-8 mt-12 text-[#EEEEEE] text-sm z-20">
+                <div className="bg-ocean w-[476px] h-12 flex items-center rounded-3xl ps-8 mt-12 text-[#EEEEEE] text-sm z-20">
                     ?저는 자율 전공인데 컴퓨터 공학과 소속 동아리인 깔루아에 들어갈 수 있나요
                 </div>
             </div>

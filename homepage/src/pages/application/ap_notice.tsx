@@ -6,7 +6,7 @@ export default function ApplicationNotice(){
         <div className="flex flex-col justify-center items-center py-8">
             <Image src={recruit_rocket} alt="notice" width={24}/>
             <div className="flex mt-4">
-                <p className="text-xl font-bold text-ocean-700">지원</p>
+                <p className="text-xl font-bold text-ocean">지원</p>
                 <p className="text-xl font-bold">하기</p>
             </div>
             <p className="text-sm mt-8 text-center">
