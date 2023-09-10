@@ -66,7 +66,7 @@ const Modal = () => {
     }, []);
     return !isClose ? (
         <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
-            <div className="font-['pretendard'] w-[580px] h-[592px] bg-[#FFF] flex-shrink-0 fixed border-[#000] border-solid border-[1px] z-20">
+            <div className="font-['pretendard'] w-[580px] h-[592px] bg-[#FFF] flex-shrink-0 fixed z-20">
                 <button onClick={handleIsClose} className="ml-[544px] w-[36px] h-[38px] flex-col items-center flex justify-center text-[20px] font-[700]">x</button>
                 <div className="w-[100%] h-[1px] bg-[#D3D3D3]"/>
                 <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
