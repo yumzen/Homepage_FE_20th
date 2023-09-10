@@ -3,7 +3,7 @@ import divider from "/public/assets/images/recruit/divider_medium.svg";
 
 export default function Notice(){
     return(
-        <div className="w-full py-16 flex flex-col justify-center items-center">
+        <div className="w-full py-24 flex flex-col justify-center items-center">
             <Image src={divider} alt="notice" className="w-[75px]"/>
             <p className="font-Gotham text-5xl mt-4 mb-6 font-bold">Information</p>
             <div className="inline-flex flex-wrap flex-row justify-center align-top max-w-[1024px]">
@@ -19,7 +19,7 @@ export default function Notice(){
 
 function Info_AQ(){
     return(
-        <div className="w-[412px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">01</p>
@@ -39,7 +39,7 @@ function Info_AQ(){
 
 function Info_Session(){
     return(
-        <div className="w-[412px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">02</p>
@@ -58,7 +58,7 @@ function Info_Session(){
 
 function Info_Schedule(){
     return(
-        <div className="w-[412px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">03</p>
@@ -78,7 +78,7 @@ function Info_Schedule(){
 
 function Info_Audition(){
     return(
-        <div className="w-[412px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean-700 border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean-700">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">04</p>

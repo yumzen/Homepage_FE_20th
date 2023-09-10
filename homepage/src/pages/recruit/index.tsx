@@ -5,7 +5,7 @@ import RepNotice from "./rep_notice";
 
 export default function Recruit() {
     return (
-        <div className="h-[2500px] flex items-center justify-center">
+        <div className="h-[3600px] flex items-center justify-center m:h-[3200px]">
             <Background>
             <div className="font-pretendard py-10">
                 <RepNotice/>
