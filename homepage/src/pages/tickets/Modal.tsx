@@ -44,58 +44,56 @@ const Modal = () => {
     };
 
     return !isClose ? (
-        <div onClick={handleOverlayClick} className= "fixed top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
-    <div className="font-['pretendard'] w-[566px] h-[604px] bg-[#FFF] flex-shrink-0 fixed border-[#000] border-solid border-[1px] z-20">
-        <button onClick={handleIsClose} className="ml-[540px] mt-[12px] w-[26px] h-[38px] flex-col content-center text-[20px] font-[700]">X</button>
-        <div className="w-[565px] h-[1px] bg-[#000]"/>
-        <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
-            <Image src="/assets/images/tickets/ticket.png" alt="ticket" width={32} height={16}/>
-            <p className="font-[700] mt-[12px] text-[24px]">예매 내역 확인</p>
-            <p className="mt-[28px] font-[400] text-[14px]">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
-        </div>
-        <div className="mt-[40px] flex flex-col items-center text-center content-center ">
-                <div className="w-[514px] h-[48px] flex border-[1px] border-solid border-[#000] outline-none">
-            <input
-                type="text"
-                value={orderNumber}
-                onChange={(e) => setOrderNumber(e.target.value)}
-                placeholder="예매번호를 입력해 주세요."
-                className="flex-grow px-[16px] outline-none"
-            />
-            <div onClick={handleSearch} className="relative bg-[#D9D9D9] w-[29px] h-[25px] mt-[12px] mr-[8px] cursor-pointer">
-                <Image src="/assets/images/tickets/search.png" alt="돋보기" width={100} height={100} className="absolute w-[16px] h-[16px] mt-[5px] ml-[7px]"/>
-            </div>
-        </div>
-            </div>
-            {searched && (
-                <div>
-                    <div className="mt-[24px] ml-[24px] bg-[#dde2ff] w-[514px] h-[106px] flex-shrink-0">
-                        <div className="flex flex-row align-center justify-center">
-                            <div className="mt-[11px] w-[72px] flex text-center items-center text-[14px]"> 예매 번호 </div>
-                            <div className="mt-[11px] ml-[124px] w-[72px] flex text-center items-center text-[14px]"> 예매자 성명 </div>
-                            <div className="mt-[11px] ml-[124px] w-[80px] flex text-center items-center text-[14px]"> 취소 가능 여부 </div>
-                        </div>
-                        <div className="mt-[10px] h-[1px] w-[100%] bg-[#A4A4A4] "/>
-                        {searchResult.map((order: any) => (
-                                <div key={order.id} className="mt-[12px] flex flex-row align-center justify-center">
-                                    <div className="mt-[11px] ml-[20px] w-[118px] flex text-center items-center text-[14px]"> {order.orderNumber} </div>
-                                    <div className="mt-[11px] ml-[112px] w-[118px] flex text-center items-center text-[14px]"> {order.name} </div>
-                                    <div className="mt-[11px] ml-[96px] w-[118px] flex text-center items-center text-[14px]"> {order.cancelable ? "취소 가능" : "취소 불가능"} </div>
-                                </div>
-                            ))}
-                    </div>
-                    <div className="w-[514px] h-[48px] mt-[72px] ml-[24px] flex items-center">
-                        <button className="w-full h-full bg-[#D9D9D9] text-center text-[#000] text-[14px]">
-                            예매 취소하기
-                        </button>
-                    </div>
+        <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
+            <div className="font-['pretendard'] w-[580px] h-[592px] bg-[#FFF] flex-shrink-0 fixed border-[#000] border-solid border-[1px] z-20">
+                <button onClick={handleIsClose} className="ml-[544px] w-[36px] h-[38px] flex-col items-center flex justify-center text-[20px] font-[700]">x</button>
+                <div className="w-[100%] h-[1px] bg-[#D3D3D3]"/>
+                <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
+                    <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}/>
+                    <p className="font-[700] mt-[12px] text-[24px] leading-[28px]">예매 내역 확인</p>
+                    <p className="mt-[20px] font-[500] text-[14px] laeding-[21px] text-[#4A4A4A]">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
                 </div>
-            )}
-            {!validOrderNumber && (
-                    <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>
-            )}
-    </div>
-    </div>
+                <div className=" mt-[48px] mx-auto w-[516px] h-[48px] flex rounded-[8px] items-center text-center content-center border-[1px] border-solid border-[#000] outline-none">
+                    <input
+                        type="text"
+                        value={orderNumber}
+                        onChange={(e) => setOrderNumber(e.target.value)}
+                        placeholder="예매번호를 입력해 주세요."
+                        className="flex-grow px-[16px] outline-none text-[14px]"
+                    />
+                    <div onClick={handleSearch} className="relative bg-[#D9D9D9] rounded-[4px] w-[24px] h-[24px] my-[12px] mr-[16px] cursor-pointer">
+                        <Image src="/assets/images/tickets/search.png" alt="돋보기" width={100} height={100} className="flex w-[16px] h-[16px] mx-auto mt-[5px] "/>
+                </div>
+                    </div>
+                    {searched && (
+                        <div>
+                            <div className="mt-[32px] mx-auto bg-[#F1F5FF] w-[516px] h-[120px] flex-shrink-0 rounded-[8px]">
+                                <div className="flex flex-row align-center justify-center">
+                                    <div className="mt-[15px] ml-[24px] w-[118px] h-[19px] flex text-center justify-center  items-center text-[12px] font-[700]"> 예매번호 </div>
+                                    <div className="mt-[15px] mx-auto  w-[118px] h-[19px]  flex text-center justify-center  items-center text-[12px] font-[700]"> 예매자 성명 </div>
+                                    <div className="mt-[15px] mr-[24px] w-[118px] h-[19px]  flex text-center justify-center  items-center text-[12px] font-[700]"> 취소 가능 여부 </div>
+                                </div>
+                                <div className="mt-[21px] h-[1px] w-[100%] bg-[#D3D3D3] "/>
+                                {searchResult.map((order: any) => (
+                                        <div key={order.id} className="flex flex-row align-center justify-center">
+                                            <div className="mt-[19px] ml-[24px] w-[118px]  h-[21px] flex text-center justify-center items-center text-[14px] font-[500]"> {order.orderNumber} </div>
+                                            <div className="mt-[19px] mx-auto w-[118px] flex text-center justify-center  items-center text-[14px] font-[500]"> {order.name} </div>
+                                            <div className="mt-[19px] mr-[24px] w-[118px] flex text-center justify-center  items-center text-[14px] font-[500]"> {order.cancelable ? "취소 가능" : "취소 불가능"} </div>
+                                        </div>
+                                    ))}
+                            </div>
+                            <div className="w-[514px] h-[48px] mt-[48px] mx-auto flex items-center">
+                                <button className="w-full h-full bg-[#E8E8E8] rounded-[8px] text-center text-[#000] text-[14px] font-[600] leading-[19px]">
+                                    예매 취소하기
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                    {!validOrderNumber && (
+                            <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>
+                    )}
+            </div>
+        </div>
     ): null;
 };
 
