@@ -41,7 +41,6 @@ export default function ImageSlider2() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <p className="text-sm font-bold"># 19 & 20기 합주</p>
           <Image
             src={images[0]}
             alt="image"
@@ -57,7 +56,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 새내기 첫 합주</p>
           <Image
             src={images[1]}
             alt="image"
@@ -73,7 +71,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 새내기 첫 합주</p>
           <Image
             src={images[2]}
             alt="image"
@@ -89,7 +86,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 공연 준비</p>
           <Image
             src={images[3]}
             alt="image"
@@ -105,7 +101,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 공연 준비</p>
           <Image
             src={images[4]}
             alt="image"
@@ -121,7 +116,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 공연 준비</p>
           <Image
             src={images[5]}
             alt="image"
@@ -137,7 +131,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 공연 준비</p>
           <Image
             src={images[6]}
             alt="image"
@@ -169,7 +162,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide> */}
         <SwiperSlide>
-          <p className="text-sm font-bold"># 19기 & 20기 여름 합주</p>
           <Image
             src={images[8]}
             alt="image"
@@ -201,7 +193,6 @@ export default function ImageSlider2() {
           />
         </SwiperSlide> */}
         <SwiperSlide>
-          <p className="text-sm font-bold"># 19기 & 20기 스튜디오 촬영</p>
           <Image
             src={images[10]}
             alt="image"

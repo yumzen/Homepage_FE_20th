@@ -1,0 +1,29 @@
+.btnStyle {
+  justify-content: center;
+  align-items: center;
+  min-width: 140px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  opacity: 70%;
+  border-radius: 10px;
+}
+
+.playicon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.subText {
+  font-size: 14px;
+  color: #6a6a6a;
+  margin-right: 0.75rem;
+}
