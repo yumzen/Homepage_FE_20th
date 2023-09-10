@@ -1,25 +1,30 @@
 import Image from "next/image";
+import band from "/public/assets/images/recruit/band.svg";
 import recruit_rocket from "/public/assets/images/recruit/divider_medium.svg";
 
 export default function RepNotice() {
     return (
-        <div className="w-full h-auto bg-ocean-700 bg-opacity-10 py-16 flex flex-col justify-center items-center">
-            <p className="font-Salvar text-9xl">
-                KAHLUA
-            </p>
-            <p className="text-center text-5xl font-bold mt-4">
-                23nd MEMBER<br/>RECUIRMENT
-            </p>
-            <p className="text-center text-xs font-bold mt-2">
-                모집기간 : 2023.03.01(금) ~ 2023.03.07(토)
-                <br/>
-                면접기간 : 2023.03.10(월) ~ 2023.03.11(화)
-            </p>
-            <a className="flex justify-center space-x-4 items-center h-[96px] w-5/6 rounded-3xl bg-ocean-700 mt-6" href="/application">
-                <Image src={recruit_rocket} alt=".."/>
-                <p className="text-4xl font-semibold">KAHLUA 23기 지원하기</p>
-                <Image src={recruit_rocket} alt=".."/>
-            </a>
+        <>
+        <div className="w-full h-auto py-36 flex flex-col justify-center items-center">
+            <Image src={band} alt="KAHLUA" className="absolute w-full h-[740px] object-cover"/>
+            <div className="z-10 w-full flex flex-col justify-center items-center">
+                <p className="font-Salvar text-9xl text-center text-[#FFFFFF]">
+                    KAHLUA
+                </p>
+                <p className="font-Gotham text-center font-bold text-5xl mt-10 text-[#FFFFFF]">
+                    23nd MEMBER<br/>RECUIRMENT
+                </p>
+                <p className="text-center text-xs mt-6 text-[#FFFFFF]">
+                    모집기간 : 2023.03.01(금) ~ 2023.03.07(토)
+                    <br/>
+                    면접기간 : 2023.03.10(월) ~ 2023.03.11(화)
+                </p>
+                <a className="flex justify-center items-center h-[84px] w-1/2 rounded-[300px] bg-ocean-700 mt-14" href="/application">
+                    <p className="text-2xl font-semibold text-[#FFFFFF]">KAHLUA 23기 지원하기</p>
+                </a>
+
+            </div>
         </div>
+        </>
     )
 }

@@ -16,6 +16,7 @@ module.exports = {
       fontFamily:{
         'pretendard':['pretendard'],
         'Salvar':['Salvar'],
+        'Gotham':['Gotham'],
       },
     },
 
