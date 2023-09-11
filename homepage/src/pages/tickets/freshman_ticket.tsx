@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import './index.css';
 import Background from "@/app/components/Background";
+import Link from "next/link";
 
 export default function freshman_ticket(){
     const [count, setCount] = useState(1);
@@ -153,7 +154,8 @@ export default function freshman_ticket(){
                     <div className="w-[72.5vw] h-[3px] mt-[32px] bg-[#D9D9D9]"/>
                     <div className="ml-[0.5vw]">
                         <div className="flex flex-row">
-                            <div className="w-[200px] h-[29px] mt-[32px] font-[700] text-[20px] leading-[30px]">결제 방법 선택</div>
+                            <div className="w-[120px] h-[29px] mt-[32px] font-[700] text-[20px] leading-[30px]">결제 방법 선택</div>
+                            <div className="w-[740px] h-[26px] lg:mt-[32px] mt-[15px] lg:ml-[56px] ml-[0.5vw] text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
                         </div>
                         <div className="mt-[20px] text-[20px] flex flex-row">
                             <label className="flex flex-row items-center justify-center ">
@@ -180,7 +182,9 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[100px]">
-                    <button className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
+                    <Link href="/tickets/complete">
+                        <button className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
+                    </Link>
                 </div>
             </div>
         </Background>
