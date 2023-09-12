@@ -43,7 +43,6 @@ export default function ImageSlider3() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[0]}
             alt="image"
@@ -59,7 +58,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[1]}
             alt="image"
@@ -75,7 +73,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 20&21&22기 MT</p>
           <Image
             src={images[2]}
             alt="image"
@@ -91,7 +88,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[3]}
             alt="image"
@@ -107,7 +103,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 크리스마스는 깔루아와</p>
           <Image
             src={images[4]}
             alt="image"
@@ -123,7 +118,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 한강 피크닉</p>
           <Image
             src={images[5]}
             alt="image"
@@ -139,7 +133,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 롯데월드</p>
           <Image
             src={images[6]}
             alt="image"
@@ -155,7 +148,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 바다 여행</p>
           <Image
             src={images[7]}
             alt="image"
@@ -171,7 +163,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># 한강 피크닉</p>
           <Image
             src={images[8]}
             alt="image"
@@ -187,7 +178,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># K동 앞에서</p>
           <Image
             src={images[9]}
             alt="image"
@@ -203,7 +193,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[10]}
             alt="image"
@@ -219,7 +208,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># K동 앞에서</p>
           <Image
             src={images[11]}
             alt="image"
@@ -235,7 +223,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[12]}
             alt="image"
@@ -251,7 +238,6 @@ export default function ImageSlider3() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <p className="text-sm font-bold"># MT</p>
           <Image
             src={images[13]}
             alt="image"
