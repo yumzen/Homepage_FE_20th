@@ -19,7 +19,7 @@ export default function Notice(){
 
 function Info_AQ(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">01</p>
@@ -39,7 +39,7 @@ function Info_AQ(){
 
 function Info_Session(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">02</p>
@@ -58,7 +58,7 @@ function Info_Session(){
 
 function Info_Schedule(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">03</p>
@@ -78,7 +78,7 @@ function Info_Schedule(){
 
 function Info_Audition(){
     return(
-        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
+        <div className="w-[420px] h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">04</p>
@@ -98,7 +98,7 @@ function Info_Audition(){
 
 function Info_Precautions(){
     return(
-        <div className="w-[580px] h-auto rounded-[10px] border-ocean border-2 py-8 px-10 m-6">
+        <div className="w-[580px] h-auto rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-12 h-12 rounded-[24px] bg-ocean">
                     <p className="leading-[48px] text-2xl text-center font-bold text-[#FFFFFF]">05</p>
