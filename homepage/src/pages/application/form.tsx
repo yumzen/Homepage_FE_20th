@@ -35,7 +35,7 @@ const SelectBox = (props: any) => {
 export default function Form(){
     return(
         <>
-            <div className="flex flex-col justify-center py-8">
+            <div className="flex flex-col justify-center pt-8 pb-10">
                 <div className="inline-flex flex-wrap flex-row space-x-8 items-start">
                     <Name/>
                     <Birth/>
@@ -49,7 +49,7 @@ export default function Form(){
 
             <div className="mt-2 h-[3px] mx-auto bg-[#D3D3D3]"/>
 
-            <div className="flex flex-col justify-center py-8">
+            <div className="flex flex-col justify-center pt-8 pb-10">
                 <div className="inline-flex flex-wrap flex-row space-x-8 items-start">
                     <Session1/>
                     <Session2/>
@@ -62,7 +62,7 @@ export default function Form(){
             <Motive/>
 
             <div className="flex flex-col justify-center items-center">
-                <button className="w-80 h-16 bg-ocean rounded-[10px] mb-16 text-[#FFFFFF]">
+                <button className="w-80 h-16 bg-ocean rounded-[10px] mt-28 mb-32 text-[#FFFFFF]">
                     제출하기
                 </button>
             </div>
@@ -163,9 +163,9 @@ function Experience(){
 
 function Motive(){
     return(
-        <div className="pt-8 pb-16">
+        <div className="pt-8">
             <p className="text-xl font-bold">지원 동기 (자유롭게 작성)</p>
-            <textarea className="text-base w-[1184px] h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder=""/>
+            <textarea className="text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder=""/>
         </div>
     )
 }

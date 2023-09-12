@@ -18,7 +18,7 @@ export default function Caution(){
 
 function Apply_vocal(){
     return(
-        <div className="w-[calc(50%-16px)] h-[208px] rounded-[10px] bg-[#F1F5FF] py-8 px-10 mt-8">
+        <div className="w-[calc(50%-16px)] h-auto rounded-[10px] bg-[#F1F5FF] py-8 px-10 mt-8">
             <p className="text-2xl font-bold text-center">
                 보컬 부문
             </p>
@@ -34,7 +34,7 @@ function Apply_vocal(){
 
 function Apply_others(){
     return(
-        <div className="w-[calc(50%-16px)] h-[208px] rounded-[10px] bg-[#F1F5FF] py-8 px-10 mt-8">
+        <div className="w-[calc(50%-16px)] h-auto rounded-[10px] bg-[#F1F5FF] py-8 px-10 mt-8">
             <p className="text-2xl font-bold text-center">
                 드럼/기타/베이스/신디 부문
             </p>
