@@ -144,7 +144,7 @@ function Session2(){
             <span className="text-xl font-bold">2지망 선택 (필수)</span>
             <span className="text-xs text-[#8E8E8E] ml-2">1지망에 선택한 세션을 제외하고 선택</span>
             <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 mt-4">
-                <SelectBox options={OPTIONS_Session1}/>
+                <SelectBox options={OPTIONS_Session2}/>
             </div>
         </div>
     )
