@@ -11,7 +11,7 @@ export default function RepNotice() {
                 <p className="font-Salvar text-9xl text-center text-[#FFFFFF]">
                     KAHLUA
                 </p>
-                <p className="font-Gotham text-center font-bold text-5xl mt-10 text-[#FFFFFF]">
+                <p className=" font-GothamItalic text-center font-bold text-5xl mt-10 text-[#FFFFFF]">
                     23nd MEMBER<br/>RECUIRMENT
                 </p>
                 <p className="text-center text-xs mt-6 text-[#FFFFFF]">

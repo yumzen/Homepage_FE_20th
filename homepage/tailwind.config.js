@@ -17,6 +17,8 @@ module.exports = {
         'pretendard':['pretendard'],
         'Salvar':['Salvar'],
         'Gotham':['Gotham'],
+        'GothamBold':['Gotham bold'],
+        'GothamItalic':['Gotham bold italic']
       },
 
       colors: {
