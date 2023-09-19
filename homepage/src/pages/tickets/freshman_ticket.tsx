@@ -3,6 +3,14 @@ import { useState } from "react";
 import './index.css';
 import Background from "@/app/components/Background";
 import Link from "next/link";
+import dotenv from 'dotenv';
+dotenv.config();
+
+const IMPORT_KEY = process.env.NEXT_PUBLIC_IMPORT_KEY;
+
+declare const window: typeof globalThis & {
+    IMP: any;
+};
 
 export default function freshman_ticket(){
     const [count, setCount] = useState(1);
@@ -35,9 +43,33 @@ export default function freshman_ticket(){
         const phoneNumber = event.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
         event.target.value = phoneNumber;
     };
+
+    const iamportPayment = (e: any) => {
+        
+        var IMP = window.IMP;
+        IMP.init(IMPORT_KEY); // iamport 가맹점 식별코드
+        IMP.request_pay({
+            pg: 'kcp_billing',
+            pay_method: 'card', // 'card'만 지원됩니다.
+            merchant_uid: "order_monthly_0001", // 상점에서 관리하는 주문 번호
+            name: '최초인증결제',
+            amount: 500, // 결제창에 표시될 금액. 실제 승인이 이뤄지지는 않습니다. (PC에서는 가격이 표시되지 않음)
+            customer_uid: 'your-customer-unique-id', // 필수 입력.
+            buyer_email: 'iamport@siot.do',
+            buyer_name: '아임포트',
+            buyer_tel: '02-1234-1234',
+            m_redirect_url: '{모바일에서 결제 완료 후 리디렉션 될 URL}' // 예: https://www.my-service.com/payments/complete/mobile
+        }, function (rsp: any) {
+            if (rsp.success) {
+                alert('빌링키 발급 성공');
+            } else {
+                alert('빌링키 발급 실패');
+            }
+        });
+    }
         
     return (
-        <div className="h-[1800px] lg:h-[1700px]">
+        <div className="h-[1800px] lg:h-[1700px] z-60">
             <Background>
                 <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px]">
                 <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[40px]">
@@ -182,9 +214,11 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[100px]">
-                    <Link href="/tickets/complete">
+                    {payment === "계좌이체" && (<Link href="/tickets/complete">
                         <button className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                     </Link>
+                    )}
+                    {payment === "카카오페이" && (<button onClick={iamportPayment} className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>)}
                 </div>
             </div>
         </Background>
