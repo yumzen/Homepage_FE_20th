@@ -184,19 +184,9 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[100px]">
-                    {payment === "계좌이체" && (<Link href="/tickets/complete">
-                        <button className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
+                    <Link href="/tickets/complete">
+                        <button className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">예매하기</button>
                     </Link>
-                    )}
-                    {payment === "카카오페이" && (
-                        <Link href="payment">
-                        <button className="w-[270px] h-[52px] flex items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-18px font-[700] leading-[17px] text-center">
-                        결제하기
-                        </button>
-                        </Link>
-                    )}
-
-
                 </div>
             </div>
         </Background>

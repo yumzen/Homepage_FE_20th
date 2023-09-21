@@ -9,8 +9,7 @@ declare const window: typeof globalThis & {
 };
 
 
-const payment = ({ closeImportModal }: any) => {
-    const [isOpenPayment, setIsOpenPayment] = useState(false);
+const payment = () => {
 
     const iamportPayment = () => {
         console.log("importPayment 실행!");
@@ -38,6 +37,7 @@ const payment = ({ closeImportModal }: any) => {
             }
         );
     };
+    
     iamportPayment();
     return (
         <div></div>
