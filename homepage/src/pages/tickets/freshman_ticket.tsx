@@ -185,7 +185,7 @@ export default function freshman_ticket(){
                 </div>
                 <div className="flex items-center justify-center mt-[94px]">
                     <Link href="/tickets/complete">
-                        <button className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">예매하기</button>
+                        <button className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                     </Link>
                 </div>
             </div>
