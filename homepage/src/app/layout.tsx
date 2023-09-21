@@ -18,11 +18,13 @@ export default function RootLayout({
 
   const isMainPage = router.pathname === '/'; 
 
+  const isPaymentPage = router.pathname === '/tickets/payment';
+
   return (
     <>
-      <Navbar />
+      {!isPaymentPage && <Navbar />}
       {children}
-      {!isMainPage && <Footer />} {/* 메인 페이지가 아닌 경우에만 Footer를 렌더링 */}
+      {!isMainPage && !isPaymentPage && <Footer />} {/* 메인 페이지가 아닌 경우에만 Footer를 렌더링 */}
     </>
   )
 }
