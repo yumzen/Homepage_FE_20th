@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { useRouter } from 'next/router';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,12 +14,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const router = useRouter();
+
+  const isMainPage = router.pathname === '/'; 
 
   return (
     <>
-        <Navbar/>
-        {children}
-        <Footer/>
+      <Navbar />
+      {children}
+      {!isMainPage && <Footer />} {/* 메인 페이지가 아닌 경우에만 Footer를 렌더링 */}
     </>
   )
 }
