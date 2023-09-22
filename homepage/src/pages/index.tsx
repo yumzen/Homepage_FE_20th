@@ -5,7 +5,7 @@ import rect1 from "/public/assets/images/Main/rectangle_1.svg"
 import rect3 from "/public/assets/images/Main/rectangle_3.svg"
 import rect4 from "/public/assets/images/Main/rectangle_4.svg"
 import circle from "/public/assets/images/Main/circle.svg"
-import cd from "/public/assets/images/Main/image_cd.png"
+import cd from "/public/assets/images/Main/image_cd_full.svg"
 
 
 
@@ -15,7 +15,7 @@ return (
     <Background>
         <Deco/>
         <Headline/>
-        <Image src={cd} alt=".." width={1500} className="absolute w-full h-[740px] -mt-32 z-20 object-cover"/>
+        <Image src={cd} alt=".." width={1500} className="absolute -mt-36  w-full h-[740px] z-20 object-cover object-top"/>
     </Background>
     </div>
 );
