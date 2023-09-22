@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { useState } from 'react';
+import Router from 'next/router';
 dotenv.config();
 
 const IAMPORT_KEY = process.env.NEXT_PUBLIC_IAMPORT_KEY;
@@ -32,7 +32,8 @@ const payment = () => {
                 if (rsp.success) {
                     alert('빌링키 발급 성공');
                 } else {
-                    alert('빌링키 발급 실패');
+                    alert('결제 실패');
+                    Router.push('/tickets/general_ticket');
                 }
             }
         );
