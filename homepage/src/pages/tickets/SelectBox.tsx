@@ -34,7 +34,7 @@ export default function SelectBox() {
             <ul
                 className={`${
                     isDropdownVisible ? 'block' : 'hidden'
-                } absolute top-[58px] left-0 right-0 bg-white border-solid border-[2px] border-[#281CFF] bg-[white] rounded-[6px] overflow-hidden`}
+                } absolute top-[58px] left-0 right-0 bg-[white] border-solid border-[2px] border-[#281CFF] rounded-[6px] overflow-hidden`}
             >
                 {options.map((option) => (
                     <li key={option.value}>
