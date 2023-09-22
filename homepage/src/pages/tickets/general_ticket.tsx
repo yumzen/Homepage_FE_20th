@@ -3,9 +3,40 @@ import { useState } from "react";
 import './index.css';
 import Background from "@/app/components/Background";
 import Link from "next/link";
+import axios from 'axios';
 
 export default function general_ticket(){
     const [count, setCount] = useState(1);
+    const [buyer, setBuyer] = useState('');
+    const [phone_num, setphone_num] = useState('');
+    const [member, setmember] = useState('');
+    const [price, setprice] = useState('');
+    const [isCheck, setIsCheck] = useState(true);
+    const [payment, setPayment] = useState("계좌이체");
+
+    const handleSubmit = async () => {
+        try {
+            const formData = {
+                buyer,
+                phone_num,
+                member,
+                price,
+                payment,
+            };
+            const response = await axios.post('http://localhost:8000/tickets/general_ticket/', formData);
+
+            if (response.status === 200) {
+                console.log('요청이 성공적으로 처리되었습니다.');
+                console.log('응답 데이터:', response.data);
+            } else {
+                console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                console.error('에러 응답:', response.data);
+            }
+        } catch (error) {
+            console.error('Error submitting data:', error);
+        }
+    };
+
     const handleIncrement = () => {
         setCount((prevCount) => (prevCount < 5 ? prevCount + 1 : prevCount)); //최대값을 1로 설정
     };
@@ -13,9 +44,6 @@ export default function general_ticket(){
     const handleDecrement = () => {
         setCount((prevCount) => (prevCount > 1 ? prevCount - 1 : prevCount)); //최소값을 1로 설정
     };
-
-    const [isCheck, setIsCheck] = useState(true);
-    const [payment, setPayment] = useState("계좌이체");
 
     const handleCheckboxChange1 = (event: any) => {
         setIsCheck(event.target.value === "true");
@@ -32,12 +60,12 @@ export default function general_ticket(){
                 <div key={i}>
                     <div className="flex flex-row mt-[18px]">
                         <div className="flex items-center justify-center text-center">{i+1}. </div>
-                        <div className=" flex flex-row ml-[1vw] lg:mx-auto">
-                            <div className="text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[50px]">이름</div>
+                        <div className=" flex flex-row lg:mx-auto items-center justify-center">
+                            <div className="text-[16px] ml-[2vw]  leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[50px]"> 이름</div>
                             <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
                                 <input type="text" placeholder=""/>
                             </div>
-                            <div className="ml-[12vw]  lg:ml-[10vw] text-[16px] leading-[26px] font-[500] items-center flex  h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
+                            <div className="ml-[9vw]  lg:ml-[10vw] text-[16px] leading-[26px] font-[500] items-center flex  h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
                             <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
                                 <input type="text" placeholder="‘-’없이 입력해주세요. 예) 01012345678"  onChange={handlePhoneNumberChange}/>
                             </div>
@@ -131,7 +159,7 @@ export default function general_ticket(){
                                 <input type="radio" name="결제방법" value={"계좌이체"} checked={payment === "계좌이체"}  onChange={handleCheckboxChange2} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
                                 <div className="font-[500]">계좌이체</div>
                             </label>
-                            <label className="ml-[118px] flex-row flex items-center justify-center ">
+                            <label className="ml-[5vw] flex-row flex items-center justify-center ">
                                 <input type="radio" name="결제방법" value={"카카오페이"} checked={payment === "카카오페이"} onChange={handleCheckboxChange2} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
                                 <div className="font-[500]">카카오페이</div>
                             </label>
@@ -166,7 +194,7 @@ export default function general_ticket(){
                     )}
                     {payment === "카카오페이" && (
                         <Link href="payment">
-                            <button className="w-[270px] h-[52px] flex items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-18px font-[700] leading-[17px] text-center">
+                            <button  onClick={handleSubmit} className="w-[270px] h-[52px] flex items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-18px font-[700] leading-[17px] text-center">
                             결제하기
                             </button>
                         </Link>
