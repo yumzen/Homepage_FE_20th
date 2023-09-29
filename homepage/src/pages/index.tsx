@@ -15,7 +15,8 @@ return (
     <Background>
         <Deco/>
         <Headline/>
-        <Image src={cd} alt=".." width={1500} className="absolute -mt-36  w-full h-[740px] z-20 object-cover object-top"/>
+        {/* animate-spin origin-bottom */}
+        <Image src={cd} alt=".." width={1500} className="absolute -mt-28  w-full h-[740px] z-20 object-cover object-top "/>
     </Background>
     </div>
 );
