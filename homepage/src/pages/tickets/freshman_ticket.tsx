@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './index.css';
 import Background from "@/app/components/Background";
 import Link from "next/link";
@@ -14,6 +14,17 @@ export default function freshman_ticket(){
     const [isCheck, setIsCheck] = useState(true);
     const [meeting, setmeeting] = useState(true);
     const [payment, setPayment] = useState("계좌이체");
+    const [isFormComplete, setIsFormComplete] = useState(false);
+
+    useEffect(() => {
+        const isDataComplete =
+        buyer.trim() !== '' &&
+        phone_num.trim() !== '' &&
+        major.trim() !== '' &&
+        student_id.trim() !== '' &&
+        true;
+        setIsFormComplete(isDataComplete);
+    }, [buyer, phone_num, major, student_id]);
 
     const handleSubmit = async () => {
         try {
@@ -194,7 +205,7 @@ export default function freshman_ticket(){
                 </div>
                 <div className="flex items-center justify-center mt-[94px]">
                     <Link href={{ pathname: "/tickets/complete", query: { buyer, phone_num, major, student_id }}}>
-                        <button  onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
+                        <button disabled={!isFormComplete} onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                     </Link>
                 </div>
             </div>
