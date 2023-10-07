@@ -1,8 +1,11 @@
 import Background from "@/app/components/Background";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function complete(){
+    const router = useRouter();
+    const { buyer, phone_num, major, student_id } = router.query;
     return (
         <div className = "h-[900px]">
             <Background>
@@ -10,32 +13,28 @@ export default function complete(){
             <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[40px]">
                 <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17}/>
                 <div className="mt-[16px] flex flex-row">
-                    <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">결제가 완료되었습니다!</div>
+                    <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매가 완료되었습니다!</div>
                 </div>
             </div>
             <div className="mt-[64px] flex flex-col mx-auto ">
-                <div className="font-[700] text-[20px] leading-[30px]">결제 정보</div>
+                <div className="font-[700] text-[20px] leading-[30px]">예매 정보</div>
                 <div className="w-[72.5vw] h-[3px] mt-[16px] bg-[#000] flex "/>
                 <div className="ml-[0.5vw] ">
                     <div className="mt-[32px] flex flex-row items-center">
                         <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매번호</div>
-                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">ABCD123456</div>
+                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{student_id}</div>
                     </div>
                     <div className="mt-[32px] flex flex-row items-center">
                         <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">이름</div>
-                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">깔룽이</div>
+                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">{buyer}</div>
                     </div>
                     <div className="mt-[32px] flex flex-row items-center">
                         <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">전화번호</div>
-                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">01012345678</div>
+                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">{phone_num}</div>
                     </div>
                     <div className="mt-[32px] flex flex-row items-center">
-                        <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">결제상태</div>
-                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">입금대기</div>
-                    </div>
-                    <div className="mt-[32px] flex flex-row items-center">
-                        <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">결제금액</div>
-                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">15000원</div>
+                        <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매현황</div>
+                        <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">예매완료</div>
                     </div>
                     </div>
                     <div className="w-[72.5vw] h-[3px] mt-[32px] bg-[#D3D3D3] flex"/>

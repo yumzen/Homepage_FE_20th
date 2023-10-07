@@ -179,23 +179,6 @@ export default function freshman_ticket(){
                             </label>
                         </div>
                     </div>
-                    <div className="w-[72.5vw] h-[3px] mt-[40px] bg-[#D9D9D9]"/>
-                    <div className="ml-[0.5vw]">
-                        <div className="flex flex-col lg:flex-row">
-                            <div className="w-[120px] h-[29px] mt-[32px] font-[700] text-[20px] leading-[30px]">결제 방법 선택</div>
-                            <div className="w-[740px] h-[26px] lg:mt-[36px] mt-[16px] lg:ml-[56px] ml-[0.5vw] text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
-                        </div>
-                        <div className="mt-[20px] text-[20px] flex flex-row">
-                            <label className="flex flex-row items-center justify-center ">
-                                <input type="radio" name="결제방법" value={"계좌이체"} checked={payment === "계좌이체"}  onChange={handleCheckboxChange3} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
-                                <div className="font-[500] w-[80px]">계좌이체</div>
-                            </label>
-                            <label className="ml-[5vw] flex-row flex items-center justify-center ">
-                                <input type="radio" name="결제방법" value={"카카오페이"} checked={payment === "카카오페이"} onChange={handleCheckboxChange3} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
-                                <div className="font-[500]">카카오페이</div>
-                            </label>
-                        </div>
-                    </div>
                     <div className="w-[72.5vw] h-[3px] mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
                         <div className="mt-[20px] flex flex-row">
@@ -210,7 +193,7 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[94px]">
-                    <Link href="/tickets/complete">
+                    <Link href={{ pathname: "/tickets/complete", query: { buyer, phone_num, major, student_id }}}>
                         <button  onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                     </Link>
                 </div>
