@@ -13,7 +13,6 @@ export default function freshman_ticket(){
     const [student_id, setstudent_id] = useState('');
     const [isCheck, setIsCheck] = useState(true);
     const [meeting, setmeeting] = useState(true);
-    const [payment, setPayment] = useState("계좌이체");
     const [isFormComplete, setIsFormComplete] = useState(false);
 
     useEffect(() => {
@@ -34,7 +33,6 @@ export default function freshman_ticket(){
                 major,
                 student_id,
                 meeting,
-                payment,
             };
             const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
 
@@ -65,10 +63,6 @@ export default function freshman_ticket(){
 
     const handleCheckboxChange2 = (event: any) => {
         setmeeting(event.target.value);
-    };
-
-    const handleCheckboxChange3 = (event: any) => {
-        setPayment(event.target.value);
     };
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
