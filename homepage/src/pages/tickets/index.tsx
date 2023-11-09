@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
-import Modal from "./Modal";
 import Background from '../../app/components/Background';
 import SelectBox from './SelectBox';
+import Freshman_modal from './freshman_modal';
+import General_modal from './general_modal';
 dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
@@ -29,7 +30,8 @@ declare global {
 
 export default function Tickets() {
     const [nowUrl, setNowUrl] = useState("");
-    const [modal, setModal] = useState(false);
+    const [freshman_modal, setFreshman_modal] = useState(false);
+    const [general_modal, setGeneral_modal] = useState(false);
 
     useEffect(() => {
         setNowUrl(window.location.href);
@@ -67,8 +69,12 @@ export default function Tickets() {
         });
     }
 
-    const handleModal = () => {
-        setModal(!modal);
+    const handleFreshmanModal = () => {
+        setFreshman_modal(!freshman_modal);
+    };
+
+    const handleGeneralModal = () => {
+        setGeneral_modal(!general_modal);
     };
 
     return (
@@ -121,9 +127,14 @@ export default function Tickets() {
                                             </div>
                                         </div>
                                     </div>
-                                    <button onClick={() => handleModal()} className="mt-[55px]">
-                                    <Image src='/assets/images/tickets/bt_check.svg' alt='check' width={1000} height={1000} className='w-[312px] h-[33px]' />
-                                    </button>
+                                    <div className='flex flex-row mt-[38px]'>
+                                        <button onClick={() => handleFreshmanModal()} className="mx-[1.8vw] w-[172px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                            신입생 티켓 구매내역 조회하기
+                                        </button>
+                                        <button onClick={() => handleGeneralModal()} className="ml-[0.4vw] w-[172px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                            일반 티켓 구매내역 조회하기
+                                        </button>
+                                    </div>
                                 </div>
                                 <div id="map" className=" ml-[60px] w-[262px] h-[262px] flex-shrink-0 z-0"></div>
                             </div>
@@ -176,9 +187,12 @@ export default function Tickets() {
                                 </Link>
                             </div>
                     </div>
-                    {modal && (
-                            <Modal/>
-                        )}
+                    {freshman_modal && (
+                        <Freshman_modal/>
+                    )}
+                    {general_modal && (
+                        <General_modal/>
+                    )}
                 </div>
         </Background>
         </div>
