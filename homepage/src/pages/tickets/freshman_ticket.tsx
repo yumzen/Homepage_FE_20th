@@ -1,19 +1,22 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import './index.css';
 import Background from "@/app/components/Background";
-import Link from "next/link";
 import axios from 'axios';
 
+
 export default function freshman_ticket(){
+    const router = useRouter();
     const [count, setCount] = useState(1);
     const [buyer, setBuyer] = useState('');
     const [phone_num, setphone_num] = useState('');
     const [major, setmajor] = useState('');
     const [student_id, setstudent_id] = useState('');
     const [isCheck, setIsCheck] = useState(true);
-    const [meeting, setmeeting] = useState(true);
+    const [meeting, setMeeting] = useState(true);
     const [isFormComplete, setIsFormComplete] = useState(false);
+    const [reservation_id, setReservationId] = useState('');
 
     useEffect(() => {
         const isDataComplete =
@@ -26,7 +29,17 @@ export default function freshman_ticket(){
     }, [buyer, phone_num, major, student_id]);
 
     const handleSubmit = async () => {
+        
         try {
+            /*
+            const checkResponse = await axios.get(`http://localhost:8000/tickets/freshman_ticket/data/${student_id}`);
+        
+            if (checkResponse.status === 200 && checkResponse.data.exists) {
+                console.log('이미 존재하는 학번입니다.');
+                return;
+            }
+            */
+
             const formData = {
                 buyer,
                 phone_num,
@@ -35,10 +48,16 @@ export default function freshman_ticket(){
                 meeting,
             };
             const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
-
+            console.log(response);
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
+                setReservationId(response.data.reservation_id);
+                router.push({
+                    pathname: "/tickets/complete",
+                    query: { ...router.query, buyer, phone_num, reservation_id: response.data.reservation_id },
+                });
+
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -61,8 +80,8 @@ export default function freshman_ticket(){
         setIsCheck(event.target.value === "true");
     };
 
-    const handleCheckboxChange2 = (event: any) => {
-        setmeeting(event.target.value);
+    const handleCheckboxChange2 = () => {
+        setMeeting(!meeting);
     };
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -198,9 +217,7 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[94px]">
-                    <Link href={{ pathname: "/tickets/complete", query: { buyer, phone_num, major, student_id }}}>
                         <button disabled={!isFormComplete} onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
-                    </Link>
                 </div>
             </div>
         </Background>
