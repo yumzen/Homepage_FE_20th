@@ -16,7 +16,6 @@ export default function freshman_ticket(){
     const [isCheck, setIsCheck] = useState(true);
     const [meeting, setMeeting] = useState(true);
     const [isFormComplete, setIsFormComplete] = useState(false);
-    const [reservation_id, setReservationId] = useState('');
 
     useEffect(() => {
         const isDataComplete =
@@ -52,12 +51,18 @@ export default function freshman_ticket(){
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
-                setReservationId(response.data.reservation_id);
+        
+                /*
+                const receivedData = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
+                console.log('receivedData:', receivedData.data);
+                const reservationId = receivedData.data.reservation_id;
+                setReservationId(reservationId);
+                console.log('reservation_id:', reservationId);
+                */
                 router.push({
-                    pathname: "/tickets/complete",
-                    query: { ...router.query, buyer, phone_num, reservation_id: response.data.reservation_id },
+                    pathname: "/tickets/freshman_complete",
+                    query: { ...router.query, buyer, phone_num, student_id },
                 });
-
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
