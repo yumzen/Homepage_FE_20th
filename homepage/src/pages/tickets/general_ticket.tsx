@@ -1,17 +1,30 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import './index.css';
 import Background from "@/app/components/Background";
 import Link from "next/link";
 import axios from 'axios';
 
 export default function general_ticket(){
+    const router = useRouter();
     const [member, setmember] = useState(1);
     const [buyer, setBuyer] = useState('');
     const [phone_num, setphone_num] = useState('');
     const [isCheck, setIsCheck] = useState(true);
     const [payment, setPayment] = useState("계좌이체");
     const [price, setPrice] = useState(5000);
+    const [isFormComplete, setIsFormComplete] = useState(false);
+    const [namesArray, setNamesArray] = useState<string[]>([]);
+    const [phonesArray, setPhonesArray] = useState<string[]>([]);
+
+    useEffect(() => {
+        const isDataComplete =
+        buyer.trim() !== '' &&
+        phone_num.trim() !== ''
+        true;
+        setIsFormComplete(isDataComplete);
+    }, [buyer, phone_num]);
     
     const handleSubmit = async () => {
         try {
@@ -19,21 +32,22 @@ export default function general_ticket(){
                 buyer,
                 phone_num,
                 member,
+                names: namesArray,
+                phones: phonesArray,
                 price,
                 payment,
             };
-    
-            // POST 요청을 보내서 주문번호를 생성하고 가져오는 API 호출
+
             const response = await axios.post('http://localhost:8000/tickets/general_ticket/', formData);
-    
+            console.log(response);
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
-    
-                // 응답 데이터에서 reservation_id 추출
-                // const reservation_id = response.data.reservation_id;
-                // console.log(reservation_id);
-    
                 console.log('응답 데이터:', response.data);
+        
+                router.push({
+                    pathname: "/tickets/general_complete",
+                    query: { ...router.query, buyer, phone_num, member, price, payment},
+                });
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -60,15 +74,15 @@ export default function general_ticket(){
         setPayment(event.target.value);
         };
 
+
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const phoneNumber = event.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
         setphone_num(phoneNumber);
     };
 
-    const handleNameChange = (event: any) => {
+    const handleBuyerChange = (event: any) => {
         setBuyer(event.target.value);
     };
-    
 
     useEffect(() => {
         const calculatePrice = () => {
@@ -80,29 +94,62 @@ export default function general_ticket(){
     }, [member]);
 
     const payer_info = () => {
-        const divs = [];
-        for (let i = 0; i < member; i++) {
+        const divs: JSX.Element[] = [];
+        divs.push(
+            <div key={0}>
+            <div className="flex flex-row mt-[18px]">
+                <div className="flex items-center justify-center text-center">1. </div>
+                <div className="flex flex-row lg:mx-auto items-center justify-center">
+                    <div className="text-[16px] ml-[2vw] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[50px]"> 이름</div>
+                    <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
+                        <input type="text" placeholder="" onChange={handleBuyerChange} />
+                    </div>
+                    <div className="ml-[9vw] lg:ml-[10vw] text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
+                    <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
+                        <input type="text" placeholder="‘-’없이 입력해주세요. 예) 01012345678" onChange={handlePhoneNumberChange} />
+                    </div>
+                </div>
+            </div>
+        </div>
+        )
+
+        for (let i = 1; i < member; i++) {
+            const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+                const updatedNames = [...namesArray];
+                updatedNames[i] = event.target.value;
+                setNamesArray(updatedNames);
+            };
+
+            const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+                const phoneNumber = event.target.value.replace(/[^0-9]/g, '');
+                const updatedPhones = [...phonesArray];
+                updatedPhones[i] = phoneNumber;
+                setPhonesArray(updatedPhones);
+            };
+
+    
             divs.push(
                 <div key={i}>
                     <div className="flex flex-row mt-[18px]">
-                        <div className="flex items-center justify-center text-center">{i+1}. </div>
-                        <div className=" flex flex-row lg:mx-auto items-center justify-center">
-                            <div className="text-[16px] ml-[2vw]  leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[50px]"> 이름</div>
+                        <div className="flex items-center justify-center text-center">{i + 1}. </div>
+                        <div className="flex flex-row lg:mx-auto items-center justify-center">
+                            <div className="text-[16px] ml-[2vw] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[50px]"> 이름</div>
                             <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
-                                <input type="text" placeholder="" onChange={handleNameChange}/>
+                                <input type="text" placeholder="" onChange={handleNameChange} />
                             </div>
-                            <div className="ml-[9vw]  lg:ml-[10vw] text-[16px] leading-[26px] font-[500] items-center flex  h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
+                            <div className="ml-[9vw] lg:ml-[10vw] text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
                             <div className="input-with-placeholder relative lg:w-[21vw] w-[18vw] ml-[0.5vw] h-[40px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[10px] px-2">
-                                <input type="text" placeholder="‘-’없이 입력해주세요. 예) 01012345678"  onChange={handlePhoneNumberChange}/>
+                                <input type="text" placeholder="‘-’없이 입력해주세요. 예) 01012345678" onChange={handlePhoneChange} />
                             </div>
                         </div>
                     </div>
                 </div>
             );
         }
+    
         return divs;
     };
-        
+
     return (
         <div className="h-[2000px] lg:h-[1900px]">
             <Background>
@@ -209,9 +256,10 @@ export default function general_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[100px]">
-                    {payment === "계좌이체" && (<Link href="/tickets/complete">
-                        <button onClick={handleSubmit} className="w-[270px] h-[52px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
-                    </Link>
+                    {payment === "계좌이체" && (
+                    <div className="flex items-center justify-center mt-[94px]">
+                        <button disabled={!isFormComplete} onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
+                    </div>
                     )}
                     {payment === "카카오페이" && (
                         <Link href="payment">
