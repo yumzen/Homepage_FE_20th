@@ -8,7 +8,7 @@ interface Order {
     cancelable: boolean;
 }
 
-const Modal = () => {
+const general_moodal = () => {
     const [orderNumber, setOrderNumber] = useState("");
     const [searchResult, setSearchResult] = useState<Order[]>([]);
     const [searched, setSearched] = useState(false);
@@ -119,4 +119,4 @@ const Modal = () => {
     ): null;
 };
 
-export default Modal;
+export default general_moodal;

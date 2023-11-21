@@ -1,12 +1,39 @@
+import { useState, useEffect } from "react";
+import axios from 'axios';
 import Background from "@/app/components/Background";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function complete(){
+export default function freshman_complete(){
+    const [reservation_id, setReservationId] = useState('');
     const router = useRouter();
-    const { buyer, phone_num, reservation_id } = router.query;
-    if (!reservation_id) {
+    const { buyer, phone_num, student_id } = router.query;
+    
+    useEffect(() => {
+        const fetchReservationData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
+                if (response.status === 200) {
+                    console.log('요청이 성공적으로 처리되었습니다.');
+                    setReservationId(response.data.data.reservation_id);
+                } else {
+                    console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                    console.error('에러 응답:', response.data);
+                    // Handle other status codes if needed
+                }
+            } catch (error) {
+                console.error('Error fetching reservation data:', error);
+                // Handle error, such as setting an error state
+            }
+        };
+
+        if (student_id) {
+            fetchReservationData();
+        }
+    }, [student_id, reservation_id]);
+
+
+    if (reservation_id) {
         return (
             <div className = "h-[900px]">
                 <Background>
@@ -28,6 +55,9 @@ export default function complete(){
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">이름</div>
                             <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">{buyer}</div>
+                        </div><div className="mt-[32px] flex flex-row items-center">
+                            <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">학번</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#6A6A6A]">{student_id}</div>
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">전화번호</div>

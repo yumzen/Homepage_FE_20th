@@ -1,35 +1,68 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import './index.css';
 import Background from "@/app/components/Background";
-import Link from "next/link";
 import axios from 'axios';
 
+
 export default function freshman_ticket(){
+    const router = useRouter();
     const [count, setCount] = useState(1);
     const [buyer, setBuyer] = useState('');
     const [phone_num, setphone_num] = useState('');
     const [major, setmajor] = useState('');
     const [student_id, setstudent_id] = useState('');
     const [isCheck, setIsCheck] = useState(true);
-    const [meeting, setmeeting] = useState(true);
-    const [payment, setPayment] = useState("계좌이체");
+    const [meeting, setMeeting] = useState(true);
+    const [isFormComplete, setIsFormComplete] = useState(false);
+
+    useEffect(() => {
+        const isDataComplete =
+        buyer.trim() !== '' &&
+        phone_num.trim() !== '' &&
+        major.trim() !== '' &&
+        student_id.trim() !== '' &&
+        true;
+        setIsFormComplete(isDataComplete);
+    }, [buyer, phone_num, major, student_id]);
 
     const handleSubmit = async () => {
+        
         try {
+            /*
+            const checkResponse = await axios.get(`http://localhost:8000/tickets/freshman_ticket/data/${student_id}`);
+        
+            if (checkResponse.status === 200 && checkResponse.data.exists) {
+                console.log('이미 존재하는 학번입니다.');
+                return;
+            }
+            */
+
             const formData = {
                 buyer,
                 phone_num,
                 major,
                 student_id,
                 meeting,
-                payment,
             };
             const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
-
+            console.log(response);
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
+        
+                /*
+                const receivedData = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
+                console.log('receivedData:', receivedData.data);
+                const reservationId = receivedData.data.reservation_id;
+                setReservationId(reservationId);
+                console.log('reservation_id:', reservationId);
+                */
+                router.push({
+                    pathname: "/tickets/freshman_complete",
+                    query: { ...router.query, buyer, phone_num, student_id },
+                });
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -52,12 +85,8 @@ export default function freshman_ticket(){
         setIsCheck(event.target.value === "true");
     };
 
-    const handleCheckboxChange2 = (event: any) => {
-        setmeeting(event.target.value);
-    };
-
-    const handleCheckboxChange3 = (event: any) => {
-        setPayment(event.target.value);
+    const handleCheckboxChange2 = () => {
+        setMeeting(!meeting);
     };
 
     const handlePhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -179,23 +208,6 @@ export default function freshman_ticket(){
                             </label>
                         </div>
                     </div>
-                    <div className="w-[72.5vw] h-[3px] mt-[40px] bg-[#D9D9D9]"/>
-                    <div className="ml-[0.5vw]">
-                        <div className="flex flex-col lg:flex-row">
-                            <div className="w-[120px] h-[29px] mt-[32px] font-[700] text-[20px] leading-[30px]">결제 방법 선택</div>
-                            <div className="w-[740px] h-[26px] lg:mt-[36px] mt-[16px] lg:ml-[56px] ml-[0.5vw] text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
-                        </div>
-                        <div className="mt-[20px] text-[20px] flex flex-row">
-                            <label className="flex flex-row items-center justify-center ">
-                                <input type="radio" name="결제방법" value={"계좌이체"} checked={payment === "계좌이체"}  onChange={handleCheckboxChange3} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
-                                <div className="font-[500] w-[80px]">계좌이체</div>
-                            </label>
-                            <label className="ml-[5vw] flex-row flex items-center justify-center ">
-                                <input type="radio" name="결제방법" value={"카카오페이"} checked={payment === "카카오페이"} onChange={handleCheckboxChange3} className="mr-[18px] accent-[#281CFF]  w-[18px] h-[18px] flex-shrink-0"/>
-                                <div className="font-[500]">카카오페이</div>
-                            </label>
-                        </div>
-                    </div>
                     <div className="w-[72.5vw] h-[3px] mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
                         <div className="mt-[20px] flex flex-row">
@@ -210,9 +222,7 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="flex items-center justify-center mt-[94px]">
-                    <Link href="/tickets/complete">
-                        <button  onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
-                    </Link>
+                        <button disabled={!isFormComplete} onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                 </div>
             </div>
         </Background>
