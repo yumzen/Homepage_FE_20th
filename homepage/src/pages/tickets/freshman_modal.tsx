@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import Freshman_delete from "./freshman_delete";
 interface Order {
     id: number;
     orderNumber: string;
@@ -14,6 +14,7 @@ const freshman_modal = () => {
     const [searched, setSearched] = useState(false);
     const [validOrderNumber, setValidOrderNumber] = useState(true);
     const [isClose, setIsClose] = useState(false);
+    const [freshman_delete, setFreshman_delete] = useState(false);
 
     const handleSearch = () => {
         const tempSearchResult: Order[] = [
@@ -43,6 +44,13 @@ const freshman_modal = () => {
     const handleIsClose = () => {
         setIsClose(true);
     };
+
+    const changeModal = () => {
+        console.log(freshman_delete);
+        setFreshman_delete(true);
+        console.log(freshman_delete);
+        //handleIsClose();
+    }
     
     const handleOverlayClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -105,14 +113,17 @@ const freshman_modal = () => {
                                     ))}
                             </div>
                             <div className="w-[514px] h-[48px] mt-[48px] mx-auto flex items-center">
-                                <button className="w-full h-full bg-[#E8E8E8] rounded-[8px] text-center text-[#000] hover:text-[#FFF] text-[14px] font-[600] leading-[19px] hover:bg-[#281CFF]">
-                                    예매 취소하기
+                                <button onClick={() => changeModal()}  className="w-full h-full bg-[#E8E8E8] rounded-[8px] text-center text-[#000] hover:text-[#FFF] text-[14px] font-[600] leading-[19px] hover:bg-[#281CFF]">
+                                    예매 취소하러 가기
                                 </button>
                             </div>
                         </div>
                     )}
                     {!validOrderNumber && (
                             <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>
+                    )}
+                    {freshman_delete && (
+                        <Freshman_delete/>
                     )}
             </div>
         </div>

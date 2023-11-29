@@ -27,27 +27,35 @@ export default function general_ticket(){
     }, [buyer, phone_num]);
     
     const handleSubmit = async () => {
+        console.log(buyer, phone_num, member, price);
         try {
             const formData = {
                 buyer,
                 phone_num,
                 member,
-                names: namesArray,
-                phones: phonesArray,
+                //names: namesArray,
+                //phones: phonesArray,
                 price,
-                payment,
+                //payment,
             };
 
-            const response = await axios.post('http://localhost:8000/tickets/general_ticket/', formData);
+            const response = await axios.post('http://localhost:8000/tickets/general_ticket', formData);
             console.log(response);
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
-        
-                router.push({
-                    pathname: "/tickets/general_complete",
-                    query: { ...router.query, buyer, phone_num, member, price, payment},
-                });
+                if (payment === "계좌이체"){
+                    router.push({
+                        pathname: "/tickets/general_complete",
+                        query: { ...router.query, buyer, phone_num, member, price},
+                    });
+                }
+                else {
+                    router.push({
+                        pathname: "/tickets/payment",
+                        query: { ...router.query, buyer, phone_num, price},
+                    });
+                }
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -146,7 +154,6 @@ export default function general_ticket(){
                 </div>
             );
         }
-    
         return divs;
     };
 

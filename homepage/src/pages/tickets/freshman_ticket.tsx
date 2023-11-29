@@ -51,14 +51,7 @@ export default function freshman_ticket(){
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
-        
-                /*
-                const receivedData = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
-                console.log('receivedData:', receivedData.data);
-                const reservationId = receivedData.data.reservation_id;
-                setReservationId(reservationId);
-                console.log('reservation_id:', reservationId);
-                */
+                
                 router.push({
                     pathname: "/tickets/freshman_complete",
                     query: { ...router.query, buyer, phone_num, student_id },

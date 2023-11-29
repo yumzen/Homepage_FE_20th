@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function complete(){
+export default function general_complete(){
     const router = useRouter();
     const { buyer, phone_num, reservation_id } = router.query;
     if (!reservation_id) {
@@ -14,7 +14,7 @@ export default function complete(){
                 <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[40px]">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17}/>
                     <div className="mt-[16px] flex flex-row">
-                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매가 완료되었습니다!</div>
+                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매 현황</div>
                     </div>
                 </div>
                 <div className="mt-[64px] flex flex-col mx-auto ">

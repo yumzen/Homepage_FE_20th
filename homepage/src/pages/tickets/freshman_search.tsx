@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import Background from "@/app/components/Background";
 import Image from "next/image";
 
 interface Order {
@@ -8,12 +10,12 @@ interface Order {
     cancelable: boolean;
 }
 
-const general_modal = () => {
+export default function freshman_complete(){
+    const [reservation_id, setReservationId] = useState('');
     const [orderNumber, setOrderNumber] = useState("");
     const [searchResult, setSearchResult] = useState<Order[]>([]);
     const [searched, setSearched] = useState(false);
     const [validOrderNumber, setValidOrderNumber] = useState(true);
-    const [isClose, setIsClose] = useState(false);
 
     const handleSearch = () => {
         const tempSearchResult: Order[] = [
@@ -33,62 +35,57 @@ const general_modal = () => {
         setValidOrderNumber(false);
         }
     };
-    
     const handleInputKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
         handleSearch();
         }
     };
-    
-    const handleIsClose = () => {
-        setIsClose(true);
-    };
-    
-    const handleOverlayClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>
-    ) => {
-        if (event.target === event.currentTarget) {
-        handleIsClose();
+
+    const searchData = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+            if (response.status === 200) {
+                console.log('요청이 성공적으로 처리되었습니다.');
+                setReservationId(response.data.data.reservation_id);
+            } else {
+                console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                console.error('에러 응답:', response.data);
+                // Handle other status codes if needed
+            }
+        } catch (error) {
+            console.error('Error fetching reservation data:', error);
+            // Handle error, such as setting an error state
         }
     };
-    
-    const handleKeyPress = (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-        handleIsClose();
-        }
-    };
-    
-    useEffect(() => {
-        document.addEventListener("keydown", handleKeyPress);
-        return () => {
-        document.removeEventListener("keydown", handleKeyPress);
-        };
-    }, []);
-    return !isClose ? (
-        <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
-            <div className="font-['pretendard'] w-[580px] h-[592px] bg-[#FFF] flex-shrink-0 fixed z-20">
-                <button onClick={handleIsClose} className="ml-[544px] w-[36px] h-[38px] flex-col items-center flex justify-center text-[20px] font-[700]">x</button>
-                <div className="w-[100%] h-[1px] bg-[#D3D3D3]"/>
-                <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
-                    <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}/>
-                    <p className="font-[700] mt-[12px] text-[24px] leading-[28px]">예매 내역 확인</p>
-                    <p className="mt-[20px] font-[500] text-[14px] laeding-[21px] text-[#4A4A4A]">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
-                </div>
-                <div className=" mt-[48px] mx-auto w-[516px] h-[48px] flex rounded-[8px] items-center text-center content-center border-[1px] border-solid border-[#000] outline-none">
-                    <input
-                        type="text"
-                        value={orderNumber}
-                        onChange={(e) => setOrderNumber(e.target.value)}
-                        placeholder="예매번호를 입력해 주세요."
-                        className="flex-grow px-[16px] outline-none text-[14px]"
-                        onKeyDown={handleInputKeyPress}
-                    />
-                    <div onClick={handleSearch} className="relative bg-[#D9D9D9] rounded-[4px] w-[24px] h-[24px] my-[12px] mr-[16px] cursor-pointer">
-                        <Image src="/assets/images/tickets/search.png" alt="돋보기" width={100} height={100} className="flex w-[16px] h-[16px] mx-auto mt-[5px] "/>
-                </div>
+
+    const search_tickets = () => {
+        searchData();
+    }
+
+    return (
+        <div className = "h-[900px]">
+            <Background>
+                <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px]">
+                    <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
+                        <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}/>
+                        <p className="font-[700] mt-[12px] text-[24px] leading-[28px]">예매 내역 확인</p>
+                        <p className="mt-[20px] font-[500] text-[14px] laeding-[21px] text-[#4A4A4A]">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
+                    </div>
+                    <div className=" mt-[48px] mx-auto w-[516px] h-[48px] flex rounded-[8px] items-center text-center content-center border-[1px] border-solid bg-[#FFF] border-[#000] outline-none">
+                        <input
+                            type="text"
+                            value={orderNumber}
+                            onChange={(e) => setOrderNumber(e.target.value)}
+                            placeholder="예매번호를 입력해 주세요."
+                            className="flex-grow px-[16px] outline-none text-[14px]"
+                            onKeyDown={handleInputKeyPress}
+                        />
+                        <div onClick={handleSearch} className="relative bg-[#D9D9D9] rounded-[4px] w-[24px] h-[24px] my-[12px] mr-[16px] cursor-pointer">
+                            <Image src="/assets/images/tickets/search.png" alt="돋보기" width={100} height={100} className="flex w-[16px] h-[16px] mx-auto mt-[5px] "/>
+                        </div>
                     </div>
                     {searched && (
-                        <div>
+                        <div className="mt-[48px] mx-auto items-center content-center flex flex-col ">
                             <div className="mt-[32px] mx-auto bg-[#F1F5FF] w-[516px] h-[120px] flex-shrink-0 rounded-[8px]">
                                 <div className="flex flex-row align-center justify-center">
                                     <div className="mt-[15px] ml-[24px] w-[118px] h-[19px] flex text-center justify-center  items-center text-[12px] font-[700]"> 예매번호 </div>
@@ -111,12 +108,10 @@ const general_modal = () => {
                             </div>
                         </div>
                     )}
-                    {!validOrderNumber && (
-                            <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>
-                    )}
-            </div>
+                    {!validOrderNumber && ( <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>)}
+                </div>
+            </Background>
         </div>
-    ): null;
-};
-
-export default general_modal;
+    )
+        
+}
