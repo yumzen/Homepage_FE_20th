@@ -51,11 +51,12 @@ export default function freshman_ticket(){
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
-                
+                const reservation_id = response.data.data.reservation_id;
                 router.push({
                     pathname: "/tickets/freshman_complete",
-                    query: { ...router.query, buyer, phone_num, student_id },
+                    query: { ...router.query, reservation_id },
                 });
+
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -64,6 +65,8 @@ export default function freshman_ticket(){
             console.error('Error submitting data:', error);
         }
     };
+
+    
 
 
     const handleIncrement = () => {
