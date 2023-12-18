@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import Background from '../../app/components/Background';
 import SelectBox from './SelectBox';
-import Freshman_modal from './freshman_modal';
-import General_modal from './general_modal';
 dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
@@ -128,12 +126,16 @@ export default function Tickets() {
                                         </div>
                                     </div>
                                     <div className='flex flex-row mt-[36px]'>
-                                        <button onClick={() => handleFreshmanModal()} className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                    <Link href="tickets/freshman_ticket/delete/">
+                                        <button className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
                                             신입생 티켓 구매내역 조회하기
                                         </button>
-                                        <button onClick={() => handleGeneralModal()} className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                    </Link>
+                                    <Link href="tickets/general_ticket/delete/">
+                                        <button className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
                                             일반 티켓 구매내역 조회하기
                                         </button>
+                                    </Link>
                                     </div>
                                 </div>
                                 <div id="map" className=" ml-[45px] w-[242px] h-[242px] flex-shrink-0 z-0"></div>
@@ -193,12 +195,6 @@ export default function Tickets() {
                                 </Link>
                             </div>
                     </div>
-                    {freshman_modal && (
-                        <Freshman_modal/>
-                    )}
-                    {general_modal && (
-                        <General_modal/>
-                    )}
                 </div>
         </Background>
         </div>
