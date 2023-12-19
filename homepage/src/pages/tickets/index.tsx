@@ -30,6 +30,12 @@ export default function Tickets() {
     const [nowUrl, setNowUrl] = useState("");
     const [freshman_modal, setFreshman_modal] = useState(false);
     const [general_modal, setGeneral_modal] = useState(false);
+    
+    // 예매 가능 기간 설정
+    const startDate = new Date('2023-09-01');
+    const endDate = new Date('2024-09-10');
+    const today = new Date();
+    const isWithinSeason = today >= startDate && today <= endDate;
 
     useEffect(() => {
         setNowUrl(window.location.href);
@@ -187,13 +193,18 @@ export default function Tickets() {
                             
                         </div>
                             <div className='ml-[480px] mt-[16px]'>
+                            {isWithinSeason ? (
+                            <div>
                                 <Link href="tickets/freshman_ticket">
-                                <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">신입생 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">신입생 티켓 예매하기</button>
                                 </Link>
                                 <Link href="tickets/general_ticket">
-                                <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center">일반 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center">일반 티켓 예매하기</button>
                                 </Link>
-                            </div>
+                            </div>) : (
+                            <button className="ml-[30px] w-[540px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#B9B9B9] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">지금은 예매 가능 기간이 아닙니다.</button>
+                        )}
+                        </div>
                     </div>
                 </div>
         </Background>
