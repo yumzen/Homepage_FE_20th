@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import styles from "./SliderStyle.module.css";
 
 // Import Swiper styles
 import "swiper/css";
@@ -25,12 +26,13 @@ export default function ImageSlider1() {
     <>
       <Swiper
         onSwiper={setSwiperRef}
-        slidesPerView={3}
-        loop={true}
-        spaceBetween={30}
-        pagination={{
-          type: "fraction",
+        slidesPerView={1}
+        breakpoints={{
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1080: { slidesPerView: 3, spaceBetween: 30 },
         }}
+        loop={true}
+        pagination={false}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
