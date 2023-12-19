@@ -1,12 +1,40 @@
 import Background from "@/app/components/Background";
 import Image from "next/image";
-import Link from "next/link";
+import axios from 'axios';
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 export default function general_complete(){
     const router = useRouter();
-    const { buyer, phone_num, reservation_id } = router.query;
-    if (!reservation_id) {
+    const [buyer, setBuyer] = useState('');
+    const [phone_num, setPhoneNum] = useState('');
+    const { id } = router.query;
+    
+    useEffect(() => {
+        const fetchReservationData = async () => {
+            if(id){
+                try {
+                    const response = await axios.get(`http://localhost:8000/tickets/general_complete/?id=${id}`);
+                    if (response.status === 200) {
+                        console.log('요청이 성공적으로 처리되었습니다.');
+                        setBuyer(response.data.data.buyer);
+                        setPhoneNum(response.data.data.phone_num);
+                    } else {
+                        console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                        console.error('에러 응답:', response.data);
+                        // Handle other status codes if needed
+                    }
+                } catch (error) {
+                    console.error('Error fetching reservation data:', error);
+                    // Handle error, such as setting an error state
+                }
+            }
+        };
+        fetchReservationData();
+
+    }, [id]);
+
+    if (id) {
         return (
             <div className = "h-[900px]">
                 <Background>
@@ -23,7 +51,7 @@ export default function general_complete(){
                     <div className="ml-[0.5vw] ">
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매번호</div>
-                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{reservation_id}</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{id}</div>
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">이름</div>
