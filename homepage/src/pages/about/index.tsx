@@ -10,6 +10,7 @@ import Main from "./Main";
 
 export default function About() {
   return (
+    // height 조정 필요
     <div className="h-[3600px] flex relative items-center justify-center">
       <Background>
         <div className="font-pretendard">
