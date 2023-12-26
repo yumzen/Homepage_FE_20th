@@ -1,19 +1,12 @@
 import React, { FormEvent } from "react";
 import logo from "/public/assets/images/admin/admin_logo.svg";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Login = () => {
   const [id, setId] = useState("");
   const [password, setPw] = useState("");
-
-  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    console.log("로그인 성공");
-    console.log("ID ", id);
-    console.log("PW ", password);
-  };
 
   const onIdHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setId(event.currentTarget.value);
@@ -22,17 +15,29 @@ const Login = () => {
     setPw(event.currentTarget.value);
   };
 
+  const onLoginHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    console.log("로그인 성공");
+    console.log("ID ", id);
+    console.log("PW ", password);
+  };
+
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[780px] h-[560px] bg-gray flex-col justify-center items-center">
-        <Image src={logo} alt="admin-logo" className="h-[30px] m-[40px]" />
+    <div className="font-pretendard w-full h-screen flex justify-center items-center">
+      <div className="w-[780px] h-[560px] bg-gray">
+        <Image
+          src={logo}
+          alt="admin-logo"
+          className="w-[250px] h-[30px] m-[40px]"
+        />
         <form
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
-          onSubmit={onSubmitHandler}
+          onSubmit={onLoginHandler}
         >
           <label style={{ display: "none" }}>아이디</label>
           <input
