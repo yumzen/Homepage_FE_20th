@@ -37,18 +37,18 @@ const freshman_delete = () => {
     }, [router.query?.reservation_id]);
 
     const handleCancelReservation = async () => {
-        if(input_sid === student_id){
+        if (input_sid === student_id) {
             setValidSid(true);
+            console.log(reservation_id);
             try {
-                const response = await axios.get(`http://localhost:8000/tickets/freshman_ticket/delete/?student_id=${student_id}&reservation_id=${reservation_id}`);
+                const response = await axios.delete(`http://127.0.0.1:8000/tickets/freshman_ticket/delete/?reservation_id=${reservation_id}`);
                 console.log('Reservation canceled:', response.data); // 성공 시 응답 데이터 출력
                 // 성공적으로 삭제되었을 때 추가적인 동작 수행
             } catch (error) {
                 console.error('Error canceling reservation:', error);
                 // 삭제 중 오류 발생 시 에러 핸들링
             }
-        }
-        else{
+        } else {
             setValidSid(false);
         }
     };
