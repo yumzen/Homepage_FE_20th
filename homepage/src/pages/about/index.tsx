@@ -1,42 +1,21 @@
 import React from "react";
 import Image from "next/image";
-import mainImg from "/public/assets/images/about/concert3.jpg";
 import styles from "./index.module.css";
 import ImageSlider1 from "./ImageSlider1";
 import ImageSlider2 from "./ImageSlider2";
 import ImageSlider3 from "./ImageSlider3";
 import Background from "@/app/components/Background";
 import divider from "/public/assets/images/about/divider_medium.svg";
+import Main from "./Main";
 
 export default function About() {
   return (
+    // height 조정 필요
     <div className="h-[3600px] flex relative items-center justify-center">
       <Background>
         <div className="font-pretendard">
           <div className="flex flex-col justify-center items-center">
-            <div className="relative bg-cover">
-              <Image
-                src={mainImg}
-                alt="about-main-image"
-                width={0}
-                height={0}
-                sizes="100vw"
-                className={styles.mainImg}
-              />
-              <div className={styles.mainDiv}>
-                <p className={styles.mainText}>
-                  아 우리는 <br /> 깔 깔 깔 깔루아 !
-                </p>
-                <p className={styles.subText}>
-                  깔루아는
-                  <br />
-                  2003년부터 지금까지 21년의 전통을 이어오고 있는
-                  <br />
-                  홍익대학교 컴퓨터공학과 밴드학회입니다.
-                </p>
-                <p className={styles.aboutText}>ABOUT US</p>
-              </div>
-            </div>
+            <Main />
             <Image src={divider} alt="divider" className="mt-[80px]" />
             <p className={styles.divideText}>ACTIVITIES</p>
             <p className={styles.detailText}>

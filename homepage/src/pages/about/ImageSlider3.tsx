@@ -32,12 +32,13 @@ export default function ImageSlider3() {
     <>
       <Swiper
         onSwiper={setSwiperRef}
-        slidesPerView={3}
-        loop={true}
-        spaceBetween={30}
-        pagination={{
-          type: "fraction",
+        slidesPerView={1}
+        breakpoints={{
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1080: { slidesPerView: 3, spaceBetween: 30 },
         }}
+        loop={true}
+        pagination={false}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
