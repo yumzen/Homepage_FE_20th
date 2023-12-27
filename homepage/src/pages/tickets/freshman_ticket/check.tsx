@@ -19,7 +19,7 @@ const freshman_delete = () => {
         const fetchReservationData = async () => {
             try {
                 if (router.query?.reservation_id) {
-                    const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?reservation_id=${router.query.reservation_id}`);
+                    const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${router.query.reservation_id}`);
                     console.log(response.data);
                     if (response.data) {
                         setBuyer(response.data.data.buyer);
@@ -40,13 +40,23 @@ const freshman_delete = () => {
         if (input_sid === student_id) {
             setValidSid(true);
             console.log(reservation_id);
+            const formData = new FormData();
+            formData.append('reservation_id', reservation_id as string);
+            const rid = reservation_id;
             try {
-                const response = await axios.delete(`http://127.0.0.1:8000/tickets/freshman_ticket/delete/?reservation_id=${reservation_id}`);
-                console.log('Reservation canceled:', response.data); // 성공 시 응답 데이터 출력
-                // 성공적으로 삭제되었을 때 추가적인 동작 수행
+                const response = await axios.delete('http://127.0.0.1:8000/tickets/freshman_ticket/delete/', {
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+                console.log('Reservation canceled:', response.data);
+                router.push({
+                    pathname: '/tickets/cancel_complete/',
+                    query: { rid } 
+                })
             } catch (error) {
                 console.error('Error canceling reservation:', error);
-                // 삭제 중 오류 발생 시 에러 핸들링
             }
         } else {
             setValidSid(false);
