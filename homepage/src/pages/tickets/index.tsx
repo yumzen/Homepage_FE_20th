@@ -10,6 +10,9 @@ dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 
+/*
+    공연 정보 설정
+*/
 const data = [
     {
     image: '/assets/images/tickets/poster.png', 
@@ -28,13 +31,14 @@ declare global {
 
 export default function Tickets() {
     const [nowUrl, setNowUrl] = useState("");
-    const [freshman_modal, setFreshman_modal] = useState(false);
-    const [general_modal, setGeneral_modal] = useState(false);
+
     
-    // 예매 가능 기간 설정
+    /*
+        예매 가능 기간 설정
+    */
     const startDate = new Date('2023-09-01');
     const endDate = new Date('2024-09-10');
-    const today = new Date();
+    const today = new Date();   
     const isWithinSeason = today >= startDate && today <= endDate;
 
     useEffect(() => {
@@ -47,11 +51,17 @@ export default function Tickets() {
         window.kakao.maps.load(() => {
             const container = document.getElementById("map");
             const options = {
+                /*
+                    공연 장소 위치 설정
+                */
             center: new window.kakao.maps.LatLng(37.55099593968109, 126.92401144435387),
             level: 3,
             };
     
             const map = new window.kakao.maps.Map(container, options);
+            /*
+                공연 장소 위치 설정
+            */
             var markerPosition = new window.kakao.maps.LatLng(37.55099593968109, 126.92401144435387);
             var marker = new window.kakao.maps.Marker({
             position: markerPosition,
@@ -73,14 +83,6 @@ export default function Tickets() {
         });
     }
 
-    const handleFreshmanModal = () => {
-        setFreshman_modal(!freshman_modal);
-    };
-
-    const handleGeneralModal = () => {
-        setGeneral_modal(!general_modal);
-    };
-
     return (
         <div className="h-[1100px] flex items-center justify-center z-0 ">
         <Background>
@@ -92,7 +94,7 @@ export default function Tickets() {
                             <div className="flex flex-row">
                                 <div className="font-['pretendard'] w-[282px] h-[42px] mt-[8px] flex flex-shrink-0 text-black font-[700] text-[31px] leading-[40px]">{data[0].title}</div>
                                 <div className="ml-[238px] flex mt-[19px]">
-                                    <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="  passHref>
+                                    <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" target='_blank' passHref>
                                         <Image src='/assets/images/tickets/bt_feed.svg' alt='인스타그램' width={1000} height={1000} className="cursor-pointer w-[100px] h-[30px]"/>
                                     </Link>
                                     <div onClick={copyUrl}>
@@ -179,14 +181,14 @@ export default function Tickets() {
                                 
                             </div>
                             <div className="w-[358px] h-[260px] flex flex-col bg-[#F1F5FF] ">
-                            <div className=" flex flex-col mx-auto mt-[30px]">
+                                <div className=" flex flex-col mx-auto mt-[30px]">
                                         <div className="flex w-[260px] text-center flex-row justify-between">
                                             <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                                            <div className="text-[14px] text-right font-[500] w-[35px]">110석</div>  
+                                            <div className="text-[14px] text-right font-[500] w-[70px]">예매가능</div>  
                                         </div>
                                         <div className="mt-[13px]  flex w-[260px] text-center flex-row justify-between">
                                             <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                                            <div className="text-[14px] text-right font-[500]  w-[35px]">120석</div>
+                                            <div className="text-[14px] text-right font-[500]  w-[70px]">예매가능</div>
                                         </div>
                                     </div>
                             </div>
@@ -207,7 +209,7 @@ export default function Tickets() {
                         </div>
                     </div>
                 </div>
-        </Background>
+            </Background>
         </div>
     )
 }
