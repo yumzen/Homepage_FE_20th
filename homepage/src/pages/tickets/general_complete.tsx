@@ -7,18 +7,16 @@ import { useState, useEffect } from "react";
 export default function general_complete(){
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
-    const [phone_num, setPhoneNum] = useState('');
-    const { id } = router.query;
+    const {merchant_order_id , phone_num } = router.query;
     
     useEffect(() => {
         const fetchReservationData = async () => {
-            if(id){
+            if(merchant_order_id && phone_num){
                 try {
-                    const response = await axios.get(`http://localhost:8000/tickets/general_complete/?id=${id}`);
+                    const response = await axios.get(`http://127.0.0.1:8000/tickets/general_ticket/?merchant_order_id=${merchant_order_id}&phone_num=${phone_num}`);
                     if (response.status === 200) {
                         console.log('요청이 성공적으로 처리되었습니다.');
                         setBuyer(response.data.data.buyer);
-                        setPhoneNum(response.data.data.phone_num);
                     } else {
                         console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                         console.error('에러 응답:', response.data);
@@ -32,9 +30,9 @@ export default function general_complete(){
         };
         fetchReservationData();
 
-    }, [id]);
+    }, [merchant_order_id , phone_num]);
 
-    if (id) {
+    if (merchant_order_id ) {
         return (
             <div className = "h-[900px]">
                 <Background>
@@ -51,7 +49,7 @@ export default function general_complete(){
                     <div className="ml-[0.5vw] ">
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매번호</div>
-                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{id}</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{merchant_order_id}</div>
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">이름</div>
