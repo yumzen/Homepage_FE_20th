@@ -6,38 +6,39 @@ import { useRouter } from "next/router";
 
 interface Order {
     id: number;
-    reservation_id: string;
+    merchant_order_id: string;
     name: string;
     cancelable: boolean;
 }
 
-const freshman_delete = () => {
+const general_delete = () => {
     const router = useRouter();
-    const [reservation_id, setreservation_id] = useState("");
+    const [merchant_order_id, setMerchant_order_id] = useState("");
     const [cancelable, setCancelable] = useState(false);
     const [searched, setSearched] = useState(false);
-    const [validReservation_id, setValidReservation_id] = useState(true);
+    const [validMerchant_order_id, setValidMerchant_order_id] = useState(true);
     const [buyer, setBuyer] = useState('');
 
 
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+            const response = await axios.get(`http://127.0.0.1:8000/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
             
             if (response.data) {
                 console.log(response.data); 
                 setSearched(true);
-                setValidReservation_id(true);
+                setValidMerchant_order_id(true);
                 setBuyer(response.data.data.buyer);
+                setCancelable(true);
             } else {
                 setSearched(false);
-                setValidReservation_id(false);
+                setValidMerchant_order_id(false);
             }
         } catch (error) {
             console.error('Error searching reservation:', error);
             setSearched(false);
-            setValidReservation_id(false);
+            setValidMerchant_order_id(false);
         }
     };
 
@@ -48,10 +49,11 @@ const freshman_delete = () => {
     };
 
     const handleCancelReservation = () => {
+        if(cancelable === true){
         router.push({
             pathname: '/tickets/freshman_ticket/check/',
-            query: { reservation_id :reservation_id } 
-        })};
+            query: { merchant_order_id :merchant_order_id } 
+        })}};
     
     return  (
         <div className = "h-[650px]">
@@ -59,14 +61,14 @@ const freshman_delete = () => {
             <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px]">
                 <div className="flex flex-col items-center text-center content-center mt-[40px] leading-normal">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}/>
-                    <p className="font-[700] mt-[12px] text-[24px] leading-[28px]">신입생 예매 내역 확인</p>
+                    <p className="font-[700] mt-[12px] text-[24px] leading-[28px]">일반 예매 내역 확인</p>
                     <p className="mt-[20px] font-[500] text-[14px] laeding-[21px] text-[#4A4A4A]">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
                 </div>
                 <div className=" mt-[48px] mx-auto w-[516px] h-[48px] flex rounded-[8px] items-center text-center content-center border-[1px] border-solid bg-[#FFF] border-[#000] outline-none">
                     <input
                         type="text"
-                        value={reservation_id}
-                        onChange={(e) => setreservation_id(e.target.value)}
+                        value={merchant_order_id}
+                        onChange={(e) => setMerchant_order_id(e.target.value)}
                         placeholder="예매번호를 입력해 주세요."
                         className="flex-grow px-[16px] outline-none text-[14px]"
                         onKeyDown={handleInputKeyPress}
@@ -85,7 +87,7 @@ const freshman_delete = () => {
                             </div>
                             <div className="mt-[21px] h-[1px] w-[100%] bg-[#D3D3D3] "/>
                                     <div className="flex flex-row align-center justify-center">
-                                        <div className="mt-[19px] ml-[24px] w-[118px]  h-[21px] flex text-center justify-center items-center text-[14px] font-[500]"> {reservation_id} </div>
+                                        <div className="mt-[19px] ml-[24px] w-[118px]  h-[21px] flex text-center justify-center items-center text-[14px] font-[500]"> {merchant_order_id} </div>
                                         <div className="mt-[19px] mx-auto w-[118px] flex text-center justify-center  items-center text-[14px] font-[500]"> {buyer} </div>
                                         <div className="mt-[19px] mr-[24px] w-[118px] flex text-center justify-center  items-center text-[14px] font-[500]"> {cancelable ? "취소 가능" : "취소 불가능"} </div>
                                     </div>
@@ -97,11 +99,11 @@ const freshman_delete = () => {
                         </div>
                     </div>
                 )}
-                {!validReservation_id && ( <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>)}
+                {!validMerchant_order_id && ( <div className="mt-[48px] flex text-center justify-center items-center font-[700] text-[14px]">잘못된 예매 번호 입니다.</div>)}
             </div>
         </Background>
     </div>
     )
 };
 
-export default freshman_delete;
+export default general_delete;

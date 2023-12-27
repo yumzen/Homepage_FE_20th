@@ -15,7 +15,7 @@ export default function freshman_complete(){
         const fetchReservationData = async () => {
             if(reservation_id){
                 try {
-                    const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+                    const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
                     if (response.status === 200) {
                         console.log('요청이 성공적으로 처리되었습니다.');
                         setBuyer(response.data.data.buyer);

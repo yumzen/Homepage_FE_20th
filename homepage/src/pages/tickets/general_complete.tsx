@@ -8,6 +8,7 @@ export default function general_complete(){
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
     const {merchant_order_id , phone_num } = router.query;
+    const [merchant_status, setMerchant_status] = useState("결제대기");
     
     useEffect(() => {
         const fetchReservationData = async () => {
@@ -17,6 +18,9 @@ export default function general_complete(){
                     if (response.status === 200) {
                         console.log('요청이 성공적으로 처리되었습니다.');
                         setBuyer(response.data.data.buyer);
+                        if(response.data.data.status===true){
+                            setMerchant_status("결제완료");
+                        } 
                     } else {
                         console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                         console.error('에러 응답:', response.data);
@@ -61,7 +65,7 @@ export default function general_complete(){
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매현황</div>
-                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">예매완료</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">{merchant_status}</div>
                         </div>
                         </div>
                         <div className="w-[72.5vw] h-[3px] mt-[32px] bg-[#D3D3D3] flex"/>

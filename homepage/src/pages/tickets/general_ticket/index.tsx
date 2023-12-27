@@ -85,10 +85,10 @@ export default function general_ticket(){
                         query: { ...router.query, merchant_order_id, phone_num },
                     });
                 } else {
-                    if (buyer && phone_num && price) {
+                    if (merchant_order_id && buyer && phone_num && price) {
                         router.push({
                             pathname: "/tickets/payment",
-                            query: { ...router.query, merchant_order_id, buyer, phone_num, member, price, payment },
+                            query: { ...router.query, merchant_order_id, buyer, phone_num, price, payment },
                         });
                     }
                 }
