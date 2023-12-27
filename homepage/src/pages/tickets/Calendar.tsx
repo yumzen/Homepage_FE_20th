@@ -62,7 +62,7 @@ return (
                             : ""
                         } ${
                             isConcertDay(date) && isSameDay(selectedDate, concertDay)
-                            ? "bg-[#0047FF] text-[#FFF] rounded-full text-white cursor-pointer "
+                            ? "bg-[#0047FF] text-[#FFF] rounded-full cursor-pointer "
                             : "cursor-pointer"
                         }`}
                         onClick={() => handleDateClick(date)}

@@ -1,12 +1,42 @@
 import Background from "@/app/components/Background";
 import Image from "next/image";
-import Link from "next/link";
+import axios from 'axios';
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
-export default function complete(){
+export default function general_complete(){
     const router = useRouter();
-    const { buyer, phone_num, reservation_id } = router.query;
-    if (!reservation_id) {
+    const [buyer, setBuyer] = useState('');
+    const {merchant_order_id , phone_num } = router.query;
+    const [merchant_status, setMerchant_status] = useState("결제대기");
+    
+    useEffect(() => {
+        const fetchReservationData = async () => {
+            if(merchant_order_id && phone_num){
+                try {
+                    const response = await axios.get(`http://127.0.0.1:8000/tickets/general_ticket/?merchant_order_id=${merchant_order_id}&phone_num=${phone_num}`);
+                    if (response.status === 200) {
+                        console.log('요청이 성공적으로 처리되었습니다.');
+                        setBuyer(response.data.data.buyer);
+                        if(response.data.data.status===true){
+                            setMerchant_status("결제완료");
+                        } 
+                    } else {
+                        console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                        console.error('에러 응답:', response.data);
+                        // Handle other status codes if needed
+                    }
+                } catch (error) {
+                    console.error('Error fetching reservation data:', error);
+                    // Handle error, such as setting an error state
+                }
+            }
+        };
+        fetchReservationData();
+
+    }, [merchant_order_id , phone_num]);
+
+    if (merchant_order_id ) {
         return (
             <div className = "h-[900px]">
                 <Background>
@@ -14,7 +44,7 @@ export default function complete(){
                 <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[40px]">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17}/>
                     <div className="mt-[16px] flex flex-row">
-                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매가 완료되었습니다!</div>
+                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매 현황</div>
                     </div>
                 </div>
                 <div className="mt-[64px] flex flex-col mx-auto ">
@@ -23,7 +53,7 @@ export default function complete(){
                     <div className="ml-[0.5vw] ">
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매번호</div>
-                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{reservation_id}</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#281CFF]">{merchant_order_id}</div>
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">이름</div>
@@ -35,7 +65,7 @@ export default function complete(){
                         </div>
                         <div className="mt-[32px] flex flex-row items-center">
                             <div className="text-[20px] w-[100px] font-[500] leading-[0.4px]">예매현황</div>
-                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">예매완료</div>
+                            <div className="ml-[5.5vw] text-[16px] font-[500] w-[60vw] leading-[21px] text-[#979797]">{merchant_status}</div>
                         </div>
                         </div>
                         <div className="w-[72.5vw] h-[3px] mt-[32px] bg-[#D3D3D3] flex"/>

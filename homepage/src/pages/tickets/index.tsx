@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import Background from '../../app/components/Background';
 import SelectBox from './SelectBox';
-import Freshman_modal from './freshman_modal';
-import General_modal from './general_modal';
 dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 
+/*
+    공연 정보 설정
+*/
 const data = [
     {
     image: '/assets/images/tickets/poster.png', 
@@ -30,8 +31,15 @@ declare global {
 
 export default function Tickets() {
     const [nowUrl, setNowUrl] = useState("");
-    const [freshman_modal, setFreshman_modal] = useState(false);
-    const [general_modal, setGeneral_modal] = useState(false);
+
+    
+    /*
+        예매 가능 기간 설정
+    */
+    const startDate = new Date('2023-09-01');
+    const endDate = new Date('2024-09-10');
+    const today = new Date();   
+    const isWithinSeason = today >= startDate && today <= endDate;
 
     useEffect(() => {
         setNowUrl(window.location.href);
@@ -43,11 +51,17 @@ export default function Tickets() {
         window.kakao.maps.load(() => {
             const container = document.getElementById("map");
             const options = {
+                /*
+                    공연 장소 위치 설정
+                */
             center: new window.kakao.maps.LatLng(37.55099593968109, 126.92401144435387),
             level: 3,
             };
     
             const map = new window.kakao.maps.Map(container, options);
+            /*
+                공연 장소 위치 설정
+            */
             var markerPosition = new window.kakao.maps.LatLng(37.55099593968109, 126.92401144435387);
             var marker = new window.kakao.maps.Marker({
             position: markerPosition,
@@ -69,14 +83,6 @@ export default function Tickets() {
         });
     }
 
-    const handleFreshmanModal = () => {
-        setFreshman_modal(!freshman_modal);
-    };
-
-    const handleGeneralModal = () => {
-        setGeneral_modal(!general_modal);
-    };
-
     return (
         <div className="h-[1100px] flex items-center justify-center z-0 ">
         <Background>
@@ -88,7 +94,7 @@ export default function Tickets() {
                             <div className="flex flex-row">
                                 <div className="font-['pretendard'] w-[282px] h-[42px] mt-[8px] flex flex-shrink-0 text-black font-[700] text-[31px] leading-[40px]">{data[0].title}</div>
                                 <div className="ml-[238px] flex mt-[19px]">
-                                    <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="  passHref>
+                                    <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" target='_blank' passHref>
                                         <Image src='/assets/images/tickets/bt_feed.svg' alt='인스타그램' width={1000} height={1000} className="cursor-pointer w-[100px] h-[30px]"/>
                                     </Link>
                                     <div onClick={copyUrl}>
@@ -128,12 +134,16 @@ export default function Tickets() {
                                         </div>
                                     </div>
                                     <div className='flex flex-row mt-[36px]'>
-                                        <button onClick={() => handleFreshmanModal()} className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                    <Link href="tickets/freshman_ticket/delete/">
+                                        <button className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
                                             신입생 티켓 구매내역 조회하기
                                         </button>
-                                        <button onClick={() => handleGeneralModal()} className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                    </Link>
+                                    <Link href="tickets/general_ticket/delete/">
+                                        <button className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
                                             일반 티켓 구매내역 조회하기
                                         </button>
+                                    </Link>
                                     </div>
                                 </div>
                                 <div id="map" className=" ml-[45px] w-[242px] h-[242px] flex-shrink-0 z-0"></div>
@@ -171,36 +181,35 @@ export default function Tickets() {
                                 
                             </div>
                             <div className="w-[358px] h-[260px] flex flex-col bg-[#F1F5FF] ">
-                            <div className=" flex flex-col mx-auto mt-[30px]">
+                                <div className=" flex flex-col mx-auto mt-[30px]">
                                         <div className="flex w-[260px] text-center flex-row justify-between">
                                             <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                                            <div className="text-[14px] text-right font-[500] w-[35px]">110석</div>  
+                                            <div className="text-[14px] text-right font-[500] w-[70px]">예매가능</div>  
                                         </div>
                                         <div className="mt-[13px]  flex w-[260px] text-center flex-row justify-between">
                                             <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                                            <div className="text-[14px] text-right font-[500]  w-[35px]">120석</div>
+                                            <div className="text-[14px] text-right font-[500]  w-[70px]">예매가능</div>
                                         </div>
                                     </div>
                             </div>
                             
                         </div>
                             <div className='ml-[480px] mt-[16px]'>
+                            {isWithinSeason ? (
+                            <div>
                                 <Link href="tickets/freshman_ticket">
-                                <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">신입생 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">신입생 티켓 예매하기</button>
                                 </Link>
                                 <Link href="tickets/general_ticket">
-                                <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center">일반 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center">일반 티켓 예매하기</button>
                                 </Link>
-                            </div>
+                            </div>) : (
+                            <button className="ml-[30px] w-[540px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#B9B9B9] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">지금은 예매 가능 기간이 아닙니다.</button>
+                        )}
+                        </div>
                     </div>
-                    {freshman_modal && (
-                        <Freshman_modal/>
-                    )}
-                    {general_modal && (
-                        <General_modal/>
-                    )}
                 </div>
-        </Background>
+            </Background>
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import './index.css';
+import '../index.css';
 import Background from "@/app/components/Background";
 import axios from 'axios';
+import Error_modal from "./error_modal";
 
 
 export default function freshman_ticket(){
@@ -16,6 +17,7 @@ export default function freshman_ticket(){
     const [isCheck, setIsCheck] = useState(true);
     const [meeting, setMeeting] = useState(true);
     const [isFormComplete, setIsFormComplete] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
         const isDataComplete =
@@ -31,7 +33,7 @@ export default function freshman_ticket(){
         
         try {
             /*
-            const checkResponse = await axios.get(`http://localhost:8000/tickets/freshman_ticket/data/${student_id}`);
+            const checkResponse = await axios.get(`http://kahluaband.com/tickets/freshman_ticket/data/${student_id}`);
         
             if (checkResponse.status === 200 && checkResponse.data.exists) {
                 console.log('이미 존재하는 학번입니다.');
@@ -51,26 +53,24 @@ export default function freshman_ticket(){
             if (response.status === 200) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
-        
-                /*
-                const receivedData = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
-                console.log('receivedData:', receivedData.data);
-                const reservationId = receivedData.data.reservation_id;
-                setReservationId(reservationId);
-                console.log('reservation_id:', reservationId);
-                */
+                const reservation_id = response.data.data.reservation_id;
                 router.push({
                     pathname: "/tickets/freshman_complete",
-                    query: { ...router.query, buyer, phone_num, student_id },
+                    query: { ...router.query, reservation_id },
                 });
+
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
+                setIsError(true);
             }
         } catch (error) {
             console.error('Error submitting data:', error);
+            setIsError(true);
         }
     };
+
+    
 
 
     const handleIncrement = () => {
@@ -225,6 +225,7 @@ export default function freshman_ticket(){
                         <button disabled={!isFormComplete} onClick={handleSubmit} className="w-[270px] h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white]  text-18px] font-[700] leading-[17px] text-center">결제하기</button>
                 </div>
             </div>
+            {isError && <Error_modal />}
         </Background>
         </div>
     );

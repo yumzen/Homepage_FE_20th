@@ -5,32 +5,36 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function freshman_complete(){
-    const [reservation_id, setReservationId] = useState('');
     const router = useRouter();
-    const { buyer, phone_num, student_id } = router.query;
+    const [buyer, setBuyer] = useState('');
+    const [phone_num, setPhoneNum] = useState('');
+    const [student_id, setStudentId] = useState('');
+    const { reservation_id } = router.query;
     
     useEffect(() => {
         const fetchReservationData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8000/tickets/freshman_complete/?student_id=${student_id}`);
-                if (response.status === 200) {
-                    console.log('요청이 성공적으로 처리되었습니다.');
-                    setReservationId(response.data.data.reservation_id);
-                } else {
-                    console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
-                    console.error('에러 응답:', response.data);
-                    // Handle other status codes if needed
+            if(reservation_id){
+                try {
+                    const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+                    if (response.status === 200) {
+                        console.log('요청이 성공적으로 처리되었습니다.');
+                        setBuyer(response.data.data.buyer);
+                        setPhoneNum(response.data.data.phone_num);
+                        setStudentId(response.data.data.student_id);
+                    } else {
+                        console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
+                        console.error('에러 응답:', response.data);
+                        // Handle other status codes if needed
+                    }
+                } catch (error) {
+                    console.error('Error fetching reservation data:', error);
+                    // Handle error, such as setting an error state
                 }
-            } catch (error) {
-                console.error('Error fetching reservation data:', error);
-                // Handle error, such as setting an error state
             }
         };
+        fetchReservationData();
 
-        if (student_id) {
-            fetchReservationData();
-        }
-    }, [student_id, reservation_id]);
+    }, [reservation_id]);
 
 
     if (reservation_id) {
@@ -41,7 +45,7 @@ export default function freshman_complete(){
                 <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[40px]">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17}/>
                     <div className="mt-[16px] flex flex-row">
-                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매가 완료되었습니다!</div>
+                        <div className="font-[700] text-[32px] leading-[42px] whitespace-nowrap ">예매 현황</div>
                     </div>
                 </div>
                 <div className="mt-[64px] flex flex-col mx-auto ">
