@@ -12,7 +12,7 @@ const [focusedLink, setFocusedLink] = useState("");
 const pathname = usePathname();
 
 const toggleMenu = () => {
-    setShowMenu(!showMenu);
+    setShowMenu(!showMenu); //메뉴 열고 닫기
 };
 
 useEffect(() => {
@@ -40,7 +40,7 @@ let Links =[
 
 return (
     <nav className="w-[full] h-[104px] flex relative bg-[white] z-50 font-['pretendard']">
-        <NavBg>
+        {!showMenu ? (<NavBg>
         <div className="lg:flex ">
             <div className="flex justify-between">
                 <Link href="/" key="home">
@@ -92,7 +92,52 @@ return (
                 </ul>
             </div>
         </div>
-        </NavBg>
+        </NavBg>):( <div className="lg:flex w-[50vw]">
+            <div className="flex justify-between pt-[28px]">
+                <Link href="/" key="home">
+                    <Image src="/assets/images/layout/Logo.svg" alt="Logo" width={165} height={30} onClick={toggleMenu} className= "mt-[2px] ml-[20px]  w-[165px]  h-[30px]  max-w-[165px] max-h-[30px]" priority/>
+                </Link>
+                <div className="lg:hidden">
+                    <button className="px-2 outline-none " onClick={toggleMenu}>
+                    {showMenu ? (<Image src="/assets/images/layout/close.svg" width={32} height={32} alt="close" /> ) : ( <Image src="/assets/images/layout/hamburger.svg" width={32} height={32} alt="hamburger" className="focus:border-none active:border-none" />)}
+                    </button>
+                </div>
+            </div>
+            <div className="flex flex-col absolute my-[20px] bg-[white] w-full items-center">
+                <ul className="flex-col py-[40px] font-[700] text-[18px]">
+                    { Links.map((link) => (
+                        <Link key={link.name} href={link.link} onClick={() => setFocusedLink(link.name)}>
+                            <li onClick={showMenu ? toggleMenu : undefined} className={`text-[#000] ${focusedLink === link.name || (pathname && pathname.startsWith(link.link)) ? "border-t-4 border-t-[#281CFF]" : ""} text-20px w-full h-full mb-4 text-center`}>
+                                {link.name}
+                            </li>
+                        </Link>
+                        ))}
+                </ul>
+                <ul className=" my-12 flex flex-row mx-12 items-center justify-center">
+                    <div className="flex flex-row gap-[20px]">
+                    <li className="w-[100%] h-[100%]">
+                    <Link href="http://pf.kakao.com/_UaIZG" target='_blank' passHref>
+                        <Image src="/assets/images/layout/kakaotalk.svg" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]"/>
+                    </Link>
+                    </li>
+                    <li className="w-[100%] h-[100%] ">
+                    <Link
+                        href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
+                        target='_blank'
+                        passHref
+                    >
+                        <Image src="/assets/images/layout/instagram.svg" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
+                    </Link>
+                    </li>
+                    <li className= "w-[100%] h-[100%] ">
+                    <Link href="https://www.youtube.com/@kahluaband8409" target='_blank' passHref>
+                        <Image src="/assets/images/layout/youtube.svg" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
+                    </Link>
+                    </li>
+                    </div>
+                </ul>
+            </div>
+        </div>)}
     </nav>
 );
 }
