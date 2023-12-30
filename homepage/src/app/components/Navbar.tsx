@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import NavBg from "./NavBg";
+import $ from 'jquery'; // jQuery import
 
 export default function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
@@ -14,6 +15,11 @@ export default function Navbar() {
 
     const toggleMenu = () => {
         setShowMenu(!showMenu); 
+        if (!showMenu) {
+            $('.menu').slideDown(); // 메뉴를 보여줍니다.
+        } else {
+            $('.menu').slideUp(); // 메뉴를 숨깁니다.
+        }
     };
 
     const handleIsClose = () => {
@@ -93,29 +99,6 @@ export default function Navbar() {
                                         </div>
                                     </Link>
                                 ))}
-                            </ul>
-                            <ul className={`${showMenu ? " my-12 flex flex-row mx-12 items-center justify-center" : "hidden lg:flex flex-row lg:w-[12.5vw] items-center justify-center lg:ml-[1.5vw]"}`}>
-                                <div className={`${showMenu ? "flex flex-row gap-[20px]" : "w-[12.5vw] flex items-center mx-auto"}`}>
-                                    <li className={`${showMenu ? "w-[100%] h-[100%]" : "w-[4vw] h-[100%] flex items-center justify-center"}`}>
-                                        <Link href="http://pf.kakao.com/_UaIZG" target='_blank' passHref>
-                                            <Image src="/assets/images/layout/kakaotalk.svg" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]" />
-                                        </Link>
-                                    </li>
-                                    <li className={`${showMenu ? "w-[100%] h-[100%] " : "w-[4vw] h-[100%] flex items-center justify-center"}`}>
-                                        <Link
-                                            href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
-                                            target='_blank'
-                                            passHref
-                                        >
-                                            <Image src="/assets/images/layout/instagram.svg" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
-                                        </Link>
-                                    </li>
-                                    <li className={`${showMenu ? "w-[100%] h-[100%] " : "w-[4vw] h-[100%] flex items-center justify-center"}`}>
-                                        <Link href="https://www.youtube.com/@kahluaband8409" target='_blank' passHref>
-                                            <Image src="/assets/images/layout/youtube.svg" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
-                                        </Link>
-                                    </li>
-                                </div>
                             </ul>
                         </div>
                     </div>
