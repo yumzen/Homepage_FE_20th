@@ -156,7 +156,7 @@ export default function freshman_ticket(){
                             <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처
                             <p className="ml-[5px] text-[#281CFF] text-[10px] whitespace-nowrap ">(필수)</p>
                             </label>
-                            <div className="input-with-placeholder relative lg:w-[22vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
+                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange} />
                             </div>
                         </div>
@@ -170,7 +170,7 @@ export default function freshman_ticket(){
                             <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번
                             <p className="ml-[5px] text-[#281CFF] text-[10px] ">(필수)</p>
                             </label>
-                            <div className="input-with-placeholder relative lg:w-[22vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
+                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={student_id} type="text" placeholder="예) C123456" onChange={(e) => setstudent_id(e.target.value)}/>
                             </div>
                         </div>
