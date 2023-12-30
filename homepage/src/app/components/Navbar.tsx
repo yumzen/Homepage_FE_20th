@@ -87,7 +87,7 @@ export default function Navbar() {
                                 {Links.map((link) => (
                                     <Link key={link.name} href={link.link} onClick={() => setFocusedLink(link.name)}>
                                         <div className={`${showMenu ? "flex w-105 h-28 flex-col justify-center flex-shrink-0 text-black text-center font-bold text-lg mb-[78x]" : "flex items-center justify-center w-[12.5vw]"} `}>
-                                            <li key={link.name} onClick={toggleMenu} className={` text-[#000] ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF]" : ""}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
+                                            <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF]" : ""}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
                                                 {link.name}
                                             </li>
                                         </div>
