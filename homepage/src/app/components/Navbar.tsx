@@ -77,7 +77,7 @@ export default function Navbar() {
                                 <Image src="/assets/images/layout/Logo.svg" alt="Logo" width={165} height={30} onClick={showMenu ? toggleMenu : undefined} className="ml-[20px] lg:ml-[12.5vw] w-[165px] lg:w-[12.5vw] h-[30px] lg:max-w-[10vw]  max-w-[165px] max-h-[30px]" priority />
                             </Link>
                             <div className="lg:hidden z-50 ">
-                                <button className="px-2 outline-none" onClick={isClose ? handleIsClose : toggleMenu}>
+                                <button className="px-2 outline-none " onClick={isClose ? handleIsClose : toggleMenu}>
                                     {showMenu ? (<Image src="/assets/images/layout/close.svg" width={32} height={32} alt="close" />) : (<Image src="/assets/images/layout/hamburger.svg" width={32} height={32} alt="hamburger" className="focus:border-none active:border-none" />)}
                                 </button>
                             </div>
@@ -87,7 +87,7 @@ export default function Navbar() {
                                 {Links.map((link) => (
                                     <Link key={link.name} href={link.link} onClick={() => setFocusedLink(link.name)}>
                                         <div className={`${showMenu ? "flex w-105 h-28 flex-col justify-center flex-shrink-0 text-black text-center font-bold text-lg mb-[78x]" : "flex items-center justify-center w-[12.5vw]"} `}>
-                                            <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF]" : ""}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
+                                            <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] hover:text-[#8b8b8b] transition-all duration-450 ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF]" : ""}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
                                                 {link.name}
                                             </li>
                                         </div>

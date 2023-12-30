@@ -125,7 +125,7 @@ export default function freshman_ticket(){
                         </div>
                         <div className="bg-[white] w-[76px] sm:w-[110px] h-[26px] sm:h-[35px] ml-[5vw] sm:mt-[20px] flex flex-shrink-0 border border-solid border-[#D9D9D9] rounded-[3px] items-center justify-center mr-[5vw] sm:mr-0">
                             <div className="flex gap-2 sm:gap-4 text-[20px] sm:text-[26px] font-[700]">
-                                <button className="flex h-[25.9px] sm:h-[35px] my-auto ml-[2px] pr-[7px] sm:ml-0 sm:pr-[8px] text-center items-center justify-center border-r text-[#939393] border-[#D9D9D9]" onClick={handleDecrement}>-</button>
+                                <button className="flex h-[25.9px] sm:h-[35px] my-auto ml-[2px] pr-[7px] sm:ml-[4px] sm:pr-[9px] text-center items-center justify-center border-r text-[#939393] border-[#D9D9D9]" onClick={handleDecrement}>-</button>
                                 <p>{count}</p>
                                 <button className="flex h-[25.9px] sm:h-[35px] my-auto pl-[6px] sm:pl-[8px] text-center items-center justify-center border-l text-[#939393] border-[#D9D9D9]" onClick={handleIncrement}>+</button>
                             </div>
@@ -147,29 +147,21 @@ export default function freshman_ticket(){
                             </div>
                         </div>
                         <div className="mt-[12px] sm:mt-[22px] flex flex-col md:flex-row mx-auto">
-                            <label className="text-[12px] sm:text-[16px] ml-[1vw] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">이름
-                                <p className="ml-[5px] text-[#281CFF] text-[10px] ">(필수)</p>
-                            </label>
+                            <label className="text-[12px] sm:text-[16px] ml-[1vw] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">이름 </label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={buyer} type="text" placeholder="" onChange={(e) => setBuyer(e.target.value)}/>
                             </div>
-                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처
-                            <p className="ml-[5px] text-[#281CFF] text-[10px] whitespace-nowrap ">(필수)</p>
-                            </label>
+                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange} />
                             </div>
                         </div>
                         <div className="mt-[8px] sm:mt-[20px] flex flex-col md:flex-row">
-                            <label className="text-[12px] sm:text-[16px] ml-[1vw]  leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">학과
-                            <p className="ml-[5px] text-[#281CFF] text-[10px] ">(필수)</p>
-                            </label>
+                            <label className="text-[12px] sm:text-[16px] ml-[1vw]  leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">학과</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={major} type="text" placeholder="" onChange={(e) => setmajor(e.target.value)} />
                             </div>
-                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번
-                            <p className="ml-[5px] text-[#281CFF] text-[10px] ">(필수)</p>
-                            </label>
+                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={student_id} type="text" placeholder="예) C123456" onChange={(e) => setstudent_id(e.target.value)}/>
                             </div>
@@ -222,7 +214,7 @@ export default function freshman_ticket(){
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-[48px] sm:mt-[94px]">
-                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[12px] sm:text-[18px] font-[700] leading-[17px] text-center">예매하기</button>
+                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[12px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
                     </div>
                 </div>
                 {isError && <Error_modal />}

@@ -135,12 +135,12 @@ export default function Tickets() {
                                     </div>
                                     <div className='flex flex-row mt-[36px]'>
                                     <Link href="tickets/freshman_ticket/delete/">
-                                        <button className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                        <button className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
                                             신입생 티켓 구매내역 조회하기
                                         </button>
                                     </Link>
                                     <Link href="tickets/general_ticket/delete/">
-                                        <button className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF]">
+                                        <button className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[20px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
                                             일반 티켓 구매내역 조회하기
                                         </button>
                                     </Link>
@@ -198,10 +198,10 @@ export default function Tickets() {
                             {isWithinSeason ? (
                             <div>
                                 <Link href="tickets/freshman_ticket">
-                                    <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">신입생 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">신입생 티켓 예매하기</button>
                                 </Link>
                                 <Link href="tickets/general_ticket">
-                                    <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center">일반 티켓 예매하기</button>
+                                    <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[6px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">일반 티켓 예매하기</button>
                                 </Link>
                             </div>) : (
                             <button className="ml-[30px] w-[540px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#B9B9B9] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">지금은 예매 가능 기간이 아닙니다.</button>
