@@ -94,6 +94,29 @@ export default function Navbar() {
                                     </Link>
                                 ))}
                             </ul>
+                            {!showMenu && <ul className="hidden lg:flex flex-row lg:w-[12.5vw] items-center justify-center lg:ml-[1.5vw]">
+                                <div className="w-[12.5vw] flex items-center mx-auto">
+                                    <li className="w-[4vw] h-[100%] flex items-center justify-center">
+                                        <Link href="http://pf.kakao.com/_UaIZG" target='_blank' passHref>
+                                            <Image src="/assets/images/layout/kakaotalk.svg" alt="카카오톡 채널" width={100} height={100} className="w-[28px] h-[28px]" />
+                                        </Link>
+                                    </li>
+                                    <li className="w-[4vw] h-[100%] flex items-center justify-center">
+                                        <Link
+                                            href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
+                                            target='_blank'
+                                            passHref
+                                        >
+                                            <Image src="/assets/images/layout/instagram.svg" alt="인스타그램" width={100} height={100} className="w-[28px] h-[28px]" />
+                                        </Link>
+                                    </li>
+                                    <li className="w-[4vw] h-[100%] flex items-center justify-center">
+                                        <Link href="https://www.youtube.com/@kahluaband8409" target='_blank' passHref>
+                                            <Image src="/assets/images/layout/youtube.svg" alt="유튜브" width={100} height={100} className="w-[28px] h-[28px]" />
+                                        </Link>
+                                    </li>
+                                </div>
+                            </ul>}
                         </div>
                     </div>
                 </NavBg>
