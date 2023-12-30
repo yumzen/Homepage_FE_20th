@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import NavBg from "./NavBg";
-import $ from 'jquery'; // jQuery import
 
 export default function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
@@ -15,11 +14,6 @@ export default function Navbar() {
 
     const toggleMenu = () => {
         setShowMenu(!showMenu); 
-        if (!showMenu) {
-            $('.menu').slideDown(); // 메뉴를 보여줍니다.
-        } else {
-            $('.menu').slideUp(); // 메뉴를 숨깁니다.
-        }
     };
 
     const handleIsClose = () => {
