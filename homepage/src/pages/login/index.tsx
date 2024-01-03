@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Login = () => {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPw] = useState("");
 
   const onIdHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.currentTarget.value);
+    setEmail(event.currentTarget.value);
   };
   const onPwHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPw(event.currentTarget.value);
@@ -19,8 +19,8 @@ const Login = () => {
     event.preventDefault();
 
     console.log("로그인 성공");
-    console.log("ID ", id);
-    console.log("PW ", password);
+    console.log("EMAIL: ", email);
+    console.log("PW: ", password);
   };
 
   return (
@@ -39,12 +39,13 @@ const Login = () => {
           }}
           onSubmit={onLoginHandler}
         >
-          <label style={{ display: "none" }}>아이디</label>
+          <label style={{ display: "none" }}>이메일</label>
           <input
             type="text"
-            placeholder="아이디"
-            value={id}
+            placeholder="이메일"
+            value={email}
             onChange={onIdHandler}
+            required
             className="w-[580px] h-[74px] mt-[40px] mb-[60px] pl-[30px] rounded-[10px]"
           />
           <label style={{ display: "none" }}>비밀번호</label>
@@ -53,6 +54,7 @@ const Login = () => {
             placeholder="비밀번호"
             value={password}
             onChange={onPwHandler}
+            required
             className="w-[580px] h-[74px] mb-[90px] pl-[30px] rounded-[10px]"
           />
           <button className="w-[214px] h-[60px] bg-btnGray text-white text-xl font-bold rounded-[10px]">
