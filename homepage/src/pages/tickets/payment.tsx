@@ -29,7 +29,7 @@ const payment = () => {
         try {
             const response = await axios.post('http://localhost:8000/tickets/validation/', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data', // form-data로 설정
+                    'Content-Type': 'multipart/form-data', 
                 },
             });
             if (response.status === 200) {
@@ -59,7 +59,7 @@ const payment = () => {
                 console.error('아임포트 키를 찾을 수 없습니다.');
                 return;
             }
-            console.log("ㅇ", buyer, phone_num, price, payment, merchant_order_id);
+            console.log(buyer, phone_num, price, payment, merchant_order_id);
         
             if (buyer && phone_num && price && payment && merchant_order_id) {
                 try {
@@ -67,9 +67,9 @@ const payment = () => {
                     IMP.init(IAMPORT_KEY);
             
                     IMP.request_pay({
-                        pg: 'kakaopay.TC0ONETIME',
+                        pg: 'kakaopay.TC0ONETIME', //테스트코드
                         pay_method: 'card',
-                        merchant_uid: new Date().getTime(),
+                        merchant_uid: merchant_order_id,
                         name: '깔루아 결제',
                         amount: parseInt(price as string, 10),
                         customer_uid: merchant_order_id, 
@@ -88,7 +88,9 @@ const payment = () => {
                             msg += '에러내용 : ' + rsp.error_msg;
                         }
                         console.log(msg);
+                        console.log("rsp:", rsp);
                         verifyPayment(rsp.merchant_uid, rsp.imp_uid, rsp.paid_amount);
+                        //완료되면 status == true되나?
                     });
                 } catch (error) {
                     console.error('결제 오류:', error);

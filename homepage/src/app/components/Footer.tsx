@@ -20,7 +20,7 @@ const SocialIcon: React.FC<SocialIconProps> = ({ href, src, alt, width, height, 
 
 export default function Footer() {
   return (
-    <div className="w-full h-[100px] sm:h-[240px] relative bg-[#EEEEEE] bottom-0 font-['pretendard']">
+    <div className="w-full h-[100px] sm:h-[240px] relative bg-[#EEEEEE] bottom-0 font-['pretendard'] min-w-[100%]">
       <div className="flex flex-col w-full ">
       <ul className="flex mt-[10px] sm:mt-[60px] mr-[4px] items-center justify-center gap-2">
       <SocialIcon href="http://pf.kakao.com/_UaIZG" src="/assets/images/layout/kakaotalk.svg" alt="kakaotalk" width={28} height={28} className="w-[20px] h-[20px] sm:w-[28px] sm:h-[28px]"/>

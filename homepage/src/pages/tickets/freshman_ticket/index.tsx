@@ -40,10 +40,6 @@ export default function freshman_ticket(){
                 const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
                 console.log(response);
                 if (response.status === 200) {
-                    /*
-                    console.log('요청이 성공적으로 처리되었습니다.');
-                    console.log('응답 데이터:', response.data);
-                    */
                     const reservation_id = response.data.data.reservation_id;
                     router.push({
                         pathname: "/tickets/freshman_complete",
@@ -51,10 +47,6 @@ export default function freshman_ticket(){
                     });
 
                 } else {
-                    /*
-                    console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
-                    console.error('에러 응답:', response.data);
-                    */
                     setIsError(true);
                 }
             } catch (error) {
@@ -93,7 +85,7 @@ export default function freshman_ticket(){
     );
 
     return (
-        <div className="w-[100%] h-[1300px] sm:h-[1900px] lg:h-[1580px] z-60">
+        <div className="w-[100%] h-[1250px] sm:h-[1900px] md:h-[1700px] lg:h-[1580px] z-60">
             <Background>
                 <div className=" font-['pretendard'] px-[12.5vw] flex items-center flex-col mb-[84px]">
                     <div className="flex flex-col items-center mx-[12.5vw] text-center sm:mt-[40px]">
@@ -102,26 +94,26 @@ export default function freshman_ticket(){
                             <div className="text-[#281CFF]">신입생 티켓</div>
                             <span>&nbsp;예매하기</span>
                         </div>
-                        <div className="mt-[16px] sm:mt-[32px] font-[500] text-[12px] sm:text-[14px] leading-[21px]">
+                        <div className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px]">
                             <div>깔루아 2023 9월 정기공연</div>
                             <div>2023.09.01 오후 6시</div>
                         </div>
                     </div>
                     <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%] ml-[0.5vw]">
-                        <div className="font-[700] text-[16px] sm:text-[20px] leading-[30px]">예매 인원을 선택해주세요. </div>
+                        <div className="font-[700] text-[12px] sm:text-[20px] leading-[30px]">예매 인원을 선택해주세요. </div>
                         <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[16px] bg-[#000] flex "/>
                         <div className="ml-[0.5vw] ">
                             <div className="mt-[8px] sm:mt-[32px] flex flex-row">
-                                <div className="text-[12px] sm:text-[14px] font-[500] leading-[21px] text-[#6A6A6A]">신입생</div>
-                                <div className="ml-[4vw] text-[10px] sm:text-[14px] font-[500] w-[60vw] leading-[21px] text-[#2D2D2D]">신입생 티켓은 1인 1매만 예매 가능합니다.</div>
+                                <div className="text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#6A6A6A]">신입생</div>
+                                <div className="ml-[4vw] text-[8px] sm:text-[14px] font-[500] w-[60vw] leading-[21px] text-[#2D2D2D]">신입생 티켓은 1인 1매만 예매 가능합니다.</div>
                         </div>
                         <div className="mt-[12px] sm:mt-[16px] relative flex flex-row justify-between sm:justify-normal">
                             <div className="flex flex-row">
-                            <div className="w-[68px] sm:w-[120px] h-[26px] sm:h-[76px] flex flex-col justify-center flex-shrink-0 text-[16px] sm:text-[24px] font-[700] text-[#939393]">5000원</div>
-                            <div className="flex flex-col justify-center flex-shrink-0 text-[16px] sm:text-[24px] leading-[28px] font-[700] text-[#281CFF]">0원</div>
+                            <div className="w-[68px] sm:w-[120px] h-[26px] sm:h-[76px] flex flex-col justify-center flex-shrink-0 text-[12px] sm:text-[24px] font-[700] text-[#939393]">5000원</div>
+                            <div className="flex flex-col justify-center flex-shrink-0 text-[12px] h-[26px] sm:h-[76px] sm:text-[24px] leading-[28px] font-[700] text-[#281CFF]">0원</div>
                         </div>
-                        <div className="absolute left-0 top-1 sm:top-7">
-                            <Image src="/assets/images/tickets/Arrow.svg" alt="arrow" width={100} height={100} className="w-[60px] h-[15px] sm:w-[auto] sm:h-[auto]"/>
+                        <div className="absolute left-0 top-1 sm:top-[26px]">
+                            <Image src="/assets/images/tickets/Arrow.svg" alt="arrow" width={100} height={100} className="w-[60px] h-[15px] mt-[1px] sm:mt-0 sm:w-[auto] sm:h-[auto]"/>
                         </div>
                         <div className="bg-[white] w-[76px] sm:w-[110px] h-[26px] sm:h-[35px] ml-[5vw] sm:mt-[20px] flex flex-shrink-0 border border-solid border-[#D9D9D9] rounded-[3px] items-center justify-center mr-[5vw] sm:mr-0">
                             <div className="flex gap-2 sm:gap-4 text-[20px] sm:text-[26px] font-[700]">
@@ -135,8 +127,8 @@ export default function freshman_ticket(){
                 <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="mx-auto ml-[0.5vw]">
                         <div className=" flex lg:flex-row flex-col ">
-                            <div className="mt-[12px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[16px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
-                                <div className="w-[80vw] h-[50px] lg:w-[60vw] text-[10px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[16px] mt-[8px] sm:mt-[24px] ">
+                            <div className="mt-[12px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[12px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
+                                <div className="w-[80vw] h-[40px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[16px] sm:mt-[24px] ">
                                     <p>본인확인을 위해 정확한 정보를 입력해주세요.</p>
                                     <div className="flex flex-col">
                                         <div className="flex whitespace-nowrap">
@@ -146,22 +138,22 @@ export default function freshman_ticket(){
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-[12px] sm:mt-[22px] flex flex-col md:flex-row mx-auto">
-                            <label className="text-[12px] sm:text-[16px] ml-[1vw] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">이름 </label>
+                        <div className="text-[8px] sm:text-[12px] md:text-[16px] mt-[4px] leading-[26px] font-[500] sm:mt-[40px] flex flex-col md:flex-row mx-auto">
+                            <label className=" ml-[1vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">이름 </label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={buyer} type="text" placeholder="" onChange={(e) => setBuyer(e.target.value)}/>
+                                <input value={buyer} type="text" placeholder="" onChange={(e) => setBuyer(e.target.value)} />
                             </div>
-                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처</label>
+                            <label className="mt-[4px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange} />
+                                <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange}/>
                             </div>
                         </div>
-                        <div className="mt-[8px] sm:mt-[20px] flex flex-col md:flex-row">
-                            <label className="text-[12px] sm:text-[16px] ml-[1vw]  leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">학과</label>
+                        <div className="text-[8px] sm:text-[12px] md:text-[16px] leading-[26px] font-[500] mt-[4px] sm:mt-[20px] flex flex-col md:flex-row">
+                            <label className=" ml-[1vw]   items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">학과</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={major} type="text" placeholder="" onChange={(e) => setmajor(e.target.value)} />
                             </div>
-                            <label className="mt-[8px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번</label>
+                            <label className="mt-[4px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번</label>
                             <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                                 <input value={student_id} type="text" placeholder="예) C123456" onChange={(e) => setstudent_id(e.target.value)}/>
                             </div>
@@ -170,19 +162,19 @@ export default function freshman_ticket(){
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
                         <div className="mt-[12px] sm:mt-[32px] flex lg:flex-row flex-col">
-                            <div className="w-[160px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">티켓수령방법 선택</div>
-                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[10px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
+                            <div className="w-[160px] h-[29px] font-[700] text-[12px] sm:text-[20px] leading-[30px]">티켓수령방법 선택</div>
+                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[4px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
                                 <p className="whitespace-nowrap">티켓현장수령은 예매가 완료되면 부여되는</p> 
                                 <div className="flex flex-row">
                                     <p className="hidden lg:flex">&nbsp;</p><p className="text-[#281CFF] whitespace-nowrap">[예약번호]로 공연 당일 티켓을 수령하여 입장</p><p className="whitespace-nowrap">합니다.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="text-[20px] mt-[12px] sm:mt-[18px]">
+                        <div className="text-[20px] mt-[8px] sm:mt-[18px]">
                             <label className="flex flex-row">
-                                <div className="flex items-center justify-center mt-[12px] sm:mt-[20px]">
+                                <div className="flex items-center justify-center mt-[8px] sm:mt-[20px]">
                                     <input type="radio" name="현장수령" checked={isCheck} onChange={handleCheckboxChange1} className="mr-[18px] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] accent-[#281CFF] flex-shrink-0"/>
-                                    <div className="text-[12px] sm:text-[20px] font-[500] leading-[30px]">현장수령</div>
+                                    <div className="text-[8px] sm:text-[20px] font-[500] leading-[30px]">현장수령</div>
                                 </div>
                             </label>
                         </div>
@@ -190,22 +182,22 @@ export default function freshman_ticket(){
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
                         <div className="flex flex-col lg:flex-row">
-                            <div className="w-[200px] h-[29px] mt-[12px] sm:mt-[32px] font-[700] text-[16px] sm:text-[20px] leading-[30px] whitespace-nowrap">신입생 뒷풀이 참여 여부</div>
-                            <div className="lg:w-[740px] lg:mt-[36px] sm:mt-[15px] mt-[8px] lg:ml-[40px] ml-[0.5vw] whitespace-nowrap text-[10px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-row">
+                            <div className="w-[200px] h-[29px] mt-[12px] sm:mt-[32px] font-[700] text-[12px] sm:text-[20px] leading-[30px] whitespace-nowrap">신입생 뒷풀이 참여 여부</div>
+                            <div className="lg:w-[740px] lg:mt-[36px] sm:mt-[15px] mt-[4px] lg:ml-[40px] ml-[0.5vw] whitespace-nowrap text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-row">
                             공연 후 조가 배정되어 <span className="text-[#281CFF] whitespace-nowrap ">&nbsp;뒷풀이</span>가 있을 예정입니다.
                             </div>
                         </div>
-                        <div className="mt-[12px] sm:mt-[20px] text-[12px] sm:text-[20px] flex flex-row gap-[8.8vw]">
+                        <div className="mt-[8px] sm:mt-[20px] text-[8px] sm:text-[20px] flex flex-row gap-[8.8vw]">
                         <RadioButton label="참" value="참" checked={meeting} onChange={handleCheckboxChange2} />
                         <RadioButton label="불참" value="불참" checked={!meeting} onChange={handleCheckboxChange2} />
                         </div>
                     </div>
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
-                        <div className="mt-[12px] sm:mt-[20px] flex flex-row">
-                            <div className="w-[100%] h-[29px] font-[700] text-[16px] sm:text-[20px] sm:leading-[28px] whitespace-nowrap">유의사항 및 취소규정</div>
+                        <div className="mt-[16px] sm:mt-[20px] flex flex-row">
+                            <div className="w-[100%] h-[29px] font-[700] text-[12px] sm:text-[20px] sm:leading-[28px] whitespace-nowrap">유의사항 및 취소규정</div>
                         </div>
-                            <ol className="list-decimal ml-[12px] sm:ml-[24px] font-[500] text-[10px] sm:text-[14px] lg:text-[16px] mt-[12px] sm:mt-[14px] leading-[26px]">
+                            <ol className="list-decimal ml-[12px] sm:ml-[24px] font-[500] text-[8px] sm:text-[14px] mt-[4px] sm:mt-[14px] leading-[26px]">
                                 <li>예매취소는 24시간 이전에만 가능하며  그 이후에는 환불이 불가합니다. </li>
                                 <li>여러장을 구매했을 시에는 일괄취소만 가능합니다.</li>
                                 <li>예매하기-예매확인 - 예매취소 버튼으로 취소 가능합니다.</li>
@@ -213,12 +205,12 @@ export default function freshman_ticket(){
                             </ol>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center mt-[48px] sm:mt-[94px]">
-                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[12px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
+                    <div className="flex items-center justify-center mt-[24px] sm:mt-[94px]">
+                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[8px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
                     </div>
                 </div>
                 {isError && <Error_modal />}
-                {!isFormComplete && isClick && <Input_modal />}
+                {isClick && !isFormComplete && <Input_modal />}
             </Background>
         </div>
     );

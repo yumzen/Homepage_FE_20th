@@ -136,8 +136,8 @@ export default function general_ticket(){
     };
 
     useEffect(() => {
-
         let newHeightClass = '';
+
         if (member === 1) {
         newHeightClass = 'h-[1260px] sm:h-[1900px] md:h-[1780px] lg:h-[1600px]';
         } else if (member === 2) {
@@ -153,7 +153,6 @@ export default function general_ticket(){
         }
         setDynamicHeightClass(newHeightClass);
 
-
         const calculatePrice = () => {
             return 5000 * member;
         }
@@ -167,13 +166,12 @@ export default function general_ticket(){
         divs.push(
             <div key={0}>
             <div className="flex flex-row sm:mt-[18px]">
-                {/*<div className="flex items-center justify-center text-center">1. </div>*/}
                 <div className="flex flex-col md:flex-row ml-[1vw] justify-center">
-                    <label className="text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px] left-0">1)  이름 </label>
+                    <label className="text-[8px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px] left-0">1)  이름 </label>
                     <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                         <input type="text" placeholder="대표자 이름을 적어주세요." onChange={handleBuyerChange} />
                     </div>
-                    <div className="ml-[1vw] md:ml-[8vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
+                    <div className="ml-[1vw] md:ml-[8vw] text-[8px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
                     <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                         <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneNumberChange} />
                     </div>
@@ -200,13 +198,12 @@ export default function general_ticket(){
             divs.push(
                 <div key={i}>
                     <div className="flex flex-row mt-[18px]">
-                        {/*<div className="flex items-center justify-center text-center">{i + 1}. </div>*/}
                         <div className="flex flex-col md:flex-row ml-[1vw]  justify-center">
-                    <label className="text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px] left-0">{i + 1}) 이름 </label>
+                    <label className="text-[8px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px] left-0">{i + 1}) 이름 </label>
                     <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                         <input type="text" placeholder="예매자 이름을 적어주세요." onChange={handleNameChange} />
                     </div>
-                    <div className="ml-[1vw] md:ml-[8vw] text-[12px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
+                    <div className="ml-[1vw] md:ml-[8vw] text-[8px] sm:text-[16px] leading-[26px] font-[500] items-center flex h-[40px] w-[7.5vw] min-w-[55px]">연락처</div>
                     <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
                         <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneChange} />
                     </div>
@@ -230,7 +227,7 @@ export default function general_ticket(){
                             <div className="text-[#281CFF]">일반 티켓</div>
                             <span>&nbsp;예매하기</span>
                         </div>
-                    <div className="mt-[16px] sm:mt-[32px] font-[500] text-[12px] sm:text-[14px] leading-[21px]">
+                    <div className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px]">
                         <div>깔루아 2023 9월 정기공연</div>
                         <div>2023.09.01 오후 6시</div>
                     </div>
@@ -240,10 +237,10 @@ export default function general_ticket(){
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[16px] bg-[#000] flex "/>
                     <div className="ml-[0.5vw] ">
                         <div className="mt-[8px] sm:mt-[32px] flex flex-row">
-                            <div className="text-[12px] sm:text-[14px] font-[500] leading-[21px] text-[#6A6A6A]">일반</div>
-                            <div className="ml-[4vw] text-[10px] sm:text-[14px] font-[500] w-[60vw] leading-[21px] text-[#2D2D2D]">일반 티켓은 1인 5매까지 예매 가능합니다.</div>
+                            <div className="text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#6A6A6A]">일반</div>
+                            <div className="ml-[4vw] text-[8px] sm:text-[14px] font-[500] w-[60vw] leading-[21px] text-[#2D2D2D]">일반 티켓은 1인 5매까지 예매 가능합니다.</div>
                     </div>
-                    <div className="mt-[16px] relative flex flex-row">
+                    <div className="mt-[8px] relative flex flex-row">
                         <div className="flex flex-row">
                             <div className="w-[68px] sm:w-[120px] h-[26px] sm:h-[76px] flex flex-col justify-center flex-shrink-0 text-[16px] sm:text-[24px] font-[700] text-[#000000]">5000원</div> 
                         </div>
@@ -259,8 +256,8 @@ export default function general_ticket(){
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="mx-auto ml-[0.5vw]">
                         <div className=" flex lg:flex-row flex-col ">
-                            <div className="mt-[12px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[16px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
-                            <div className="w-[80vw] h-[30px] lg:w-[60vw] text-[10px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[40px] mt-[8px] sm:mt-[24px] ">
+                            <div className="mt-[8px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[16px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
+                            <div className="w-[80vw] h-[30px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[40px] mt-[8px] sm:mt-[24px] ">
                                 <div>본인확인을 위해 정확한 정보를 입력해주세요.</div>
                         </div>
                     </div>
@@ -270,42 +267,42 @@ export default function general_ticket(){
                     <div className="ml-[0.5vw]">
                         <div className="mt-[12px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[160px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">티켓수령방법 선택</div>
-                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[10px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
+                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
                                 <p className="whitespace-nowrap">티켓현장수령은 예매가 완료되면 부여되는</p> 
                                 <div className="flex flex-row">
                                     <p className="hidden lg:flex">&nbsp;</p><p className="text-[#281CFF] whitespace-nowrap">[예약번호]로 공연 당일 티켓을 수령하여 입장</p><p className="whitespace-nowrap">합니다.</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="text-[20px] mt-[12px] sm:mt-[18px]">
+                        <div className="text-[20px] mt-[8px] sm:mt-[18px]">
                             <label className="flex flex-row">
-                                <div className="flex items-center justify-center mt-[12px] sm:mt-[20px]">
+                                <div className="flex items-center justify-center mt-[8px] sm:mt-[20px]">
                                     <input type="radio" name="현장수령" checked={isCheck} onChange={handleCheckboxChange1} className="mr-[18px] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] accent-[#281CFF] flex-shrink-0"/>
-                                    <div className="text-[12px] sm:text-[20px] font-[500] leading-[30px]">현장수령</div>
+                                    <div className="text-[8px] sm:text-[20px] font-[500] leading-[30px]">현장수령</div>
                                 </div>
                             </label>
                         </div>
                     </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
-                    <div className="mt-[12px] sm:mt-[32px] flex lg:flex-row flex-col">
+                    <div className="mt-[8px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[160px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">결제 방법 선택</div>
-                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[10px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
+                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
                         </div>
-                        <div className="mt-[12px] sm:mt-[18px] flex lg:flex-row flex-col">
-                            <label className="flex items-center mt-[12px] sm:mt-[20px]">
+                        <div className="mt-[8px] sm:mt-[18px] flex lg:flex-row flex-col">
+                            <label className="flex items-center mt-[8px] sm:mt-[20px]">
                                 <input type="radio" name="결제방법" value={"계좌이체"} checked={payment === "계좌이체"}  onChange={handleCheckboxChange2} className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0 justify-center"/>
-                                <div className="text-[12px] sm:text-[20px] font-[500] justify-center">계좌이체</div>
+                                <div className="text-[8px] sm:text-[20px] font-[500] justify-center">계좌이체</div>
                             </label>
-                            <label className=" lg:ml-[5vw] flex items-center mt-[12px] sm:mt-[20px]">
+                            <label className=" lg:ml-[5vw] flex items-center mt-[8px] sm:mt-[20px]">
                                 <input type="radio" name="결제방법" value={"카카오페이"} checked={payment === "카카오페이"} onChange={handleCheckboxChange2} className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0 justify-center"/>
-                                <div className="text-[12px] sm:text-[20px] font-[500] justify-center">카카오페이</div>
+                                <div className="text-[8px] sm:text-[20px] font-[500] justify-center">카카오페이</div>
                             </label>
                         </div>
                     </div>
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
-                        <div className="mt-[12px] sm:mt-[32px] flex lg:flex-row flex-col">
+                        <div className="mt-[8px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[200px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">최종 결제 금액</div>
                         </div>
                         <div className="font-[700] text-[16px] sm:text-[24px] mt-[20px] flex flex-row">
@@ -317,7 +314,7 @@ export default function general_ticket(){
                         <div className="mt-[12px] sm:mt-[20px] flex flex-row">
                             <div className="w-[100%] h-[29px] font-[700] text-[16px] sm:text-[20px] sm:leading-[28px] whitespace-nowrap">유의사항 및 취소규정</div>
                         </div>
-                            <ol className="list-decimal ml-[12px] sm:ml-[24px] font-[500] text-[10px] sm:text-[14px] lg:text-[16px] mt-[12px] sm:mt-[14px] leading-[26px]">
+                            <ol className="list-decimal ml-[12px] sm:ml-[24px] font-[500] text-[8px] sm:text-[14px] lg:text-[16px] mt-[12px] sm:mt-[14px] leading-[26px]">
                                 <li>예매취소는 24시간 이전에만 가능하며  그 이후에는 환불이 불가합니다. </li>
                                 <li>여러장을 구매했을 시에는 일괄취소만 가능합니다.</li>
                                 <li>예매하기-예매확인 - 예매취소 버튼으로 취소 가능합니다.</li>
@@ -328,12 +325,12 @@ export default function general_ticket(){
                 <div className="flex items-center justify-center mt-[48px] sm:mt-[94px]">
                     {payment === "계좌이체" && (
                     <div className="flex items-center justify-center">
-                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[12px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
+                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[8px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
                     </div>
                     )}
                     {payment === "카카오페이" && (
                         <Link href="payment">
-                            <button  onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[12px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">
+                            <button  onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[8px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">
                             예매하기
                             </button>
                         </Link>
