@@ -6,7 +6,7 @@ children: React.ReactNode;
 
 const Background: React.FC<BackgroundProps> = (props) => {
 const lines = Array.from({ length: 9 }, (_, index) => (
-    <div key={index} className="w-[2px] h-full bg-[#F2F2F2]" />
+    <div key={index} className="w-[1px] md:w-[2px] h-full bg-[#F2F2F2]" />
 ));
 
 return (
