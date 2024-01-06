@@ -25,9 +25,13 @@ const payment = () => {
             amount,
         };
         console.log(merchant_order_id, imp_id, amount);
+        console.log(formData);
         try {
-            const response = await axios.post('http://localhost:8000/tickets/validation/', formData);
-    
+            const response = await axios.post('http://localhost:8000/tickets/validation/', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data', // form-data로 설정
+                },
+            });
             if (response.status === 200) {
                 console.log('결제 검증 성공:', response.data);
                 setRedirect_url('http://localhost:3000/tickets/general_complete/');
