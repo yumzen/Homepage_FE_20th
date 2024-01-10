@@ -4,7 +4,7 @@ interface NavBgProps {
 
 const NavBg: React.FC<NavBgProps> = (props) => {
     const verticalLines = Array.from({ length: 9 }, (_, index) => (
-        <div key={index} className="w-[1px] md:w-[2px] h-full bg-[#F2F2F2]" />
+        <div key={index} className="hidden md:flex w-[1px] md:w-[2px] h-full bg-[#F2F2F2]" />
     ));
 
     return (
