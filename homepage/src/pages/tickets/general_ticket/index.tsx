@@ -157,15 +157,15 @@ export default function general_ticket(){
             <div className="flex flex-col w-[100%] justify-center sm:mt-[18px] pb-[8px]">
                 <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
                     <div className="w-[70vw] lg:w-[35vw] h-auto">
-                        <div className="text-[8px] sm:text-[16px] lg:text-xl font-bold">1) 이름</div>
-                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base w-full h-full rounded-[10px] " placeholder="대표자 이름을 적어주세요." onChange={handleBuyerChange}/>
+                        <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">예매자 이름</div>
+                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                            <input type="text" placeholder="예매자 이름을 적어주세요." onChange={handleBuyerChange}/>
                         </div>
                     </div>
                     <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
-                        <div className="text-[8px] sm:text-[16px] lg:text-xl font-bold">연락처</div>
-                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input type="text" className="text-base w-full h-full rounded-[10px]" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneNumberChange}/>
+                        <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">연락처</div>
+                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                            <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneNumberChange}/>
                         </div>
                     </div>
                 </div>
@@ -193,15 +193,15 @@ export default function general_ticket(){
                     <div className="flex flex-col w-[100%] justify-center sm:mt-[18px] pb-[8px]">
                         <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
                             <div className="w-[70vw] lg:w-[35vw] h-auto">
-                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-bold">{i + 1}) 이름</div>
-                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                                    <input type="text" className="text-base w-full h-full rounded-[10px] " placeholder="예매자 이름을 적어주세요." onChange={handleNameChange}/>
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500] mt-[8px] sm:mt-0">동반인{i} 이름</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input type="text" placeholder="동반인 이름을 적어주세요." onChange={handleNameChange}/>
                                 </div>
                             </div>
                             <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
-                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-bold">연락처</div>
-                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                                    <input type="text" className="text-base w-full h-full rounded-[10px]" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneChange}/>
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">연락처</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneChange}/>
                                 </div>
                             </div>
                         </div>

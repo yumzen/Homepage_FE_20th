@@ -38,7 +38,7 @@ export default function freshman_complete(){
     }, [reservation_id]);
 
 
-    if (reservation_id) {
+    if (reservation_id && buyer) {
         return (
             <div className = "h-[700px] sm:h-[900px]">
                 <Background>
@@ -80,7 +80,7 @@ export default function freshman_complete(){
                             <div className="mt-[12px] sm:mt-[22px] flex">
                                 <div className="w-[247px] h-[30px] font-[700] text-[16px] sm:text-[20px] leading-[28px] whitespace-nowrap">필독 사항</div>
                             </div>
-                            <ol className="list-decimal ml-[24px] font-[500] text-[10px] sm:text-[12px] lg:text-[16px] mt-[8px] sm:mt-[22px] leading-[26px]">
+                            <ol className="list-decimal ml-[24px] font-[500] text-[10px] sm:text-[14px] lg:text-[16px] mt-[8px] sm:mt-[22px] leading-[26px]">
                                 <li><div className="flex md:flex-row flex-col">계좌이체 결제를 선택하신 분들은 [예매현황-입금계좌]에 24시간 이내로 입금해주시면 자동으로 결제 완료 처리됩니다. </div></li>
                                 <li><div className="flex md:flex-row flex-col">결제 취소를 원하시면 [예매하기 - 결제 내역확인하기 - 예매번호 조회]를 통해 취소하실 수 있습니다. </div></li>
                                 <li><div className="flex md:flex-row flex-col">여러 장의 티켓을 구매하셨을 경우 결제와 결제 취소의 경우 모든 티켓이 일괄처리됩니다. </div></li>
@@ -91,5 +91,24 @@ export default function freshman_complete(){
                 </Background>
             </div>
         )
-        }
+    }
+    else{
+        return (
+            <div className = "h-[700px] sm:h-[900px]">
+                <Background>
+                    <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px]">
+                        <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[24px] sm:mt-[40px]">
+                            <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17} className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px]"/>
+                            <div className="mt-[8px] sm:mt-[16px] flex flex-row">
+                                <div className="font-[700] text-[20px] sm:text-[32px] leading-[42px] whitespace-nowrap ">예매 현황</div>
+                            </div>
+                        </div>
+                        <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto ">
+                            <div className="font-[700] text-[16px] sm:text-[20px] leading-[30px]">예매 정보가 없습니다.</div>
+                        </div>
+                    </div>
+                </Background>
+            </div>
+        )
+    }
 }

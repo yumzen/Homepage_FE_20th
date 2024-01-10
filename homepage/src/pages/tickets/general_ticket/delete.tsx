@@ -28,7 +28,7 @@ const general_delete = () => {
             if (response.data) {
                 console.log(response.data); 
                 console.log(response.data.status);
-                if(response.data.status === true){
+                if(response.data.status === "Success"){
                     setSearched(true);
                     setValidMerchant_order_id(true);
                     setBuyer(response.data.data.buyer);
@@ -58,7 +58,7 @@ const general_delete = () => {
     const handleCancelReservation = () => {
         if(cancelable === true){
         router.push({
-            pathname: '/tickets/freshman_ticket/check/',
+            pathname: '/tickets/general_ticket/check/',
             query: { merchant_order_id :merchant_order_id } 
         })}};
     
@@ -71,13 +71,13 @@ const general_delete = () => {
                     <p className="mt-[8px] sm:mt-[16px] font-[700] text-[20px] sm:text-[32px] leading-[42px] whitespace-nowrap">일반 예매 내역 확인</p>
                     <p className="mt-[16px] sm:mt-[32px] font-[500] text-[12px] sm:text-[14px] leading-[21px] text-[#4A4A4A] whitespace-nowrap">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>
                 </div>
-                <div className="mt-[24px] sm:mt-[48px] mx-auto w-[70vw] sm:w-[400px] md:w-[516px] h-[48px] flex rounded-[3px] items-center text-center content-center border-[1px] border-solid bg-[#FFF] border-[#000] outline-none">
+                <div className="mt-[24px] sm:mt-[48px] mx-auto w-[70vw] sm:w-[400px] md:w-[516px] h-[48px] flex rounded-[10px] items-center text-center content-center border-[1px] border-solid bg-[#FFF] border-[#000] outline-none">
                     <input
                         type="text"
                         value={merchant_order_id}
                         onChange={(e) => setMerchant_order_id(e.target.value)}
                         placeholder="예매번호를 입력해 주세요."
-                        className="flex-grow px-[10px] sm:px-[16px] outline-none text-[14px] w-[60px] whitespace-nowrap"
+                        className="flex-grow px-[10px] sm:px-[16px] outline-none text-[14px] w-[60px] whitespace-nowrap rounded-[10px]"
                         onKeyDown={handleInputKeyPress}
                     />
                     <div onClick={handleSearch} className="relative bg-[#eaeaea] rounded-[4px] w-[20px] sm:w-[24px] h-[20px] sm:h-[24px] my-[12px] mr-[16px] cursor-pointer hover:bg-[#D9D9D9]">
@@ -87,18 +87,18 @@ const general_delete = () => {
                 {searched && (
                     <div className="mt-[12px] sm:mt-[48px]items-center content-center flex flex-col ">
                         <div className="mt-[10px] sm:mt-[32px] mx-auto bg-[#F1F5FF] w-[75vw] sm:w-[400px] md:w-[516px] h-[120px] flex-shrink-0 rounded-[10px]">
-                            <div className="flex flex-row sm:mx-[24px] mt-[20px] justify-center text-center text-[10px] sm:text-[12px] font-[700]">
-                                <div className="w-[25vw] sm:w-[118px] h-[19px] flex justify-center  items-center whitespace-nowrap"> 예매번호 </div>
-                                <div className="mx-auto w-[25vw] sm:w-[118px] h-[19px]  flex justify-center  items-center whitespace-nowrap"> 예매자 성명 </div>
-                                <div className="w-[25vw] sm:w-[118px] h-[19px]  flex justify-center  items-center whitespace-nowrap"> 취소 가능 여부 </div>
+                            <div className="flex flex-row align-center justify-center text-[10px] sm:text-[12px] font-[700]">
+                                <div className="mt-[15px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px] h-[19px] flex text-center justify-center  items-center"> 예매번호 </div>
+                                <div className="mt-[15px] mx-auto w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center"> 예매자 성명 </div>
+                                <div className="mt-[15px] mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center "> 취소 가능 여부 </div>
                             </div>
                             <div className="mt-[21px] h-[1px] w-[100%] bg-[#D3D3D3] "/>
-                                    <div className="flex mt-[19px] sm:mx-[24px] flex-row align-center text-center justify-center text-[10px] sm:text-[14px] font-[500]">
-                                        <div className="w-[25vw] sm:w-[118px]  h-[21px] flex justify-center items-center whitespace-nowrap"> {merchant_order_id} </div>
-                                        <div className="mx-auto w-[25vw] sm:w-[118px] flex justify-center items-center whitespace-nowrap"> {buyer} </div>
-                                        <div className="w-[25vw] sm:w-[118px] flex justify-center items-center whitespace-nowrap"> {cancelable ? "취소 가능" : "취소 불가능"} </div>
-                                    </div>
-                        </div>
+                                <div className="flex flex-row align-center justify-center text-[10px] sm:text-[14px] font-[500]">
+                                    <div className="mt-[19px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px]  h-[21px] flex text-center justify-center items-center "> {merchant_order_id} </div>
+                                    <div className="mt-[19px] mx-auto w-[33%]  md:w-[118px] flex text-center justify-center  items-center "> {buyer} </div>
+                                    <div className="mt-[19px]  mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] flex text-center justify-center  items-center "> {cancelable ? "취소 가능" : "취소 불가능"} </div>
+                                </div>
+                            </div>
                         <div className="w-[75vw] sm:w-[400px] md:w-[514px] h-[48px] mt-[48px] mx-auto flex items-center">
                         <button onClick={handleCancelReservation} className="w-full h-full bg-[#E8E8E8] rounded-[10px] text-center text-[#000] hover:text-[#FFF] text-[14px] font-[600] leading-[19px] hover:bg-[#281CFF]">
                             예매 취소하기

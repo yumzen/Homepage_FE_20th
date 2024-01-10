@@ -85,7 +85,7 @@ export default function freshman_ticket(){
     );
 
     return (
-        <div className="w-[100%] h-[1250px] sm:h-[1900px] md:h-[1700px] lg:h-[1580px] z-60">
+        <div className="w-[100%] h-[1250px] sm:h-[1900px] md:h-[1850px] lg:h-[1580px] z-60">
             <Background>
                 <div className=" font-['pretendard'] px-[12.5vw] flex items-center flex-col mb-[84px]">
                     <div className="flex flex-col items-center mx-[12.5vw] text-center sm:mt-[40px]">
@@ -115,7 +115,7 @@ export default function freshman_ticket(){
                         <div className="absolute left-0 top-1 sm:top-[26px]">
                             <Image src="/assets/images/tickets/Arrow.svg" alt="arrow" width={100} height={100} className="w-[60px] h-[15px] mt-[1px] sm:mt-0 sm:w-[auto] sm:h-[auto]"/>
                         </div>
-                        <div className="bg-[white] w-[76px] sm:w-[110px] h-[26px] sm:h-[35px] ml-[5vw] sm:mt-[20px] flex flex-shrink-0 border border-solid border-[#D9D9D9] rounded-[3px] items-center justify-center mr-[5vw] sm:mr-0">
+                        <div className="bg-[white] w-[76px] sm:w-[110px] h-[26px] sm:h-[35px] ml-[5vw] sm:mt-[20px] flex flex-shrink-0 border border-solid border-[#D9D9D9] rounded-[10px] items-center justify-center mr-[5vw] sm:mr-0">
                             <div className="flex gap-2 sm:gap-4 text-[20px] sm:text-[26px] font-[700]">
                                 <button className="flex h-[25.9px] sm:h-[35px] my-auto ml-[2px] pr-[7px] sm:ml-[4px] sm:pr-[9px] text-center items-center justify-center border-r text-[#939393] border-[#D9D9D9]" onClick={handleDecrement}>-</button>
                                 <p>{count}</p>
@@ -125,39 +125,51 @@ export default function freshman_ticket(){
                     </div>
                 </div>
                 <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="mx-auto ml-[0.5vw]">
-                        <div className=" flex lg:flex-row flex-col ">
-                            <div className="mt-[12px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[12px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
-                                <div className="w-[80vw] h-[40px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[16px] sm:mt-[24px] ">
-                                    <p>본인확인을 위해 정확한 정보를 입력해주세요.</p>
-                                    <div className="flex flex-col">
-                                        <div className="flex whitespace-nowrap">
-                                            <p>컴퓨터공학과</p><p className="text-[#281CFF] flex flex-row">&nbsp;신입생확인</p>을 위해 <p className="text-[#281CFF]">&nbsp;다음 정보</p><p>를 입력해야 합니다.</p>
-                                        </div>
-                                    <p className="text-[#0047FF] flex">추후 공연장 입장 시 학생증 확인이 이루어질 수 있습니다.</p> 
+                <div className="mx-auto ml-[0.5vw]">
+                    <div className=" flex lg:flex-row flex-col ">
+                        <div className="mt-[12px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[12px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
+                            <div className="w-[80vw] h-[40px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[16px] sm:mt-[24px] ">
+                                <p>본인확인을 위해 정확한 정보를 입력해주세요.</p>
+                                <div className="flex flex-col">
+                                    <div className="flex whitespace-nowrap">
+                                        <p>컴퓨터공학과</p><p className="text-[#281CFF] flex flex-row">&nbsp;신입생 확인</p>을 위해 <p className="text-[#281CFF]">&nbsp;다음 정보</p><p>를 입력해야 합니다.</p>
+                                    </div>
+                                <p className="text-[#0047FF] flex">추후 공연장 입장 시 학생증 확인이 이루어질 수 있습니다.</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col w-[100%] justify-center sm:mt-[32px] pb-[8px]">
+                        <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
+                            <div className="w-[70vw] lg:w-[35vw] h-auto">
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500] mt-[8px] sm:mt-0">이름</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input value={buyer} type="text" placeholder="" onChange={(e) => setBuyer(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">연락처</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange}/>
                                 </div>
                             </div>
                         </div>
-                        <div className="text-[8px] sm:text-[12px] md:text-[16px] mt-[4px] leading-[26px] font-[500] sm:mt-[40px] flex flex-col md:flex-row mx-auto">
-                            <label className=" ml-[1vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">이름 </label>
-                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={buyer} type="text" placeholder="" onChange={(e) => setBuyer(e.target.value)} />
+                    </div>
+                    <div className="flex flex-col w-[100%] justify-center sm:mt-[18px] pb-[8px]">
+                        <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
+                            <div className="w-[70vw] lg:w-[35vw] h-auto">
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500] mt-[8px] sm:mt-0">학과</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input value={major} type="text" placeholder="" onChange={(e) => setmajor(e.target.value)} />
+                                    </div>
                             </div>
-                            <label className="mt-[4px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px] whitespace-nowrap">연락처</label>
-                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={phone_num} type="text" placeholder="‘-’없이 입력해주세요."  onChange={handlePhoneNumberChange}/>
-                            </div>
-                        </div>
-                        <div className="text-[8px] sm:text-[12px] md:text-[16px] leading-[26px] font-[500] mt-[4px] sm:mt-[20px] flex flex-col md:flex-row">
-                            <label className=" ml-[1vw]   items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[50px]">학과</label>
-                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={major} type="text" placeholder="" onChange={(e) => setmajor(e.target.value)} />
-                            </div>
-                            <label className="mt-[4px] sm:mt-0 ml-[1vw] md:ml-[7.5vw] items-center flex h-[32px] sm:h-[43px] w-[10vw] min-w-[55px]">학번</label>
-                            <div className="input-with-placeholder relative lg:w-[21vw] md:w-[18vw] w-[60vw] ml-[1vw] h-[32px] sm:h-[43px] flex-shrink-0 border bg-[white] border-[#6A6A6A] border-solid rounded-[3px] px-2">
-                                <input value={student_id} type="text" placeholder="예) C123456" onChange={(e) => setstudent_id(e.target.value)}/>
+                            <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
+                                <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">학번</div>
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                    <input value={student_id} type="text" placeholder="예) C123456" onChange={(e) => setstudent_id(e.target.value)}/>
+                                </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
                     <div className="ml-[0.5vw]">
@@ -206,7 +218,7 @@ export default function freshman_ticket(){
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-[24px] sm:mt-[94px]">
-                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[6px] bg-[#281CFF] text-[white] text-[8px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
+                        <button onClick={handleSubmit} className="w-[170px] h-[35px] sm:w-[270px] sm:h-[53px] felx items-center justify-center rounded-[10px] bg-[#281CFF] text-[white] text-[8px] sm:text-[18px] font-[700] leading-[17px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">예매하기</button>
                     </div>
                 </div>
                 {isError && <Error_modal />}

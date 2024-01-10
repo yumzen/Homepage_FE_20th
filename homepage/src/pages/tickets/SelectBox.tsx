@@ -34,12 +34,12 @@ export default function SelectBox() {
         <div className="relative inline-block text-center transition-all duration-450" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <button
                 type="button"
-                className="appearance-none outline-none text-[8px] sm:text-[14px] font-[700] leading-[17px] cursor-pointer w-[40vw] h-[22px] md:w-[270px] md:h-[48px] rounded-[4px] border-solid bg-[white] text-[#281CFF] border-[2px] border-[#281CFF]"
+                className="appearance-none outline-none text-[10px] sm:text-[14px] font-[700] leading-[17px] cursor-pointer w-[45vw] h-[29px] md:w-[270px] md:h-[48px] rounded-[10px] border-solid bg-[white] text-[#281CFF] border-[2px] border-[#281CFF]"
                 onClick={toggleDropdown}
             >
                 {selectedValue}
             </button>
-            <ul className={`${isDropdownVisible ? 'block' : 'hidden'} absolute top-[28px] sm:top-[58px] left-0 right-0 bg-[white] border-solid border-[2px] border-[#281CFF] rounded-[6px] overflow-hidden`}>
+            <ul className={`${isDropdownVisible ? 'block' : 'hidden'} absolute top-[32px] sm:top-[58px] left-0 right-0 bg-[white] border-solid border-[2px] border-[#281CFF] rounded-[10px] overflow-hidden`}>
                 {options.map((option) => (
                     <li key={option.value}>
                         <button
