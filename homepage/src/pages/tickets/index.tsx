@@ -9,7 +9,6 @@ import SelectBox from './SelectBox';
 dotenv.config();
 
 const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
-
 /*
     공연 정보 설정
 */
@@ -94,6 +93,63 @@ export default function Tickets() {
         });
     }
 
+    const ReserveTickets = () => (
+        <div className='text-[#FFF] font-[700] leading-[17px] text-[10px] sm:text-[12px] lg:text-[14px] text-center'>
+            {isWithinSeason ? (
+                <div className='contents-center flex justify-center flex-col lg:flex-row lg:gap-4'>
+                    <Link href="tickets/freshman_ticket">
+                        <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] rounded-[10px] bg-[#281CFF] hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">
+                            신입생 티켓 예매하기
+                        </button>
+                    </Link>
+                    <Link href="tickets/general_ticket">
+                        <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] mt-[10px] lg:mt-0 rounded-[10px] bg-[#281CFF] hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">
+                            일반 티켓 예매하기
+                        </button>
+                    </Link>
+                </div>
+            ) : (
+                <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px]  flex-shrink-0 rounded-[10px] bg-[#B9B9B9]">
+                    지금은 예매 가능 기간이 아닙니다.
+                </button>
+            )}
+        </div>
+    );
+    
+    const TicketButton = ({ href, label, width, height, margin, text }:any) => (
+        <Link href={href}>
+            <button className={`ml-[${margin}] w-[${width}] h-[${height}] text-[${text}] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450`}>
+                {label}
+            </button>
+        </Link>
+    );
+    
+    const checkTickets = () => (
+        <div>
+            <div className='hidden lg:flex mt-[16px]'>
+                <TicketButton href="tickets/freshman_ticket/delete/" label="신입생 예매내역 조회하기" width="164px" height="33px" margin="0.4vw" text="12px"/>
+                <TicketButton href="tickets/general_ticket/delete/" label="일반 예매내역 조회하기" width="164px" height="33px" margin="0.6vw" text="12px"/>
+            </div>
+            <div className='lg:hidden flex'>
+                <TicketButton href="tickets/freshman_ticket/delete/" label="신입생 예매내역 조회하기" width="35vw" height="29px" margin="0" text="10px"/>
+                <TicketButton href="tickets/general_ticket/delete/" label="일반 예매내역 조회하기" width="35vw" height="29px" margin="2vw" text="10px"/>
+            </div>
+        </div>
+    );
+
+    const Tickets = () => (
+        <div>
+            <div className="flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
+                <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
+                <div className="text-right font-[500] w-[70px]">예매가능</div>  
+            </div>
+            <div className="mt-[13px] flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
+                <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
+                <div className="text-right font-[500]  w-[70px]">예매가능</div>
+            </div>
+        </div>
+    )
+
     return (
         <div className="h-[1250px] sm:h-[1500px] lg:h-[1100px] flex z-0 ">
         <Background>
@@ -103,7 +159,7 @@ export default function Tickets() {
                         <div className="w-[50vw] h-[200px] sm:h-[300px] md:h-[300px] lg:w-[720px] lg:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
                             <div className="flex flex-row justify-between">
                                 <div className="w-[48px] h-[18px] md:w-[60px] md:h-[22px] md:text-[12px] lg:w-[76px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">예매가능</div>
-                                    <div className="flex">
+                                    <div className="flex mt-[3px]">
                                     <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" target='_blank' passHref>
                                         <Image src='/assets/images/tickets/mobile_instagram.svg' alt="모바일 인스타 그램" width ={1000} height={1000} className='ml-[8vw] flex lg:hidden cursor-pointer w-[12px] h-[12px]'/>
                                     </Link>
@@ -123,34 +179,34 @@ export default function Tickets() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-[18px] w-[50vw] lg:w-[680px] xl:w-[720px] h-[1px] flex bg-[#000]"/>
+                            <div className="mt-[32px] lg:mt-[18px] w-[50vw] lg:w-[680px] xl:w-[720px] h-[1px] flex bg-[#000]"/>
                             <div className="mt-[12px] lg:mt-[36px] w-[50vw] lg:w-[720px] h-[1px] flex flex-row">
                                 <div className="flex flex-col w-[50vw] ">
-                                    <div className="text-[10px] lg:text-[14px] flex w-[50vw] md:w-[270px] items-center mt-[4px]">
+                                    <div className="text-[10px] md:text-[14px] flex w-[50vw] md:w-[270px] items-center mt-[4px]">
                                         <div className="font-[700] leading-[17px] w-[18px] lg:w-[25px] h-[17px] text-center whitespace-nowrap">장소</div>
                                         <div className="font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[52px] h-[21px]">{data[0].where}</div>
                                     </div>
-                                    <div className="text-[10px] lg:text-[14px] mt-[4px] lg:mt-[48px] flex w-[50vw] md:w-[270px] items-center">
+                                    <div className="text-[10px] md:text-[14px] mt-[4px] md:mt-[24px] lg:mt-[48px] flex w-[50vw] md:w-[270px] items-center">
                                         <div className=" font-[700] leading-[17px] w-[18px] lg:w-[25px] h-[17px] text-center whitespace-nowrap">일시</div>
                                         <div className=" font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[145px] h-[21px]">{data[0].when}</div>  
                                     </div>
                                     <div className="mt-[14px] lg:mt-[42px] w-[50vw] lg:w-[434px] border-b flex bg-[#D9D9D9]"/>
                                     <div className="mt-[14px] lg:mt-[42px] flex flex-row w-[50vw] md:w-[434px]">
                                         <div className="flex flex-row h-[77px]">
-                                            <div className="text-[10px] lg:text-[14px] w-[18px] lg:w-[25px] h-[66px] font-[700] flex leading-[17px] mt-[28px] text-center">
+                                            <div className="text-[10px] md:text-[14px] w-[18px] md:w-[25px] h-[66px] font-[700] flex leading-[17px] mt-[28px] text-center">
                                                 가격
                                             </div>
                                             <div className="flex flex-col ml-[7vw] lg:ml-[64px] h-[66px]">
-                                                <div className='text-[10px] lg:text-[14px] flex flex-col lg:flex-row'>
+                                                <div className='text-[10px] md:text-[14px] flex flex-col lg:flex-row'>
                                                     <div className="w-[40vw] md:w-[335px] h-[21px] flex flex-row items-center">
-                                                        <div className="w-[62px] lg:w-[77px] h-[21px] ">홍익대 신입생</div>
+                                                        <div className="w-[62px] md:w-[77px] h-[21px] ">홍익대 신입생</div>
                                                         <div className="ml-[10vw] lg:ml-[36px] w-[25px] text-[#281CFF] font-[700]">{data[0].ticket.freshman}</div>
                                                         <div className="hidden lg:flex ml-[66px] w-[41px] text-[#939393]">1인 1매</div>
                                                     </div>
                                                 <div className="flex text-[8px] lg:hidden w-[41px] text-[#939393]">1인 1매</div>
                                             </div>
-                                            <div className='text-[10px] lg:text-[14px] flex flex-col lg:flex-row'>
-                                                <div className="text-[10px] lg:text-[14px] w-[40vw] md:w-[335px] mt-[8px] lg:mt-[35px] h-[21px] flex flex-row items-center">
+                                            <div className='text-[10px] md:text-[14px] flex flex-col lg:flex-row'>
+                                                <div className="text-[10px] md:text-[14px] w-[40vw] md:w-[335px] mt-[8px] lg:mt-[35px] h-[21px] flex flex-row items-center">
                                                     <div className="w-[62px] lg:w-[77px] h-[21px] ">일반티켓</div>
                                                     <div className="ml-[10vw] lg:ml-[36px] w-[49px] font-[700]">{data[0].ticket.regular}</div>
                                                     <div className="hidden lg:flex ml-[42px] w-[122px] text-[#939393] whitespace-nowrap">1인 5매까지 예매 가능</div>
@@ -160,17 +216,8 @@ export default function Tickets() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='hidden sm:flex flex-row mt-[36px]'>
-                                        <Link href="tickets/freshman_ticket/delete/">
-                                            <button className="ml-[0.4vw] mr-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
-                                                신입생 티켓 구매내역 조회하기
-                                            </button>
-                                        </Link>
-                                        <Link href="tickets/general_ticket/delete/">
-                                            <button className="ml-[0.6vw] w-[164px] h-[33px] text-[12px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
-                                                일반 티켓 구매내역 조회하기
-                                            </button>
-                                        </Link>
+                                    <div className='hidden lg:flex mt-[36px]'>
+                                    {checkTickets()}
                                     </div>
                                 </div>
                                 <div id="map1" className="hidden lg:flex lg:ml-[25px] mr-[10vw] xl:ml-[45px] lg:w-[200px] lg:h-[200px] xl:w-[242px] xl:h-[242px] rounded-[10px] border-[1px] border-[#B9B9B9] flex-shrink-0 z-0"></div>
@@ -178,17 +225,8 @@ export default function Tickets() {
                             
                         </div>
                     </div>
-                    <div className='flex sm:hidden flex-row mt-[50px] sm:mt-[30px] mx-auto'>
-                        <Link href="tickets/freshman_ticket/delete/">
-                            <button className=" mr-[1vw] w-[45vw] h-[29px] text-[10px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
-                                신입생 티켓 구매내역 조회하기
-                            </button>
-                        </Link>
-                        <Link href="tickets/general_ticket/delete/">
-                            <button className="ml-[1vw] w-[45vw] h-[29px] text-[10px] font-[400px] leading-[18px] border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">
-                                일반 티켓 구매내역 조회하기
-                            </button>
-                        </Link>
+                    <div className='flex lg:hidden mt-[50px] sm:mt-[30px]'>
+                        {checkTickets()}
                     </div>
         
                     <div className="hidden lg:flex flex-col w-[90vw] xl:w-[1080px] h-[402px] flex-shrink-0 rounded-[10px] border-solid border-[#B9B9B9] border mt-[110px] mx-auto bg-[white]">
@@ -222,31 +260,14 @@ export default function Tickets() {
                                 
                             </div>
                             <div className="w-[29.9vw] xl:w-[358px] h-[260px] flex flex-col bg-[#F1F5FF] ">
-                                <div className=" flex flex-col mx-auto mt-[30px]">
-                                        <div className="flex w-[260px] text-center flex-row justify-between">
-                                            <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                                            <div className="text-[14px] text-right font-[500] w-[70px]">예매가능</div>  
-                                        </div>
-                                        <div className="mt-[13px]  flex w-[260px] text-center flex-row justify-between">
-                                            <div className="text-[14px] font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                                            <div className="text-[14px] text-right font-[500]  w-[70px]">예매가능</div>
-                                        </div>
-                                    </div>
+                                <div className=" flex flex-col mx-auto mt-[30px] text-[14px]">
+                                    <Tickets/>
+                                </div>
                             </div>
                             
                         </div>
-                            <div className='flex justify-end mr-[20px] xl:ml-[480px] mt-[16px]'>
-                            {isWithinSeason ? (
-                            <div >
-                                <Link href="tickets/freshman_ticket">
-                                    <button className="w-[270px] h-[48px] flex-shrink-0 rounded-[10px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">신입생 티켓 예매하기</button>
-                                </Link>
-                                <Link href="tickets/general_ticket">
-                                    <button className="w-[270px] h-[48px] flex-shrink-0 ml-[30px] rounded-[10px] bg-[#281CFF] font-[700] leading-[17px]  text-[#FFF] text-[14px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">일반 티켓 예매하기</button>
-                                </Link>
-                            </div>) : (
-                            <button className="ml-[30px] w-[540px] h-[48px] flex-shrink-0 rounded-[10px] bg-[#B9B9B9] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">지금은 예매 가능 기간이 아닙니다.</button>
-                        )}
+                            <div className='flex justify-end mr-[20px] xl:ml-[480px] my-[16px]'>
+                            {ReserveTickets()}
                         </div>
                     </div>
 
@@ -282,29 +303,13 @@ export default function Tickets() {
                                     
                             <div className="w-[100%] h-[80px] md:h-[100px] items-center border-t border-[#E8E8E8] bg-[#F1F5FF] flex">
                                 <div className=" flex flex-col w-[50vw] mx-auto text-[10px] md:text-[12px]">
-                                        <div className="flex w-[100%] text-center flex-row justify-between md:justify-center md:gap-[25vw]">
-                                            <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                                            <div className="text-right font-[500] w-[70px]">예매가능</div>  
-                                        </div>
-                                        <div className="mt-[13px]  flex w-[100%] text-center flex-row justify-between md:justify-center md:gap-[25vw]">
-                                            <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                                            <div className="text-right font-[500]  w-[70px]">예매가능</div>
-                                        </div>
-                                    </div>
+                                    <Tickets/>
+                                </div>
                             </div>
-                                
-                            {isWithinSeason ? (
-                                <div className="flex border-t border-[#E8E8E8] bg-[#fff] rounded-b-[10px] w-[100%] h-[110px] md:h-[150px] flex-col items-center justify-center mx-auto">
-                                    <Link href="tickets/freshman_ticket">
-                                        <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] flex-shrink-0 rounded-[10px] bg-[#281CFF] text-[#FFF] font-[700] leading-[17px] text-[10px] sm:text-[12px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">신입생 티켓 예매하기</button>
-                                    </Link>
-                                    <Link href="tickets/general_ticket">
-                                        <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] flex-shrink-0 mt-[10px] rounded-[10px] bg-[#281CFF] font-[700] leading-[17px] text-[#FFF] text-[10px] sm:text-[12px] text-center hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[2px] border-[#281CFF]">일반 티켓 예매하기</button>
-                                    </Link>
-                                </div>) : (
-                                <button className="ml-[30px] w-[540px] h-[48px] flex-shrink-0 rounded-[10px] bg-[#B9B9B9] text-[#FFF] font-[700] leading-[17px] text-[14px] text-center">지금은 예매 가능 기간이 아닙니다.</button>
-                            )}
+                            <div className="flex border-t border-[#E8E8E8] bg-[#fff] rounded-b-[10px] w-[100%] h-[110px] md:h-[150px] flex-col items-center justify-center mx-auto">
+                            {ReserveTickets()}
                             </div>
+                        </div>
                     </div>
                 </div>
             </Background>

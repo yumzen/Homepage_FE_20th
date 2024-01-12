@@ -3,13 +3,7 @@ import Image from "next/image";
 import Background from "@/app/components/Background";
 import axios from 'axios';
 import { useRouter } from "next/router";
-
-interface Order {
-    id: number;
-    merchant_order_id: string;
-    name: string;
-    cancelable: boolean;
-}
+import Ticket_info from "../ticket_info";
 
 const general_delete = () => {
     const router = useRouter();
@@ -19,15 +13,10 @@ const general_delete = () => {
     const [validMerchant_order_id, setValidMerchant_order_id] = useState(true);
     const [buyer, setBuyer] = useState('');
 
-
-
     const handleSearch = async () => {
         try {
             const response = await axios.get(`http://127.0.0.1:8000/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
-            
             if (response.data) {
-                console.log(response.data); 
-                console.log(response.data.status);
                 if(response.data.status === "Success"){
                     setSearched(true);
                     setValidMerchant_order_id(true);
@@ -43,7 +32,7 @@ const general_delete = () => {
                 setValidMerchant_order_id(false);
             }
         } catch (error) {
-            console.error('Error searching reservation:', error);
+            //console.error('Error searching reservation:', error);
             setSearched(false);
             setValidMerchant_order_id(false);
         }
@@ -60,7 +49,7 @@ const general_delete = () => {
         router.push({
             pathname: '/tickets/general_ticket/check/',
             query: { merchant_order_id :merchant_order_id } 
-        })}};
+    })}};
     
     return  (
         <div className="h-[100vh] sm:h-[650px] min-h-screen">
@@ -86,19 +75,7 @@ const general_delete = () => {
                 </div>
                 {searched && (
                     <div className="mt-[12px] sm:mt-[48px]items-center content-center flex flex-col ">
-                        <div className="mt-[10px] sm:mt-[32px] mx-auto bg-[#F1F5FF] w-[75vw] sm:w-[400px] md:w-[516px] h-[120px] flex-shrink-0 rounded-[10px]">
-                            <div className="flex flex-row align-center justify-center text-[10px] sm:text-[12px] font-[700]">
-                                <div className="mt-[15px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px] h-[19px] flex text-center justify-center  items-center"> 예매번호 </div>
-                                <div className="mt-[15px] mx-auto w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center"> 예매자 성명 </div>
-                                <div className="mt-[15px] mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center "> 취소 가능 여부 </div>
-                            </div>
-                            <div className="mt-[21px] h-[1px] w-[100%] bg-[#D3D3D3] "/>
-                                <div className="flex flex-row align-center justify-center text-[10px] sm:text-[14px] font-[500]">
-                                    <div className="mt-[19px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px]  h-[21px] flex text-center justify-center items-center "> {merchant_order_id} </div>
-                                    <div className="mt-[19px] mx-auto w-[33%]  md:w-[118px] flex text-center justify-center  items-center "> {buyer} </div>
-                                    <div className="mt-[19px]  mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] flex text-center justify-center  items-center "> {cancelable ? "취소 가능" : "취소 불가능"} </div>
-                                </div>
-                            </div>
+                        <Ticket_info reservation_id={merchant_order_id} buyer={buyer} />
                         <div className="w-[75vw] sm:w-[400px] md:w-[514px] h-[48px] mt-[48px] mx-auto flex items-center">
                         <button onClick={handleCancelReservation} className="w-full h-full bg-[#E8E8E8] rounded-[10px] text-center text-[#000] hover:text-[#FFF] text-[14px] font-[600] leading-[19px] hover:bg-[#281CFF]">
                             예매 취소하기

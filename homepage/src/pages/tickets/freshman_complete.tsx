@@ -18,18 +18,13 @@ export default function freshman_complete(){
                 try {
                     const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${reservation_id}`);
                     if (response.status === 200) {
-                        console.log('요청이 성공적으로 처리되었습니다.');
                         setBuyer(response.data.data.buyer);
                         setPhoneNum(response.data.data.phone_num);
                         setStudentId(response.data.data.student_id);
                     } else {
-                        console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
-                        console.error('에러 응답:', response.data);
-                        // Handle other status codes if needed
                     }
                 } catch (error) {
-                    console.error('Error fetching reservation data:', error);
-                    // Handle error, such as setting an error state
+                    //console.error('Error fetching reservation data:', error);
                 }
             }
         };

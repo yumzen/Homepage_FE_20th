@@ -3,13 +3,13 @@ import Image from "next/image";
 import Background from "@/app/components/Background";
 import axios from 'axios';
 import { useRouter } from "next/router";
+import Ticket_info from "../ticket_info";
 
 
 const freshman_delete = () => {
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
     const [student_id, setStudent_id] = useState('');
-    const [cancelable, setCancelable] = useState(true);
     const [input_sid, set_sid] = useState("");
     const [validSid, setValidSid] = useState(true);
     const {reservation_id} = router.query;
@@ -19,15 +19,14 @@ const freshman_delete = () => {
             try {
                 if (router.query?.reservation_id) {
                     const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${router.query.reservation_id}`);
-                    console.log(response.data);
+                    //console.log(response.data);
                     if (response.data) {
                         setBuyer(response.data.data.buyer);
                         setStudent_id(response.data.data.student_id);
-                        //setCancelable(response.data.data.cancelable);
                     }
                 }
             } catch (error) {
-                console.error('Error searching reservation:', error);
+                //console.error('Error searching reservation:', error);
             }
         };
 
@@ -37,7 +36,6 @@ const freshman_delete = () => {
     const handleCancelReservation = async () => {
         if (input_sid === student_id) {
             setValidSid(true);
-            console.log(reservation_id);
             const formData = new FormData();
             formData.append('reservation_id', reservation_id as string);
             const rid = reservation_id;
@@ -48,13 +46,12 @@ const freshman_delete = () => {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
-                console.log('Reservation canceled:', response.data);
                 router.push({
                     pathname: '/tickets/cancel_complete/',
                     query: { rid } 
                 })
             } catch (error) {
-                console.error('Error canceling reservation:', error);
+                //console.error('Error canceling reservation:', error);
             }
         } else {
             setValidSid(false);
@@ -79,19 +76,7 @@ const freshman_delete = () => {
                 </div>
                 {reservation_id && (
                     <div className="mt-[12px] sm:mt-[48px] mx-auto items-center content-center flex flex-col ">
-                        <div className="mt-[10px] sm:mt-[32px] mx-auto bg-[#F1F5FF] w-[75vw] sm:w-[400px] md:w-[516px] h-[120px] flex-shrink-0 rounded-[10px]">
-                            <div className="flex flex-row align-center justify-center text-[10px] sm:text-[12px] font-[700]">
-                                <div className="mt-[15px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px] h-[19px] flex text-center justify-center  items-center"> 예매번호 </div>
-                                <div className="mt-[15px] mx-auto w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center"> 예매자 성명 </div>
-                                <div className="mt-[15px] mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] h-[19px]  flex text-center justify-center  items-center "> 취소 가능 여부 </div>
-                            </div>
-                            <div className="mt-[21px] h-[1px] w-[100%] bg-[#D3D3D3] "/>
-                                <div className="flex flex-row align-center justify-center text-[10px] sm:text-[14px] font-[500]">
-                                    <div className="mt-[19px] ml-[3vw] sm:ml-[24px] w-[33%] md:w-[118px]  h-[21px] flex text-center justify-center items-center "> {reservation_id} </div>
-                                    <div className="mt-[19px] mx-auto w-[33%]  md:w-[118px] flex text-center justify-center  items-center "> {buyer} </div>
-                                    <div className="mt-[19px]  mr-[3vw] sm:mr-[24px] w-[33%] md:w-[118px] flex text-center justify-center  items-center "> {cancelable ? "취소 가능" : "취소 불가능"} </div>
-                                </div>
-                            </div>
+                        <Ticket_info reservation_id={Array.isArray(router.query.reservation_id) ? router.query.reservation_id.join('') : router.query.reservation_id || ''} buyer={buyer} />
                         <div className="flex mt-[16px] mx-auto sm:ml-[4px] flex-col w-[75vw] sm:w-[300px] md:w-[516px]">
                             <p className="ml-0 text-left text-[#4A4A4A] text-[10px] sm:text-[12px] leading-[21px]"> 예매 취소 인증 절차입니다.</p>
                             <p className="ml-0 text-left text-[#4A4A4A] text-[10px] sm:text-[12px] leading-[21px]"> 정말 취소하시려면 예매하실 때 입력한 학번을 입력해주세요.</p>

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import '../index.css';
 import Background from "@/app/components/Background";
-import Link from "next/link";
 import axios from 'axios';
 import Error_modal from "./error_modal";
 import Input_modal from "./input_modal";
@@ -28,11 +27,12 @@ export default function general_ticket(){
     useEffect(() => {
         const isDataComplete = buyer.trim() !== '' && phone_num.trim() !== '';
         setIsFormComplete(isDataComplete);
-    }, [buyer, phone_num]);
+    }, [buyer, phone_num, namesArray, phonesArray]);
     
     const handleSubmit = async () => {
-        console.log(buyer, phone_num, member, namesArray, phonesArray, price, status, payment);
+        console.log(buyer, phone_num, member, namesArray, phonesArray, price, payment);
         setIsClick(true);
+
         if(isFormComplete === true){
         try {
             const formData = new FormData();
@@ -45,27 +45,21 @@ export default function general_ticket(){
             formData.append('status', 'false');
             formData.append('payment', payment);
     
-            console.log(formData);
-    
             const response = await axios.post('http://127.0.0.1:8000/tickets/general_ticket/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
     
-            console.log(response);
-    
             if (response.status === 200) {
-                console.log('요청이 성공적으로 처리되었습니다.');
-                console.log('응답 데이터:', response.data.data);
-                console.log(response.data.data.id);
                 id = response.data.data.id;
                 fetchMerchant_order_id();
             } else {
                 setIsError(true);
             }
         } catch (error) {
-            console.error('Error submitting data:', error);
+            //console.error('Error submitting data:', error);
+            setIsError(true);
         }
         }
     };
@@ -75,25 +69,23 @@ export default function general_ticket(){
             const formData = new FormData();
             formData.append('id', id);
             formData.append('amount', String(price));
-            console.log(formData);
             const response = await axios.post(`http://127.0.0.1:8000/tickets/checkout/`, formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data', // form-data로 설정
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             if (response.status === 200) {
-                console.log(response.data);
                 merchant_order_id = response.data.merchant_order_id;
-                console.log(merchant_order_id);
                 router.push({
                     pathname: "/tickets/general_complete",
                     query: { ...router.query, merchant_order_id},
                 })
             } else {
-                console.log("error");
+                setIsError(true);
             }
         } catch (error) {
-            console.error('Error submitting checkout data:', error);
+            //console.error('Error submitting checkout data:', error);
+            setIsError(true);
         }
     }
     

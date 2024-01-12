@@ -17,20 +17,15 @@ export default function general_complete(){
                 try {
                     const response = await axios.get(`http://127.0.0.1:8000/tickets/general_ticket/?merchant_order_id=${merchant_order_id}`);
                     if (response.status === 200) {
-                        console.log('요청이 성공적으로 처리되었습니다.');
                         setBuyer(response.data.data.buyer);
                         setPhone_num(response.data.data.phone_num);
                         if(response.data.data.status===true){
                             setMerchant_status("결제완료");
                         } 
                     } else {
-                        console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
-                        console.error('에러 응답:', response.data);
-                        // Handle other status codes if needed
                     }
                 } catch (error) {
-                    console.error('Error fetching reservation data:', error);
-                    // Handle error, such as setting an error state
+                    //console.error('Error fetching reservation data:', error);
                 }
             }
         };
@@ -67,7 +62,10 @@ export default function general_complete(){
                     </div>
                     <div className="mt-[12px] sm:mt-[32px] flex flex-row items-center">
                         <div className="text-[12px] sm:text-[20px] w-[100px] font-[500] leading-[0.4px]">예매현황</div>
-                        <div className="ml-[2vw] sm:ml-[5.5vw] text-[10px] sm:text-[16px] font-[500] w-[35vw] leading-[21px] text-[#979797]">{merchant_status}</div>
+                        <div className="flex flex-col">
+                            <div className="ml-[2vw] sm:ml-[5.5vw] text-[10px] sm:text-[16px] font-[500] w-[35vw] leading-[21px] text-[#6A6A6A]">{merchant_status}</div>
+                            <p className="ml-[2vw] sm:ml-[5.5vw] text-[8px] sm:text-[14px] font-[500] w-[35vw] leading-[21px] text-[#281CFF]">(토스뱅크 1000-7578-9563)</p>
+                        </div>
                     </div>
                     </div>
                     <div className="w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[32px] bg-[#D3D3D3] flex"/>

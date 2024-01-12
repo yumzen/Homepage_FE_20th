@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const input_modal = () => {
     const [isClose, setIsClose] = useState(false);
 
-    
     const handleIsClose = () => {
         setIsClose(true);
     };
@@ -34,7 +32,7 @@ const input_modal = () => {
         <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
             <div className="font-['pretendard'] w-[200px] h-[170px] sm:w-[580px] sm:h-[260px] bg-[#FFF] flex-shrink-0 fixed rounded-[3px] z-20">
                 <button onClick={handleIsClose} className="ml-[180px] h-[22px] sm:h-[30px] sm:ml-[550px] flex-col items-center flex justify-center">
-                <Image src="/assets/images/layout/close.svg" width={36} height={38} alt="close" className="w-[16px] h-[16px] hover:w-[22px] hover:h-[22px] sm:w-[22px] sm:h-[22px] sm:hover:w-[24px] sm:hover:h-[24px] transition-all duration-450 "/>
+                <Image src="/assets/images/layout/close.svg" width={36} height={38} alt="close" className="w-[16px] h-[16px] sm:w-[22px] sm:h-[22px]"/>
                 </button>
                 <div className="flex flex-col items-center text-center content-center mt-[12px] sm:mt-[40px] leading-normal">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12} className="sm:w-[52px] sm:h-[12px] w-[30px] h-[10px]"/>

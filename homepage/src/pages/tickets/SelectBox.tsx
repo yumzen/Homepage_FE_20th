@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function SelectBox() {
-    const [selectedValue, setSelectedValue] = useState('18시 00분'); //기본값은 '18시 00분'으로 설정
+    const [selectedValue, setSelectedValue] = useState('18시 00분');
     const [isDropdownVisible, setIsDropdownVisible] = useState(false); 
 
     const options = [
@@ -16,7 +16,7 @@ export default function SelectBox() {
     };
 
     const handleOptionClick = (value:any) => {
-        if (value !== '') {  //선택 불가한 value 설정
+        if (value !== '') {
             setSelectedValue(value);
             setIsDropdownVisible(false);
         }
@@ -46,7 +46,7 @@ export default function SelectBox() {
                             type="button"
                             className=" w-full text-center py-[7px] text-[8px] sm:text-[14px] focus:outline-none"
                             onClick={() => handleOptionClick(option.value)}
-                            disabled={option.value === ''} //value가 ''일 경우, 버튼 비활성화
+                            disabled={option.value === ''}
                         >
                             {option.label}
                         </button>

@@ -38,7 +38,6 @@ export default function freshman_ticket(){
             try {
                 const formData = { buyer, phone_num, major, student_id, meeting,};
                 const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
-                console.log(response);
                 if (response.status === 200) {
                     const reservation_id = response.data.data.reservation_id;
                     router.push({
@@ -50,7 +49,7 @@ export default function freshman_ticket(){
                     setIsError(true);
                 }
             } catch (error) {
-                console.error('Error submitting data:', error);
+                //console.error('Error submitting data:', error);
                 setIsError(true);
             }
         }
@@ -79,8 +78,8 @@ export default function freshman_ticket(){
 
     const RadioButton = ({ label, value, checked, onChange }:any) => (
         <label className="flex flex-row items-center justify-center">
-        <input type="radio" name="뒷풀이" value={value} checked={checked} onChange={() => onChange(value === '참')} className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0" />
-        <div className="font-[500]">{label}</div>
+            <input type="radio" name="뒷풀이" value={value} checked={checked} onChange={() => onChange(value === '참')} className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0" />
+            <div className="font-[500]">{label}</div>
         </label>
     );
 
