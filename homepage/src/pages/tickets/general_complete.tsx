@@ -38,7 +38,7 @@ export default function general_complete(){
             <div className = "h-[700px] sm:h-[900px]">
             <Background>
             <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px]">
-            <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[24px] sm:mt-[40px]">
+            <div className="flex flex-col items-center mx-[12.5vw] text-center mt-[12px] sm:mt-[40px]">
                 <Image src="/assets/images/tickets/divider_medium.svg" alt="티켓" width={75} height={17} className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px]"/>
                 <div className="mt-[8px] sm:mt-[16px] flex flex-row">
                     <div className="font-[700] text-[20px] sm:text-[32px] leading-[42px] whitespace-nowrap ">예매 현황</div>

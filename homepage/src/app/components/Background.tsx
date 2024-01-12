@@ -14,7 +14,7 @@ return (
     {lines.map((line, index) => (
         <React.Fragment key={index}>{line}</React.Fragment>
     ))}
-    <div className="absolute inset-0 mt-[110px]">{props.children}</div>
+    <div className="absolute inset-0 mt-[80px]">{props.children}</div>
     </div>
 );
 };

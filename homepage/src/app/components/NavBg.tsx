@@ -10,7 +10,7 @@ const NavBg: React.FC<NavBgProps> = (props) => {
     return (
         <div className="w-screen h-screen flex items-center justify-between bg-white">
             {verticalLines}
-            <div className="absolute inset-0 mt-[30px]">
+            <div className="absolute inset-0">
                 {props.children}
             </div>
         </div>

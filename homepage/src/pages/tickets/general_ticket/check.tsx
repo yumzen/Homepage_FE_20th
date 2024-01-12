@@ -69,7 +69,7 @@ const general_delete = () => {
         <div className = "h-[600px] sm:h-[700px]  min-h-screen">
         <Background>
         <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px] ">
-                <div className="flex flex-col items-center mx-[12.5vw] text-center content-center mt-[20px] sm:mt-[40px] leading-normal">
+                <div className="flex flex-col items-center mx-[12.5vw] text-center content-center mt-[10px] sm:mt-[40px] leading-normal">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}  className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px]"/>
                     <p className="mt-[8px] sm:mt-[16px] font-[700] text-[20px] sm:text-[32px] leading-[42px] whitespace-nowrap flex flex-row">예매내역 취소</p>
                     <p className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px] text-[#4A4A4A] w-[75vw]">[예매 취소하기] 버튼을 누르시면 예매 취소가 완료됩니다.</p>

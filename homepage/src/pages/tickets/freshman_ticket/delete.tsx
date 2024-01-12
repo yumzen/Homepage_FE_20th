@@ -47,7 +47,7 @@ const freshman_delete = () => {
         <div className="h-[100vh] sm:h-[650px] min-h-screen">
             <Background>
             <div className="font-['pretendard'] mx-[12.5vw] flex items-center flex-col mb-[84px] ">
-                <div className="flex flex-col items-center mx-[12.5vw] text-center content-center mt-[24px] sm:mt-[40px] leading-normal">
+                <div className="flex flex-col items-center mx-[12.5vw] text-center content-center mt-[12px] sm:mt-[40px] leading-normal">
                     <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12}  className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px]"/>
                     <p className="mt-[8px] sm:mt-[16px] font-[700] text-[20px] sm:text-[32px] leading-[42px] whitespace-nowrap">신입생 예매 내역 확인</p>
                     <p className="mt-[16px] sm:mt-[32px] font-[500] text-[12px] sm:text-[14px] leading-[21px] text-[#4A4A4A] whitespace-nowrap">티켓 예매 내역을 확인하고 취소할 수 있습니다.</p>

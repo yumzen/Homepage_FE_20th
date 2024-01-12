@@ -151,9 +151,9 @@ export default function Tickets() {
     )
 
     return (
-        <div className="h-[1250px] sm:h-[1500px] lg:h-[1100px] flex z-0 ">
+        <div className="h-[1250px] sm:h-[1500px] lg:h-[1100px] flex z-0 sm:top-[30px]">
         <Background>
-                <div className="font-['pretendard']  flex flex-col items-center sm:mb-[84px] mx-auto ">
+                <div className="font-['pretendard']  flex flex-col items-center sm:mb-[84px] mx-auto  sm:pt-[30px]">
                     <div className=" flex flex-row w-[100%] lg:w-[1024px] justify-center items-center content-center">
                         <Image src={data[0].image} alt='포스터' width={342} height={460} className='px-[1vw] w-[40vw] h-[calc(40vw*4/3)] md:w-[240px] md:h-[310px] lg:w-[290px] lg:h-[400px] xl:w-[342px] xl:h-[460px] md:max-h-[460px]' priority/>
                         <div className="w-[50vw] h-[200px] sm:h-[300px] md:h-[300px] lg:w-[720px] lg:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
