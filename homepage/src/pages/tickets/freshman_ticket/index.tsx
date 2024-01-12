@@ -7,6 +7,8 @@ import axios from 'axios';
 import Error_modal from "./error_modal";
 import Input_modal from "./input_modal";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 export default function freshman_ticket(){
     const router = useRouter();
@@ -37,7 +39,8 @@ export default function freshman_ticket(){
         if(isFormComplete === true){
             try {
                 const formData = { buyer, phone_num, major, student_id, meeting,};
-                const response = await axios.post('http://localhost:8000/tickets/freshman_ticket/', formData);
+                console.log(`${baseUrl}/tickets/freshman_ticket/`);
+                const response = await axios.post(`${baseUrl}/tickets/freshman_ticket/`, formData);
                 if (response.status === 200) {
                     const reservation_id = response.data.data.reservation_id;
                     router.push({

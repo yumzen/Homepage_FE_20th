@@ -21,6 +21,7 @@ export default function general_ticket(){
     const [isError, setIsError] = useState(false);
     const [isClick, setIsClick] = useState(false);
     const [dynamicHeightClass, setDynamicHeightClass] = useState('h-[1260px] sm:h-[1900px] md:h-[1780px] lg:h-[1600px]');
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     var id="";
     var merchant_order_id = "";
 
@@ -45,7 +46,7 @@ export default function general_ticket(){
             formData.append('status', 'false');
             formData.append('payment', payment);
     
-            const response = await axios.post('http://127.0.0.1:8000/tickets/general_ticket/', formData, {
+            const response = await axios.post(`${baseUrl}/tickets/general_ticket/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -69,7 +70,7 @@ export default function general_ticket(){
             const formData = new FormData();
             formData.append('id', id);
             formData.append('amount', String(price));
-            const response = await axios.post(`http://127.0.0.1:8000/tickets/checkout/`, formData, {
+            const response = await axios.post(`${baseUrl}/tickets/checkout/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

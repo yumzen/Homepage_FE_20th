@@ -10,12 +10,13 @@ export default function general_complete(){
     const [phone_num, setPhone_num] = useState('');
     const {merchant_order_id} = router.query;
     const [merchant_status, setMerchant_status] = useState("결제대기");
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     
     useEffect(() => {
         const fetchReservationData = async () => {
             if(merchant_order_id){
                 try {
-                    const response = await axios.get(`http://127.0.0.1:8000/tickets/general_ticket/?merchant_order_id=${merchant_order_id}`);
+                    const response = await axios.get(`${baseUrl}/tickets/general_ticket/?merchant_order_id=${merchant_order_id}`);
                     if (response.status === 200) {
                         setBuyer(response.data.data.buyer);
                         setPhone_num(response.data.data.phone_num);

@@ -13,12 +13,13 @@ const freshman_delete = () => {
     const [input_sid, set_sid] = useState("");
     const [validSid, setValidSid] = useState(true);
     const {reservation_id} = router.query;
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     useEffect(() => {
         const fetchReservationData = async () => {
             try {
                 if (router.query?.reservation_id) {
-                    const response = await axios.get(`http://127.0.0.1:8000/tickets/freshman_complete/?reservation_id=${router.query.reservation_id}`);
+                    const response = await axios.get(`${baseUrl}/tickets/freshman_complete/?reservation_id=${router.query.reservation_id}`);
                     //console.log(response.data);
                     if (response.data) {
                         setBuyer(response.data.data.buyer);
@@ -40,7 +41,7 @@ const freshman_delete = () => {
             formData.append('reservation_id', reservation_id as string);
             const rid = reservation_id;
             try {
-                const response = await axios.delete('http://127.0.0.1:8000/tickets/freshman_ticket/delete/', {
+                const response = await axios.delete(`${baseUrl}/tickets/freshman_ticket/delete/`, {
                     data: formData,
                     headers: {
                         'Content-Type': 'multipart/form-data',

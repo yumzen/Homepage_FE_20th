@@ -12,10 +12,11 @@ const general_delete = () => {
     const [searched, setSearched] = useState(false);
     const [validMerchant_order_id, setValidMerchant_order_id] = useState(true);
     const [buyer, setBuyer] = useState('');
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
+            const response = await axios.get(`${baseUrl}/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
             if (response.data) {
                 if(response.data.status === "Success"){
                     setSearched(true);
