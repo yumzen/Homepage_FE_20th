@@ -1,26 +1,29 @@
-import React, { FormEvent } from "react";
 import logo from "/public/assets/images/admin/admin_logo.svg";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import { login } from "@/apis/login";
+import { useRouter } from "next/router";
 
 const Login = () => {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPw] = useState("");
+  const router = useRouter();
 
-  const onIdHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setId(event.currentTarget.value);
+  const onEmailHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
   const onPwHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPw(event.currentTarget.value);
+    setPw(event.target.value);
   };
 
-  const onLoginHandler = (event: React.FormEvent<HTMLFormElement>) => {
+  const onLoginHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    console.log("로그인 성공");
-    console.log("ID ", id);
-    console.log("PW ", password);
+    const res = await login(email, password);
+    const { access, refresh } = res;
+    localStorage.setItem("access", access);
+    localStorage.setItem("refresh", refresh);
+    router.push("/kahlua_admin");
   };
 
   return (
@@ -39,12 +42,13 @@ const Login = () => {
           }}
           onSubmit={onLoginHandler}
         >
-          <label style={{ display: "none" }}>아이디</label>
+          <label style={{ display: "none" }}>이메일</label>
           <input
             type="text"
-            placeholder="아이디"
-            value={id}
-            onChange={onIdHandler}
+            placeholder="이메일"
+            value={email}
+            onChange={onEmailHandler}
+            required
             className="w-[580px] h-[74px] mt-[40px] mb-[60px] pl-[30px] rounded-[10px]"
           />
           <label style={{ display: "none" }}>비밀번호</label>
@@ -53,9 +57,13 @@ const Login = () => {
             placeholder="비밀번호"
             value={password}
             onChange={onPwHandler}
+            required
             className="w-[580px] h-[74px] mb-[90px] pl-[30px] rounded-[10px]"
           />
-          <button className="w-[214px] h-[60px] bg-btnGray text-white text-xl font-bold rounded-[10px]">
+          <button
+            // onClick={onLoginHandler}
+            className="w-[214px] h-[60px] bg-btnGray text-white text-xl font-bold rounded-[10px]"
+          >
             관리자 로그인
           </button>
         </form>
