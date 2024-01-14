@@ -149,15 +149,15 @@ export default function general_ticket(){
             <div key={0}>
             <div className="flex flex-col w-[100%] justify-center sm:mt-[18px] pb-[8px]">
                 <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
-                    <div className="w-[70vw] lg:w-[35vw] h-auto">
+                    <div className="w-[70vw] lg:w-[calc(50%-16px)] h-auto">
                         <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">예매자 이름</div>
-                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 bg-white border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
                             <input type="text" placeholder="예매자 이름을 적어주세요." onChange={handleBuyerChange}/>
                         </div>
                     </div>
-                    <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
+                    <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[calc(50%-16px)] h-auto">
                         <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">연락처</div>
-                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                        <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 bg-white border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
                             <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneNumberChange}/>
                         </div>
                     </div>
@@ -185,15 +185,15 @@ export default function general_ticket(){
                 <div key={i}>
                     <div className="flex flex-col w-[100%] justify-center sm:mt-[18px] pb-[8px]">
                         <div className="inline-flex flex-wrap flex-col lg:flex-row lg:space-x-8 items-start">
-                            <div className="w-[70vw] lg:w-[35vw] h-auto">
+                            <div className="w-[70vw] lg:w-[calc(50%-16px)] h-auto">
                                 <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500] mt-[8px] sm:mt-0">동반인{i} 이름</div>
-                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 bg-white border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
                                     <input type="text" placeholder="동반인 이름을 적어주세요." onChange={handleNameChange}/>
                                 </div>
                             </div>
-                            <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[34vw] h-auto">
+                            <div className="mt-[8px] lg:mt-0 w-[70vw] lg:w-[calc(50%-16px)] h-auto">
                                 <div className="text-[8px] sm:text-[16px] lg:text-xl font-[500]">연락처</div>
-                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
+                                <div className="input-with-placeholder relative h-[32px] sm:h-[43px] lg:h-[64px] px-2 lg:p-4 flex-shrink-0 bg-white border border-[#464646] border-solid rounded-[10px] sm:mt-4 mt-[4px]">
                                     <input type="text" placeholder="‘-’없이 입력해주세요." onChange={handlePhoneChange}/>
                                 </div>
                             </div>
@@ -222,10 +222,10 @@ export default function general_ticket(){
                         <div>2023.09.01 오후 6시</div>
                     </div>
                 </div>
-                <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%] ml-[0.5vw]">
+                <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%] ">
                     <div className="font-[700] text-[16px] sm:text-[20px] leading-[30px]">예매 인원을 선택해주세요. </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[16px] bg-[#000] flex "/>
-                    <div className="ml-[0.5vw] ">
+                    <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[16px] bg-[#000] flex "/>
+                    <div>
                         <div className="mt-[8px] sm:mt-[32px] flex flex-row">
                             <div className="text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#6A6A6A]">일반</div>
                             <div className="ml-[4vw] text-[8px] sm:text-[14px] font-[500] w-[60vw] leading-[21px] text-[#2D2D2D]">일반 티켓은 1인 5매까지 예매 가능합니다.</div>
@@ -243,21 +243,21 @@ export default function general_ticket(){
                         </div>
                         </div>
                     </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="mx-auto ml-[0.5vw]">
+                    <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div>
                         <div className=" flex lg:flex-row flex-col ">
                             <div className="mt-[8px] sm:mt-[30px] w-[140px] h-[29px] font-[700] sm:pt-[8px] text-[16px] sm:text-[20px] leading-[24px]">예매자 정보 입력</div>
-                            <div className="w-[80vw] h-[30px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw] ml-[0.5vw] flex flex-col lg:mt-[40px] mt-[8px] sm:mt-[24px] ">
+                            <div className="w-[80vw] h-[30px] lg:w-[60vw] text-[8px] sm:text-[14px] text-[#464646] lg:ml-[3vw]  flex flex-col lg:mt-[40px] mt-[8px] sm:mt-[24px] ">
                                 <div>본인확인을 위해 정확한 정보를 입력해주세요.</div>
                         </div>
                     </div>
                     {payer_info()}
                 </div>
-                <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="ml-[0.5vw]">
+                <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div>
                         <div className="mt-[12px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[160px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">티켓수령방법 선택</div>
-                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
+                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw]  lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">
                                 <p className="whitespace-nowrap">티켓현장수령은 예매가 완료되면 부여되는</p> 
                                 <div className="flex flex-row">
                                     <p className="hidden lg:flex">&nbsp;</p><p className="text-[#281CFF] whitespace-nowrap">[예약번호]로 공연 당일 티켓을 수령하여 입장</p><p className="whitespace-nowrap">합니다.</p>
@@ -273,11 +273,11 @@ export default function general_ticket(){
                             </label>
                         </div>
                     </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="ml-[0.5vw]">
+                    <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[8px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div>
                     <div className="mt-[8px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[160px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">결제 방법 선택</div>
-                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw] ml-[0.5vw] lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
+                            <div className="whitespace-pre-wrap sm:w-[47.5vw] h-[26px] lg:ml-[2.5vw]  lg:mt-[5px] mt-[8px] sm:mt-[15px] text-[8px] sm:text-[14px] font-[500] leading-[21px] text-[#464646] flex-shrink-0 flex flex-col lg:flex-row">계좌이체 선택 시 다음 화면에서 계좌번호를 확인해주세요.</div>
                         </div>
                         <div className="mt-[8px] sm:mt-[18px] flex lg:flex-row flex-col">
                             <label className="flex items-center mt-[8px] sm:mt-[20px]">
@@ -286,8 +286,8 @@ export default function general_ticket(){
                             </label>
                         </div>
                     </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="ml-[0.5vw]">
+                    <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div>
                         <div className="mt-[8px] sm:mt-[32px] flex lg:flex-row flex-col">
                             <div className="w-[200px] h-[29px] font-[700] text-[16px] sm:text-[20px] leading-[30px]">최종 결제 금액</div>
                         </div>
@@ -295,8 +295,8 @@ export default function general_ticket(){
                             5000원 x {member}매 = <p className="text-[#281CFF]">&nbsp;{5000*member}원</p>
                         </div>
                     </div>
-                    <div className="mx-auto w-[72.5vw] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
-                    <div className="ml-[0.5vw]">
+                    <div className="mx-auto w-[100%] h-[1.5px] sm:h-[3px] mt-[16px] sm:mt-[40px] bg-[#D3D3D3]"/>
+                    <div>
                         <div className="mt-[12px] sm:mt-[20px] flex flex-row">
                             <div className="w-[100%] h-[29px] font-[700] text-[16px] sm:text-[20px] sm:leading-[28px] whitespace-nowrap">유의사항 및 취소규정</div>
                         </div>
