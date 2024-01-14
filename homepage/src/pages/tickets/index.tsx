@@ -126,13 +126,13 @@ export default function Tickets() {
     
     const checkTickets = () => (
         <div>
-            <div className='hidden lg:flex mt-[16px]'>
-                <TicketButton href="tickets/freshman_ticket/delete/" label="신입생 예매내역 조회하기" width="164px" height="33px" margin="0.4vw" text="12px"/>
-                <TicketButton href="tickets/general_ticket/delete/" label="일반 예매내역 조회하기" width="164px" height="33px" margin="0.6vw" text="12px"/>
-            </div>
-            <div className='lg:hidden flex'>
+            <div className='flex md:hidden'>
                 <TicketButton href="tickets/freshman_ticket/delete/" label="신입생 예매내역 조회하기" width="35vw" height="29px" margin="0" text="10px"/>
                 <TicketButton href="tickets/general_ticket/delete/" label="일반 예매내역 조회하기" width="35vw" height="29px" margin="2vw" text="10px"/>
+            </div>
+            <div className='hidden md:flex'>
+                <TicketButton href="tickets/freshman_ticket/delete/" label="신입생 예매내역 조회하기" width="35vw" height="33px" margin="0" text="12px"/>
+                <TicketButton href="tickets/general_ticket/delete/" label="일반 예매내역 조회하기" width="35vw" height="33px" margin="2vw" text="12px"/>
             </div>
         </div>
     );
@@ -151,7 +151,7 @@ export default function Tickets() {
     )
 
     return (
-        <div className="h-[1250px] sm:h-[1500px] lg:h-[1100px] flex z-0 sm:top-[30px]">
+        <div className="h-[1150px] sm:h-[1500px] lg:h-[1100px] flex z-0 sm:top-[30px]">
         <Background>
                 <div className="font-['pretendard']  flex flex-col items-center sm:mb-[84px] mx-auto  sm:pt-[30px]">
                     <div className=" flex flex-row w-[100%] lg:w-[1024px] justify-center items-center content-center">
@@ -216,8 +216,9 @@ export default function Tickets() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='hidden lg:flex mt-[36px]'>
-                                    {checkTickets()}
+                                    <div className='hidden lg:flex mt-[36px] w-[434px] h-[33px] text-center text-[12px] font-[400px] leading-[18px]'>
+                                        <Link href="tickets/freshman_ticket/delete/"  className="w-[164px] h-[33px] ml-[0.4vw] flex items-center justify-center border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">신입생 예매내역 조회하기</Link>
+                                        <Link href="tickets/general_ticket/delete/" className="w-[164px] h-[33px] ml-[0.4vw] flex items-center justify-center border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">일반 예매내역 조회하기</Link>
                                     </div>
                                 </div>
                                 <div id="map1" className="hidden lg:flex lg:ml-[25px] mr-[10vw] xl:ml-[45px] lg:w-[200px] lg:h-[200px] xl:w-[242px] xl:h-[242px] rounded-[10px] border-[1px] border-[#B9B9B9] flex-shrink-0 z-0"></div>
@@ -272,7 +273,7 @@ export default function Tickets() {
                     </div>
 
                     <div className="flex flex-col mt-[30px] md:mt-[60px]">
-                        <div id="map2" className="lg:hidden items-center justify-center mx-auto flex w-[40vw] h-[40vw] md:w-[242px] md:h-[242px] flex-shrink-0 z-0 rounded-[10px] border-[1px] border-[#B9B9B9]"></div>
+                        <div id="map2" className="lg:hidden items-center justify-center mx-auto flex w-[80vw] h-[20vw] flex-shrink-0 z-0 rounded-[10px] border-[1px] border-[#B9B9B9]"></div>
                         <div className="flex lg:hidden flex-col mt-[16px] w-[80vw] ml-[2px] h-[500px] md:h-[660px] flex-shrink-0 rounded-[10px] border-solid border-[#B9B9B9] border mx-auto bg-[white]">
                             <div className='w-[60vw] h-[20px] flex md:h-[28px] text-[8px] md:text-[12px] flex-row gap-[13px] items-center justify-center text-center'>
                                 <div className="font-[400]  w-[37px] h-[19px] text-center items-center flex whitespace-nowrap">Step 1</div>
