@@ -37,21 +37,20 @@ const handleDateClick = (date: Date) => {
 };
 
 return (
-    <div className="w-[270px] h-[200px] ">
-    <div className="w-[270px] h-[200px] bg-[white] flex-shrink-0 rounded-[30px] border-solid border-[#6C6C6C] border text-center text-[12px] font-[600] pt-[8px] px-[20px]">
+    <div className="w-[50vw] h-[190px] md:w-[270px] md:h-[200px] bg-[white] flex-shrink-0 rounded-[10px] border-solid border-[#6C6C6C] border text-center text-[10px] sm:text-[12px] font-[600] pt-[8px] px-[20px]">
         {format(selectedDate, "yyyy년 M월")}
-        <div className="w-[100%] h-[100%] mx-auto my-auto mt-[4px]">
-            <div className="flex font-[400] text-[12px] mx-auto my-auto ">
+        <div className="w-[100%] h-[100%] mx-auto mt-[4px]">
+            <div className="flex font-[400] text-[8px] sm:text-[12px] items-center justify-center ">
                 {dayNames.map((dayName) => (
                 <div key={dayName} className="mx-auto w-[20px] h-[20px] flex-shrink-0 mb-[4px] ">
-                    <div className={`${dayName === "Sun" ? "text-[red]" : ""} ${dayName==="Sat" ? "text-[blue]":""} w-[20px] h-[20px] text-[12px] font-[500] flex items-center justify-center`}>
+                    <div className={`${dayName === "Sun" ? "text-[red]" : ""} ${dayName==="Sat" ? "text-[blue]":""} w-[20px] h-[20px] font-[500] flex items-center justify-center`}>
                     {dayName}
                     </div>
                 </div>
                 ))}
             </div>
             {rows.map((week, weekIndex) => (
-                <div key={weekIndex} className={`flex ${weekIndex > 0 ? "mt-2 mb-2" : ""}`}>
+                <div key={weekIndex} className={`flex items-center justify-center ${weekIndex > 0 ? "my-1.5 sm:my-2" : ""}`}>
                     {week.map((date, dayIndex) => (
                     <div
                         key={dayIndex}
@@ -67,7 +66,7 @@ return (
                         }`}
                         onClick={() => handleDateClick(date)}
                     >
-                        <div className="w-[20px] h-[20px] font-[400] text-[10px] flex items-center justify-center text-center">
+                        <div className="w-[20px] h-[20px] font-[400] text-[8px] sm:text-[10px] flex items-center justify-center text-center">
                         {format(date, "d")}
                         </div>
                     </div>
@@ -76,8 +75,7 @@ return (
                 ))}
             </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default Calendar;

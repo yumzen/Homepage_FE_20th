@@ -69,25 +69,25 @@ export default function Navbar() {
     return (
         <nav>
         {showMenu && <div onClick={handleOverlayClick} className="fixed inset-0 h-[full] bg-black bg-opacity-50 z-40" />}
-        <div className="w-[full] h-[104px] flex item-center bg-[white] z-50 font-['pretendard']">
+        <div className="w-[full] h-[104px] flex item-center bg-[white] z-50 font-['pretendard'] top-[16px] sm:top-[30px]">
                 <NavBg>
-                    <div className="lg:flex">
+                    <div className="lg:flex pt-[16px] sm:pt-[30px]">
                         <div className="flex justify-between">
                             <Link href="/" key="home">
-                                <Image src="/assets/images/layout/Logo.svg" alt="Logo" width={165} height={30} onClick={showMenu ? toggleMenu : undefined} className="ml-[20px] lg:ml-[12.5vw] w-[165px] lg:w-[12.5vw] h-[30px] lg:max-w-[10vw]  max-w-[165px] max-h-[30px]" priority />
+                                <Image src="/assets/images/layout/Logo.svg" alt="Logo" width={165} height={30} onClick={showMenu ? toggleMenu : undefined} className="ml-[20px] my-[2px] lg:ml-[12.5vw] sm:mt-0 w-[105px] sm:w-[165px] lg:w-[12.5vw] h-[18px] sm:h-[30px] lg:max-w-[10vw] max-w-[165px] max-h-[30px]" priority />
                             </Link>
                             <div className="lg:hidden z-50 ">
                                 <button className="px-2 outline-none" onClick={isClose ? handleIsClose : toggleMenu}>
-                                    {showMenu ? (<Image src="/assets/images/layout/close.svg" width={32} height={32} alt="close" />) : (<Image src="/assets/images/layout/hamburger.svg" width={32} height={32} alt="hamburger" className="focus:border-none active:border-none" />)}
+                                    {showMenu ? (<Image src="/assets/images/layout/close.svg" width={32} height={32} alt="close" className="w-[22px] h-[22px] sm:w-[32px] sm:h-[32px] "/>) : (<Image src="/assets/images/layout/hamburger.svg" width={32} height={32} alt="hamburger" className="w-[22px] h-[22px] sm:w-[32px] sm:h-[32px] focus:border-none active:border-none" />)}
                                 </button>
                             </div>
                         </div>
-                        <div className={`${showMenu ? "fixed top-0 right-0 h-full bg-white flex flex-col items-center z-40 w-[254px]" : "hidden"} lg:flex w-full items-center`}>
+                        <div className={`${showMenu ? "fixed top-0 right-0 h-full bg-white flex flex-col items-center z-40 w-[254px]" : "hidden w-full"} lg:flex items-center`}>
                             <ul className={`${showMenu ? "flex-col py-[40px] mt-[117px] mb-4 " : " lg:w-[50vw] flex-col lg:flex lg:flex-row"}`}>
                                 {Links.map((link) => (
                                     <Link key={link.name} href={link.link} onClick={() => setFocusedLink(link.name)}>
                                         <div className={`${showMenu ? "flex w-105 h-28 flex-col justify-center flex-shrink-0 text-black text-center font-bold text-lg mb-[78x]" : "flex items-center justify-center w-[12.5vw]"} `}>
-                                            <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF]" : ""}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
+                                            <li key={link.name} onClick={showMenu ? toggleMenu : undefined} className={` text-[#000] ${focusedLink === link.name || pathname?.startsWith(link.link) ? "border-t-4 border-t-[#281CFF] " : "hover:text-[#575757]"}  ${showMenu ? "text-[20px] w-[100%] h-[100%] text-center" : "text-[16px] w-[80px]  h-[32px] font-[600] leading-[19px] flex-shrink-0 flex items-center justify-center"}`}>
                                                 {link.name}
                                             </li>
                                         </div>
