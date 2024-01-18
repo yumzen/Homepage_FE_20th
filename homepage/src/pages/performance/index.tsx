@@ -29,7 +29,6 @@ const thumbnails = [
 export default function Performance() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState("ALL");
-  const [btnActive, setBtnActive] = useState(false);
 
   const yearArr1 = ["ALL", "2023", "2022", "2019"];
   const yearArr2 = ["2018", "2017", "2016"];
@@ -58,7 +57,6 @@ export default function Performance() {
 
   const yearHandler = (year: string) => {
     setSelectedYear(year);
-    setBtnActive(!btnActive);
   };
 
   return (
