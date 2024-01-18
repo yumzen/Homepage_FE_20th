@@ -1,3 +1,12 @@
+.wrapper {
+  @media (max-width: 968px) {
+    height: 3600px
+  }
+  @media (max-width: 640px) {
+    height: 6000px
+  }
+}
+
 .gridContainer {
   display: grid;
   gap: 64px;
@@ -7,6 +16,9 @@
 
   @media (max-width: 968px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 .gridItem {
@@ -33,6 +45,34 @@
     width: 306px;
     height: 266px;
   }
+  @media (max-width: 680px) {
+    width: 288px;
+    height: 256px;
+  }
+  @media (max-width: 640px) {
+    width: 468px;
+    height: 356px;
+  }
+  @media (max-width: 568px) {
+    width: 450px;
+    height: 346px;
+  }
+  @media (max-width: 480px) {
+    width: 432px;
+    height: 336px;
+  }
+  @media (max-width: 448px) {
+    width: 378px;
+    height: 306px;
+  }
+  @media (max-width: 400px) {
+    width: 360px;
+    height: 296px;
+  }
+  @media (max-width: 378px) {
+    width: 342px;
+    height: 286px;
+  }
 }
 .thumbnail {
   position: relative;
@@ -51,6 +91,27 @@
   @media (max-width: 768px) {
     height: 170px;
   }
+  @media (max-width: 680px) {
+    height: 160px;
+  }
+  @media (max-width: 640px) {
+    height: 260px;
+  }
+  @media (max-width: 568px) {
+    height: 250px;
+  }
+  @media (max-width: 480px) {
+    height: 240px;
+  }
+  @media (max-width: 448px) {
+    height: 210px;
+  }
+  @media (max-width: 400px) {
+    height: 200px;
+  }
+  @media (max-width: 378px) {
+    height: 190px;
+  }
 }
 
 .playicon {
@@ -64,4 +125,72 @@
   font-size: 14px;
   color: #6a6a6a;
   margin-right: 0.75rem;
+}
+
+.yearBtn {
+  @media (max-width: 716px) {
+    min-width: 120px;
+  }
+  @media (max-width: 636px) {
+    min-width: 110px;
+  }
+  @media (max-width: 596px) {
+    min-width: 100px;
+  }
+  @media (max-width: 536px) {
+    min-width: 95px;
+  }
+  @media (max-width: 480px) {
+    min-width: 90px;
+  }
+  @media (max-width: 448px) {
+    min-width: 82px;
+    font-size: 16px;
+  }
+  @media (max-width: 400px) {
+    min-width: 76px;
+    font-size: 16px;
+  }
+  @media (max-width: 378px) {
+    min-width: 72px;
+    font-size: 16px;
+  }
+}
+
+.arrowIcon {
+  @media (max-width: 536px) {
+    width: 24px;
+    height: 11px;
+  }
+  @media (max-width: 400px) {
+    width: 20px;
+    height: 10px;
+  }
+}
+
+.btnContainer {
+  @media (max-width: 716px) {
+    width: 540px;
+  }
+  @media (max-width: 636px) {
+    width: 500px;
+  }
+  @media (max-width: 596px) {
+    width: 460px;
+  }
+  @media (max-width: 536px) {
+    width: 440px;
+  }
+  @media (max-width: 480px) {
+    width: 420px;
+  }
+  @media (max-width: 448px) {
+    width: 388px;
+  }
+  @media (max-width: 400px) {
+    width: 360px;
+  }
+  @media (max-width: 378px) {
+    width: 348px;
+  }
 }

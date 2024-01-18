@@ -61,7 +61,7 @@ export default function Performance() {
 
   return (
     <div
-      className={`${
+      className={`${styles.wrapper} ${
         selectedYear === "ALL" ? "h-[2500px]" : " h-[1300px]"
       }  flex items-center justify-center`}
     >
@@ -78,7 +78,7 @@ export default function Performance() {
             </p>
 
             <div
-              className={`${
+              className={`${styles.btnContainer} ${
                 isOpen ? "h-[120px]" : "h-[60px]"
               } flex relative flex-wrap w-[620px] rounded-[10px] mb-[96px] bg-[#EEEEEE] z-0`}
             >
@@ -86,7 +86,7 @@ export default function Performance() {
                 return (
                   <button
                     className={
-                      "flex justify-center items-center min-w-[140px] h-[60px] font-bold text-lg text-black cursor-pointer z-10 rounded-[10px]" +
+                      `${styles.yearBtn} flex justify-center items-center min-w-[140px] h-[60px] font-bold text-lg text-black cursor-pointer z-10 rounded-[10px]` +
                       (colorPickerVisible1[index] && " bg-[#281CFF] text-white")
                     }
                     key={index}
@@ -105,7 +105,7 @@ export default function Performance() {
                 );
               })}
               <button
-                className="flex justify-center items-center min-w-[60px] h-[60px] cursor-pointer z-0"
+                className="flex justify-center items-center min-w-[48px] h-[60px] cursor-pointer z-0"
                 onClick={openMenu}
               >
                 <Image
@@ -114,14 +114,14 @@ export default function Performance() {
                   id="arrow"
                   width={26}
                   height={12}
-                  style={{ border: "none" }}
+                  className={styles.arrowIcon}
                 />
               </button>
               {yearArr2.map((year, index) => {
                 return (
                   <button
                     className={
-                      `${
+                      `${styles.yearBtn} ${
                         isOpen ? "flex" : "hidden"
                       } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg text-black cursor-pointer z-10 rounded-[10px]` +
                       (colorPickerVisible2[index] && " bg-[#281CFF] text-white")
@@ -142,7 +142,7 @@ export default function Performance() {
             </div>
 
             <>
-              <div id="gridContainer" className={styles.gridContainer}>
+              <div className={styles.gridContainer}>
                 {selectedYear === "ALL" && <All />}
                 {selectedYear === "2023" && (
                   <>
