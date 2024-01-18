@@ -29,6 +29,10 @@ const thumbnails = [
 export default function Performance() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState(0);
+  const [btnActive, setBtnActive] = useState(false);
+
+  const yearArr1 = ["ALL", "2023", "2022", "2019"];
+  const yearArr2 = ["2018", "2017", "2016"];
 
   function openMenu() {
     setIsOpen(!isOpen);
@@ -68,38 +72,16 @@ export default function Performance() {
                 isOpen ? "h-[120px]" : "h-[60px]"
               } flex relative flex-wrap w-[620px] rounded-[10px] mb-[96px] bg-[#EEEEEE]`}
             >
-              <button
-                className={styles.btnStyle}
-                onClick={() => {
-                  yearHandler(0);
-                }}
-              >
-                ALL
-              </button>
-              <button
-                className={styles.btnStyle}
-                onClick={() => {
-                  yearHandler(2023);
-                }}
-              >
-                2023
-              </button>
-              <button
-                className={styles.btnStyle}
-                onClick={() => {
-                  yearHandler(2022);
-                }}
-              >
-                2022
-              </button>
-              <button
-                className={styles.btnStyle}
-                onClick={() => {
-                  yearHandler(2019);
-                }}
-              >
-                2019
-              </button>
+              {yearArr1.map((year, index) => {
+                return (
+                  <button
+                    className="flex justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer"
+                    key={index}
+                  >
+                    {year}
+                  </button>
+                );
+              })}
               <button
                 className="justify-center items-center min-w-[60px] h-[60px] cursor-pointer"
                 onClick={openMenu}
@@ -113,36 +95,18 @@ export default function Performance() {
                   style={{ border: "none" }}
                 />
               </button>
-              <button
-                className={`${
-                  isOpen ? "flex" : "hidden"
-                } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer`}
-                onClick={() => {
-                  yearHandler(2018);
-                }}
-              >
-                2018
-              </button>
-              <button
-                className={`${
-                  isOpen ? "flex" : "hidden"
-                } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer`}
-                onClick={() => {
-                  yearHandler(2017);
-                }}
-              >
-                2017
-              </button>
-              <button
-                className={`${
-                  isOpen ? "flex" : "hidden"
-                } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer`}
-                onClick={() => {
-                  yearHandler(2016);
-                }}
-              >
-                2016
-              </button>
+              {yearArr2.map((year, index) => {
+                return (
+                  <button
+                    className={`${
+                      isOpen ? "flex" : "hidden"
+                    } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer`}
+                    key={index}
+                  >
+                    {year}
+                  </button>
+                );
+              })}
             </div>
 
             <div className="w-full flex mx-[10rem] justify-center">
