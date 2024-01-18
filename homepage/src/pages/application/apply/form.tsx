@@ -237,13 +237,13 @@ export default function Form(){
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
                         <p className="s:text-xl font-bold text-lg">이름</p>
                         <div className="input-with-placeholder relative h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input value={name} minLength={30} type="text" className="text-base w-full h-full rounded-[10px] p-4 " placeholder="지원자 이름" onChange={(e) => setName(e.target.value)}/>
+                            <input value={name} minLength={30} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4 " placeholder="지원자 이름" onChange={(e) => setName(e.target.value)}/>
                         </div>
                     </div>
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
                         <p className="s:text-xl font-bold text-lg">생년월일</p>
                         <div className="input-with-placeholder relative h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input value={birthdate} type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="8자리로 입력해주세요" onChange={(e) => setBirthdate(e.target.value)}/>
+                            <input value={birthdate} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="8자리로 입력해주세요" onChange={(e) => setBirthdate(e.target.value)}/>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@ export default function Form(){
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
                         <p className="s:text-xl font-bold text-lg">전화번호</p>
                         <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                            <input value={phone_num} type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'" onChange={(e) => setPhoneNum(e.target.value)}/>
+                            <input value={phone_num} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'" onChange={(e) => setPhoneNum(e.target.value)}/>
                         </div>
                     </div>
                     <div className="s:w-1/4 h-auto pt-8 p:w-1/2">
@@ -264,7 +264,7 @@ export default function Form(){
                 <div className="mt-8">
                     <p className="s:text-xl font-bold text-lg">거주지</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                        <input value={address} type="text" className="text-base w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요" onChange={(e) => setAddress(e.target.value)}/>
+                        <input value={address} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요" onChange={(e) => setAddress(e.target.value)}/>
                     </div>
                 </div>
             </div>
@@ -291,7 +291,7 @@ export default function Form(){
                 <div className="mt-8">
                     <p className="s:text-xl font-bold text-lg">다룰 줄 아는 악기 (선택)</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
-                        <input value={play_instrument} type="text" className="text-base  w-full h-full rounded-[10px] p-4" placeholder="" onChange={(e) => setInstrument(e.target.value)}/>
+                        <input value={play_instrument} type="text" className="text-sm s:text-base  w-full h-full rounded-[10px] p-4" placeholder="" onChange={(e) => setInstrument(e.target.value)}/>
                     </div>
                 </div>
             </div>
@@ -300,11 +300,11 @@ export default function Form(){
             
             <div className="pt-8">
                 <p className="s:text-xl font-bold text-lg">지원 동기 (자유롭게 작성)</p>
-                <textarea value={motive} className="text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder="" onChange={(e) => setMotive(e.target.value)}/>
+                <textarea value={motive} className="text-sm s:text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder="" onChange={(e) => setMotive(e.target.value)}/>
             </div>
 
             <div className="flex flex-col justify-center items-center">
-                <button disabled={!isFormComplete} className="w-80 h-16 bg-ocean rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleSubmit}>
+                <button disabled={!isFormComplete} className="w-full s:w-80 h-16 bg-ocean rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleSubmit}>
                     제출하기
                 </button>
             </div>
