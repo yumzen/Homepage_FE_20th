@@ -54,7 +54,11 @@ export default function Performance() {
       <Background>
         <div className="font-['pretendard']">
           <div className="flex flex-col justify-center items-center mt-[4rem] mb-[16rem]">
-            <Image src={divider} alt="divider" />
+            <Image
+              src={divider}
+              alt="divider"
+              className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px]"
+            />
             <p className="text-center font-bold text-2xl mt-[16px] mb-[48px]">
               정기 공연 및 연합 공연 영상
             </p>
