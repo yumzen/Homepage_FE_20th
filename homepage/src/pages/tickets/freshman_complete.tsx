@@ -5,19 +5,18 @@ import Image from "next/image";
 
 import { useRouter } from "next/router";
 
-export default function freshman_complete(){
+export default function Freshman_complete(){
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
     const [phone_num, setPhoneNum] = useState('');
     const [student_id, setStudentId] = useState('');
     const { reservation_id } = router.query;
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     
     useEffect(() => {
         const fetchReservationData = async () => {
             if(reservation_id){
                 try {
-                    const response = await axios.get(`${baseUrl}/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+                    const response = await axios.get(`https://kahluaband.com/tickets/freshman_complete/?reservation_id=${reservation_id}`);
                     if (response.status === 200) {
                         setBuyer(response.data.data.buyer);
                         setPhoneNum(response.data.data.phone_num);

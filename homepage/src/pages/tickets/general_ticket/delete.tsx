@@ -5,18 +5,17 @@ import axios from 'axios';
 import { useRouter } from "next/router";
 import Ticket_info from "../ticket_info";
 
-const general_delete = () => {
+const General_delete = () => {
     const router = useRouter();
     const [merchant_order_id, setMerchant_order_id] = useState("");
     const [cancelable, setCancelable] = useState(false);
     const [searched, setSearched] = useState(false);
     const [validMerchant_order_id, setValidMerchant_order_id] = useState(true);
     const [buyer, setBuyer] = useState('');
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
+            const response = await axios.get(`https://kahluaband.com/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
             if (response.data) {
                 if(response.data.status === "Success"){
                     setSearched(true);
@@ -91,4 +90,4 @@ const general_delete = () => {
     )
 };
 
-export default general_delete;
+export default General_delete;

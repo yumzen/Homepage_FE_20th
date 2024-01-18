@@ -6,21 +6,20 @@ import { useRouter } from "next/router";
 import Ticket_info from "../ticket_info";
 
 
-const general_delete = () => {
+const General_check = () => {
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
     const [phone_num, setPhone_num] = useState('');
     const [input_phone_num, set_Phone_num] = useState("");
     const [validPhone_num, setValidPhone_num] = useState(true);
     const {merchant_order_id} = router.query;
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     useEffect(() => {
         console.log("useEffect");
         const fetchmerchant_orderData = async () => {
             try {
                 if (router.query.merchant_order_id) {
-                    const response = await axios.get(`${baseUrl}/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
+                    const response = await axios.get(`https://kahluaband.com/tickets/general_complete/?merchant_order_id=${merchant_order_id}`);
                     if (response.data) {
                         setBuyer(response.data.data.buyer);
                         setPhone_num(response.data.data.phone_num);
@@ -41,7 +40,7 @@ const general_delete = () => {
             formData.append('merchant_order_id', merchant_order_id as string);
             const rid = merchant_order_id;
             try {
-                await axios.delete(`${baseUrl}/tickets/general_ticket/delete/`, {
+                await axios.delete(`https://kahluaband.com/tickets/general_ticket/delete/`, {
                     data: formData,
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -97,4 +96,4 @@ const general_delete = () => {
     )
 };
 
-export default general_delete;
+export default General_check;

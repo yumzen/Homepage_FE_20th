@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface ticket_info_Props {
+interface Ticket_info_Props {
 reservation_id: string;
 buyer: string;
 }
 
-const ticket_info_Props: React.FC<ticket_info_Props> = ({ reservation_id, buyer }) => {
+const Ticket_info_Props: React.FC<Ticket_info_Props> = ({ reservation_id, buyer }) => {
 return (
     <div className="mt-[10px] sm:mt-[32px] mx-auto bg-[#F1F5FF] w-[75vw] sm:w-[400px] md:w-[516px] h-[120px] flex-shrink-0 rounded-[10px]">
     <div className="flex flex-row align-center justify-center text-[10px] sm:text-[12px] font-[700]">
@@ -23,4 +23,4 @@ return (
 );
 };
 
-export default ticket_info_Props;
+export default Ticket_info_Props;

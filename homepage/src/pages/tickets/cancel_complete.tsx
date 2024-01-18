@@ -2,7 +2,7 @@ import Background from "@/app/components/Background";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-export default function freshman_complete(){
+export default function Cancel_complete(){
     const router = useRouter();
     const { rid } = router.query;
 
