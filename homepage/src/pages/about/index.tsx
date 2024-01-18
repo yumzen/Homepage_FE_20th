@@ -10,13 +10,16 @@ import Main from "./Main";
 
 export default function About() {
   return (
-    // height 조정 필요
-    <div className="h-[3600px] flex relative items-center justify-center">
+    <div className={styles.wrapper}>
       <Background>
         <div className="font-pretendard">
           <div className="flex flex-col justify-center items-center">
             <Main />
-            <Image src={divider} alt="divider" className="mt-[80px]" />
+            <Image
+              src={divider}
+              alt="divider"
+              className="w-[50px] h-[11px] sm:w-[75px] sm:h-[17px] mt-[80px]"
+            />
             <p className={styles.divideText}>ACTIVITIES</p>
             <p className={styles.detailText}>
               매주 월요일은 깔요일 !<br />
