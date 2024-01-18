@@ -15,9 +15,9 @@ const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 const data = [
     {
     image: '/assets/images/tickets/poster.png', 
-    title: "2023년 9월 정기 공연",
+    title: "2024년 3월 정기 공연",
     where: "001 클럽",
-    when: "2023년 9월 1일 오후 6시",
+    when: "2024년 3월 4일 오후 7시",
     ticket: { freshman: "무료", regular: "5000원" }
     }
 ];
@@ -35,8 +35,8 @@ export default function Tickets() {
     /*
         예매 가능 기간 설정
     */
-    const startDate = new Date('2023-09-01');
-    const endDate = new Date('2024-09-10');
+    const startDate = new Date('2024-02-01');
+    const endDate = new Date('2024-03-04');
     const today = new Date();   
     const isWithinSeason = today >= startDate && today <= endDate;
 
@@ -141,11 +141,11 @@ export default function Tickets() {
         <div>
             <div className="flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
                 <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                <div className="text-right font-[500] w-[70px]">예매가능</div>  
+                <div className="text-right font-[500] w-[70px]">예매불가</div>  
             </div>
             <div className="mt-[13px] flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
                 <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                <div className="text-right font-[500]  w-[70px]">예매가능</div>
+                <div className="text-right font-[500]  w-[70px]">예매불가</div>
             </div>
         </div>
     )
@@ -158,7 +158,7 @@ export default function Tickets() {
                         <Image src={data[0].image} alt='포스터' width={342} height={460} className='px-[1vw] w-[40vw] h-[calc(40vw*4/3)] md:w-[240px] md:h-[310px] lg:w-[290px] lg:h-[400px] xl:w-[342px] xl:h-[460px] md:max-h-[460px]' priority/>
                         <div className="w-[50vw] h-[200px] sm:h-[300px] md:h-[300px] lg:w-[720px] lg:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
                             <div className="flex flex-row justify-between">
-                                <div className="w-[48px] h-[18px] md:w-[60px] md:h-[22px] md:text-[12px] lg:w-[76px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">예매가능</div>
+                                <div className="w-[90px] h-[18px] md:w-[110px] md:h-[22px] md:text-[12px] lg:w-[128px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">2월 1일 예매 OPEN</div>
                                     <div className="flex mt-[3px]">
                                     <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" target='_blank' passHref>
                                         <Image src='/assets/images/tickets/mobile_instagram.svg' alt="모바일 인스타 그램" width ={1000} height={1000} className='ml-[8vw] flex lg:hidden cursor-pointer w-[12px] h-[12px]'/>
@@ -188,7 +188,7 @@ export default function Tickets() {
                                     </div>
                                     <div className="text-[10px] md:text-[14px] mt-[4px] md:mt-[24px] lg:mt-[48px] flex w-[50vw] md:w-[270px] items-center">
                                         <div className=" font-[700] leading-[17px] w-[18px] lg:w-[25px] h-[17px] text-center whitespace-nowrap">일시</div>
-                                        <div className=" font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[145px] h-[21px]">{data[0].when}</div>  
+                                        <div className=" font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[145px] h-[21px] whitespace-nowrap">{data[0].when}</div>  
                                     </div>
                                     <div className="mt-[14px] lg:mt-[42px] w-[50vw] lg:w-[434px] border-b flex bg-[#D9D9D9]"/>
                                     <div className="mt-[14px] lg:mt-[42px] flex flex-row w-[50vw] md:w-[434px]">

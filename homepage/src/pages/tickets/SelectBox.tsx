@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 export default function SelectBox() {
-    const [selectedValue, setSelectedValue] = useState('18시 00분');
+    const [selectedValue, setSelectedValue] = useState('19시 00분');
     const [isDropdownVisible, setIsDropdownVisible] = useState(false); 
 
     const options = [
         { value: '', label: '입장 시간을 선택하세요.' },
-        { value: '18시 00분', label: '18시 00분' },
-        { value: '18시 30분', label: '18시 30분' },
         { value: '19시 00분', label: '19시 00분' },
+        //{ value: '19시 30분', label: '19시 30분' },
+        //{ value: '20시 00분', label: '20시 00분' },
     ];
 
     const toggleDropdown = () => {
