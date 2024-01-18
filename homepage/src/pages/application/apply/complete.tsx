@@ -17,7 +17,8 @@ export default function Apply_complete(){
         const fetchReservationData = async () => {
             if(id){
                 try {
-                    const response = await axios.get(`https://kahluaband.com/apply/?id=${id}`);
+                    const response = await axios.get(`https://kahluaband.com/application/apply_complete/?id=${id}`);
+                    console.log(response);
                     if (response.status === 200) {
                         setName(response.data.data.name);
                         setPhoneNum(response.data.data.phone_num);
@@ -35,7 +36,7 @@ export default function Apply_complete(){
     }, [id]);
 
 
-    { //if (id && buyer) 
+    if (id && name){ 
         return (
             <div className = "h-[700px] sm:h-[900px]">
                 <Background>
@@ -83,7 +84,6 @@ export default function Apply_complete(){
             </div>
         )
     }
-    /*
     else{
         return (
             <div className = "h-[700px] sm:h-[900px]">
@@ -102,5 +102,5 @@ export default function Apply_complete(){
                 </Background>
             </div>
         )
-    }*/
+    }
 }
