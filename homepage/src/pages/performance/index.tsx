@@ -34,9 +34,12 @@ export default function Performance() {
   const yearArr1 = ["ALL", "2023", "2022", "2019"];
   const yearArr2 = ["2018", "2017", "2016"];
 
-  const [colorPickerVisible1, setColorPickerVisible1] = useState(
-    yearArr1.slice().map(() => false)
-  );
+  const [colorPickerVisible1, setColorPickerVisible1] = useState([
+    true,
+    false,
+    false,
+    false,
+  ]);
   const [colorPickerVisible2, setColorPickerVisible2] = useState(
     yearArr2.slice().map(() => false)
   );
