@@ -22,7 +22,7 @@ export default function Home() {
         <Image
           src={cd}
           alt=".."
-          width={1000}
+          width={900}
           className="absolute bottom-0 right-0 h-[450px] z-20 object-cover object-bottom "
         />
       </Background>
