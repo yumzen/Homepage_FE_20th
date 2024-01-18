@@ -1,3 +1,26 @@
+.wrapper {
+  height: 3800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1080px) {
+    height: 3400px;
+  }
+  @media (max-width: 768px) {
+    height: 3300px;
+  }
+  @media (max-width: 568px) {
+    height: 2900px;
+  }
+  @media (max-width: 440px) {
+    height: 2700px;
+  }
+  @media (max-width: 360px) {
+    height: 2400px;
+  }
+}
+
 .mainImg {
   width: 100%;
   height: auto;

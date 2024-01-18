@@ -40,7 +40,6 @@ const Login = () => {
             flexDirection: "column",
             alignItems: "center",
           }}
-          onSubmit={onLoginHandler}
         >
           <label style={{ display: "none" }}>이메일</label>
           <input
@@ -63,6 +62,7 @@ const Login = () => {
           <button
             // onClick={onLoginHandler}
             className="w-[214px] h-[60px] bg-btnGray text-white text-xl font-bold rounded-[10px]"
+            onClick={onLoginHandler}
           >
             관리자 로그인
           </button>
