@@ -22,8 +22,9 @@ export default function Home() {
         <Image
           src={cd}
           alt=".."
-          width={900}
-          className="absolute bottom-0 right-0 h-[450px] z-20 object-cover object-bottom "
+          width={700}
+          height={300}
+          className="absolute bottom-0 right-0 z-20 object-cover object-bottom l:w-[900px] l:h-[450px] m:w-[780px] m:h-[400px] s:w-[720px] s:h-[380px]"
         />
       </Background>
     </div>
@@ -36,7 +37,7 @@ function Headline() {
       <Image src={divider} alt="kahlua" width={108} />
       <p className="font-GothamBold text-7xl font-bold mt-2">Band Club</p>
       <p className="font-Salvar text-7xl font-bold mt-2">KAHLUA</p>
-      <p className=" font-pretendard text-xl text-[#6A6A6A] mt-4">
+      <p className=" font-pretendard text-[#6A6A6A] mt-4 l:text-xl m:text-lg s:text-base">
         We are Hongik University Computer Engineering
         <br />
         Band Club KAHLUA!
