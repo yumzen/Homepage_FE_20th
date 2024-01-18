@@ -22,21 +22,21 @@ export default function All() {
   return (
     <>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuvOWc_mlR5d5eC3EnYZPiH"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[0]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -58,21 +58,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9Luus1TGr0V9kNhXqSRJJbJkTW"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[1]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -93,21 +93,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9Luusvf1KLF90v1FQBAOejv8_g"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[2]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -128,21 +128,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuutWQhQJW-c1j1_rkFdwsRYt"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[3]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -163,21 +163,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9Luuuq168b0ZO6X0bE5p5W8LbX"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[4]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -197,21 +197,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9Luusva097pGe_sxwVQ5LwBeLN"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[5]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -234,21 +234,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuutTG8UD9hNIWbv_F3JotPS-"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[6]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -268,21 +268,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuuvV3XHuq5t_xgpziwANqfau"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[7]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -302,21 +302,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuIldOPyDdJ-G84HM2zGYR5"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[8]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -337,21 +337,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuutEF-XP649aTv4I8xTaaNKd"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[9]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -374,21 +374,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9Luuv5NBskT0N_LHOGiPNET16p"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[10]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -407,21 +407,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuHdbZ3r2wiFAIXYSHmHNBx"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[11]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
@@ -441,21 +441,21 @@ export default function All() {
         </div>
       </div>
       <div
-        className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+        className={styles.gridItem}
         onClick={() =>
           window.open(
             "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuyEwS6WeHKNWWnsAGjwV3c"
           )
         }
       >
-        <div className="relative">
+        <div className={styles.thumbnail}>
           <Image
             src={thumbnails[12]}
             alt="thumbnail"
-            sizes="100vw"
             width={0}
             height={0}
-            className={styles.thumbnail}
+            layout="fill"
+            className="opacity-70 rounded-[10px]"
           />
           <Image src={playIcon} alt="playIcon" className={styles.playicon} />
         </div>
