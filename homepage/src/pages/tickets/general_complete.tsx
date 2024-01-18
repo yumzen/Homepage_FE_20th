@@ -4,19 +4,18 @@ import axios from 'axios';
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-export default function general_complete(){
+export default function General_complete(){
     const router = useRouter();
     const [buyer, setBuyer] = useState('');
     const [phone_num, setPhone_num] = useState('');
     const {merchant_order_id} = router.query;
     const [merchant_status, setMerchant_status] = useState("결제대기");
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     
     useEffect(() => {
         const fetchReservationData = async () => {
             if(merchant_order_id){
                 try {
-                    const response = await axios.get(`${baseUrl}/tickets/general_ticket/?merchant_order_id=${merchant_order_id}`);
+                    const response = await axios.get(`https://kahluaband.com/tickets/general_ticket/?merchant_order_id=${merchant_order_id}`);
                     if (response.status === 200) {
                         setBuyer(response.data.data.buyer);
                         setPhone_num(response.data.data.phone_num);

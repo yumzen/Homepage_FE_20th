@@ -2,7 +2,7 @@ import { useState } from "react";
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay } from "date-fns";
 
 const Calendar = () => {
-const concertDay = new Date(2023, 8, 1); // month는 0부터 시작
+const concertDay = new Date(2024, 2, 4); // month는 0부터 시작
 const [selectedDate, setSelectedDate] = useState(concertDay);
 
 const monthStart = startOfMonth(selectedDate);
@@ -42,7 +42,7 @@ return (
         <div className="w-[100%] h-[100%] mx-auto mt-[4px]">
             <div className="flex font-[400] text-[8px] sm:text-[12px] items-center justify-center ">
                 {dayNames.map((dayName) => (
-                <div key={dayName} className="mx-auto w-[20px] h-[20px] flex-shrink-0 mb-[4px] ">
+                <div key={dayName} className="mx-auto w-[20px] h-[16px] flex-shrink-0 mb-[4px] ">
                     <div className={`${dayName === "Sun" ? "text-[red]" : ""} ${dayName==="Sat" ? "text-[blue]":""} w-[20px] h-[20px] font-[500] flex items-center justify-center`}>
                     {dayName}
                     </div>
@@ -54,19 +54,19 @@ return (
                     {week.map((date, dayIndex) => (
                     <div
                         key={dayIndex}
-                        className={`w-[20px] h-[20px] flex-shrink-0 my-auto mx-auto
+                        className={`w-[16px] h-[16px] flex-shrink-0 my-auto mx-auto text-center
                         ${
                             isConcertDay(date) && !isSameDay(selectedDate, concertDay)
                             ? "border border-solid border-[#c6c6c6] rounded-full flex items-center"
                             : ""
                         } ${
                             isConcertDay(date) && isSameDay(selectedDate, concertDay)
-                            ? "bg-[#0047FF] text-[#FFF] rounded-full cursor-pointer "
+                            ? "bg-[#0047FF] text-[#FFF] rounded-full cursor-pointer flex items-center justify-center text-center"
                             : "cursor-pointer"
                         }`}
                         onClick={() => handleDateClick(date)}
                     >
-                        <div className="w-[20px] h-[20px] font-[400] text-[8px] sm:text-[10px] flex items-center justify-center text-center">
+                        <div className="w-[16px] h-[16px] font-[400] text-[8px] sm:text-[10px] flex items-center justify-center text-center ">
                         {format(date, "d")}
                         </div>
                     </div>

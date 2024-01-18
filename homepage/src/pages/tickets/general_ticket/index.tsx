@@ -7,7 +7,7 @@ import axios from 'axios';
 import Error_modal from "./error_modal";
 import Input_modal from "./input_modal";
 
-export default function general_ticket(){
+export default function General_ticket(){
     const router = useRouter();
     const [member, setmember] = useState(1);
     const [buyer, setBuyer] = useState('');
@@ -21,7 +21,6 @@ export default function general_ticket(){
     const [isError, setIsError] = useState(false);
     const [isClick, setIsClick] = useState(false);
     const [dynamicHeightClass, setDynamicHeightClass] = useState('h-[1260px] sm:h-[1900px] md:h-[1780px] lg:h-[1600px]');
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     var id="";
     var merchant_order_id = "";
 
@@ -46,7 +45,7 @@ export default function general_ticket(){
             formData.append('status', 'false');
             formData.append('payment', payment);
     
-            const response = await axios.post(`${baseUrl}/tickets/general_ticket/`, formData, {
+            const response = await axios.post(`https://kahluaband.com/tickets/general_ticket/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -70,7 +69,7 @@ export default function general_ticket(){
             const formData = new FormData();
             formData.append('id', id);
             formData.append('amount', String(price));
-            const response = await axios.post(`${baseUrl}/tickets/checkout/`, formData, {
+            const response = await axios.post(`https://kahluaband.com/tickets/checkout/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -218,8 +217,8 @@ export default function general_ticket(){
                             <span>&nbsp;예매하기</span>
                         </div>
                     <div className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px]">
-                        <div>깔루아 2023 9월 정기공연</div>
-                        <div>2023.09.01 오후 6시</div>
+                        <div>깔루아 2024 3월 정기공연</div>
+                        <div>2023.03.04 오후 7시</div>
                     </div>
                 </div>
                 <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%] ">

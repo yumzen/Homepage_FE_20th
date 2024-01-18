@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const error_modal = () => {
+const Error_modal = () => {
     const [isClose, setIsClose] = useState(false);
 
     
@@ -51,4 +51,4 @@ const error_modal = () => {
     ): null;
 }
 
-export default error_modal;
+export default Error_modal;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const input_modal = () => {
+const Input_modal = () => {
     const [isClose, setIsClose] = useState(false);
     
     const handleIsClose = () => {
@@ -46,4 +46,4 @@ const input_modal = () => {
     ): null;
 };
 
-export default input_modal;
+export default Input_modal;

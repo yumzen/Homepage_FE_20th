@@ -15,9 +15,9 @@ const apikey = process.env.NEXT_PUBLIC_KAKAOMAP_KEY;
 const data = [
     {
     image: '/assets/images/tickets/poster.png', 
-    title: "2023년 9월 정기 공연",
+    title: "2024년 3월 정기 공연",
     where: "001 클럽",
-    when: "2023년 9월 1일 오후 6시",
+    when: "2024년 3월 4일 오후 7시",
     ticket: { freshman: "무료", regular: "5000원" }
     }
 ];
@@ -35,8 +35,8 @@ export default function Tickets() {
     /*
         예매 가능 기간 설정
     */
-    const startDate = new Date('2023-09-01');
-    const endDate = new Date('2024-09-10');
+    const startDate = new Date('2024-02-01');
+    const endDate = new Date('2024-03-04');
     const today = new Date();   
     const isWithinSeason = today >= startDate && today <= endDate;
 
@@ -109,7 +109,7 @@ export default function Tickets() {
                     </Link>
                 </div>
             ) : (
-                <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px]  flex-shrink-0 rounded-[10px] bg-[#B9B9B9]">
+                <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] flex-shrink-0 rounded-[10px] bg-[#B9B9B9] cursor-not-allowed">
                     지금은 예매 가능 기간이 아닙니다.
                 </button>
             )}
@@ -141,24 +141,24 @@ export default function Tickets() {
         <div>
             <div className="flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
                 <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">온라인 예매</div>
-                <div className="text-right font-[500] w-[70px]">예매가능</div>  
+                <div className="text-right font-[500] w-[70px]">예매불가</div>  
             </div>
             <div className="mt-[13px] flex w-[100%] lg:w-[260px] text-center flex-row justify-between lg:justify-between md:gap-[25vw] lg:gap-0">
                 <div className="font-[600] leading-[19px] w-[80px] h-[19px] text-left">현장 예매</div>
-                <div className="text-right font-[500]  w-[70px]">예매가능</div>
+                <div className="text-right font-[500]  w-[70px]">예매불가</div>
             </div>
         </div>
     )
 
     return (
-        <div className="h-[1150px] sm:h-[1500px] lg:h-[1100px] flex z-0 sm:top-[30px]">
+        <div className="h-[950px] p:h-[1100px] x:h-[1100px] sm:h-[1450px] md:h-[1400px] lg:h-[1100px] flex z-0 sm:top-[30px]">
         <Background>
-                <div className="font-['pretendard']  flex flex-col items-center sm:mb-[84px] mx-auto  sm:pt-[30px]">
-                    <div className=" flex flex-row w-[100%] lg:w-[1024px] justify-center items-center content-center">
-                        <Image src={data[0].image} alt='포스터' width={342} height={460} className='px-[1vw] w-[40vw] h-[calc(40vw*4/3)] md:w-[240px] md:h-[310px] lg:w-[290px] lg:h-[400px] xl:w-[342px] xl:h-[460px] md:max-h-[460px]' priority/>
-                        <div className="w-[50vw] h-[200px] sm:h-[300px] md:h-[300px] lg:w-[720px] lg:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
+                <div className="font-['pretendard']  flex flex-col items-center sm:mb-[84px] mx-auto sm:pt-[30px]">
+                    <div className=" flex flex-row w-[100%] lg:w-[1024px] justify-center items-start content-center ">
+                        <Image src={data[0].image} alt='포스터' width={342} height={460} className='pr-[1vw] w-[40vw] h-[calc(40vw*4/3)] q:w-[35vw] q:h-[calc(35vw*4/3)] x:w-[30vw] x:h-[calc(30vw*4/3)] md:w-[240px] md:h-[310px] lg:w-[270px] lg:h-[340px]  xl:w-[342px] xl:h-[460px] md:max-h-[460px] ' priority/>
+                        <div className="w-[50vw] h-[200px] sm:h-[300px] lg:w-[600px] md:h-[300px] lg:h-[400px] xl:w-[720px] xl:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
                             <div className="flex flex-row justify-between">
-                                <div className="w-[48px] h-[18px] md:w-[60px] md:h-[22px] md:text-[12px] lg:w-[76px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">예매가능</div>
+                                <div className="w-[90px] h-[18px] md:w-[110px] md:h-[22px] md:text-[12px] lg:w-[128px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">2월 1일 예매 OPEN</div>
                                     <div className="flex mt-[3px]">
                                     <Link href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" target='_blank' passHref>
                                         <Image src='/assets/images/tickets/mobile_instagram.svg' alt="모바일 인스타 그램" width ={1000} height={1000} className='ml-[8vw] flex lg:hidden cursor-pointer w-[12px] h-[12px]'/>
@@ -179,18 +179,18 @@ export default function Tickets() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-[32px] lg:mt-[18px] w-[50vw] lg:w-[680px] xl:w-[720px] h-[1px] flex bg-[#000]"/>
-                            <div className="mt-[12px] lg:mt-[36px] w-[50vw] lg:w-[720px] h-[1px] flex flex-row">
+                            <div className="mt-[32px] lg:mt-[18px] w-[50vw] lg:w-[600px] xl:w-[720px] h-[1px] flex bg-[#000]"/>
+                            <div className="mt-[12px] xl:mt-[36px] w-[50vw] lg:w-[720px] h-[1px] flex flex-row">
                                 <div className="flex flex-col w-[50vw] ">
                                     <div className="text-[10px] md:text-[14px] flex w-[50vw] md:w-[270px] items-center mt-[4px]">
-                                        <div className="font-[700] leading-[17px] w-[18px] lg:w-[25px] h-[17px] text-center whitespace-nowrap">장소</div>
+                                        <div className="font-[700] leading-[17px] w-[18px] md:w-[25px] h-[17px] text-center whitespace-nowrap">장소</div>
                                         <div className="font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[52px] h-[21px]">{data[0].where}</div>
                                     </div>
                                     <div className="text-[10px] md:text-[14px] mt-[4px] md:mt-[24px] lg:mt-[48px] flex w-[50vw] md:w-[270px] items-center">
-                                        <div className=" font-[700] leading-[17px] w-[18px] lg:w-[25px] h-[17px] text-center whitespace-nowrap">일시</div>
-                                        <div className=" font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[145px] h-[21px]">{data[0].when}</div>  
+                                        <div className=" font-[700] leading-[17px] w-[18px] md:w-[25px] h-[17px] text-center whitespace-nowrap">일시</div>
+                                        <div className=" font-[500] leading-[21px] ml-[7vw] lg:ml-[64px] w-[145px] h-[21px] whitespace-nowrap">{data[0].when}</div>  
                                     </div>
-                                    <div className="mt-[14px] lg:mt-[42px] w-[50vw] lg:w-[434px] border-b flex bg-[#D9D9D9]"/>
+                                    <div className="mt-[14px] lg:mt-[42px] w-[50vw] lg:w-[400px] xl:w-[434px] border-b flex bg-[#D9D9D9]"/>
                                     <div className="mt-[14px] lg:mt-[42px] flex flex-row w-[50vw] md:w-[434px]">
                                         <div className="flex flex-row h-[77px]">
                                             <div className="text-[10px] md:text-[14px] w-[18px] md:w-[25px] h-[66px] font-[700] flex leading-[17px] mt-[28px] text-center">
@@ -221,7 +221,7 @@ export default function Tickets() {
                                         <Link href="tickets/general_ticket/delete/" className="w-[164px] h-[33px] ml-[0.4vw] flex items-center justify-center border border-[#6A6A6A] rounded-[10px] bg-[#FFFFFF] hover:bg-[#281CFF] hover:text-[white] hover:outline-none transition-all duration-450">일반 예매내역 조회하기</Link>
                                     </div>
                                 </div>
-                                <div id="map1" className="hidden lg:flex lg:ml-[25px] mr-[10vw] xl:ml-[45px] lg:w-[200px] lg:h-[200px] xl:w-[242px] xl:h-[242px] rounded-[10px] border-[1px] border-[#B9B9B9] flex-shrink-0 z-0"></div>
+                                <div id="map1" className="hidden lg:flex xl:ml-[50px] mr-[12.5vw] lg:w-[180px] lg:h-[180px] xl:w-[242px] xl:h-[242px] rounded-[10px] border-[1px] border-[#B9B9B9] flex-shrink-0 z-0"></div>
                             </div>
                             
                         </div>

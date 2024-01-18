@@ -5,17 +5,16 @@ import Ticket_info from "../ticket_info"
 import axios from 'axios';
 import { useRouter } from "next/router";
 
-const freshman_delete = () => {
+const Freshman_delete = () => {
     const router = useRouter();
     const [reservation_id, setreservation_id] = useState("");
     const [searched, setSearched] = useState(false);
     const [validReservation_id, setValidReservation_id] = useState(true);
     const [buyer, setBuyer] = useState('');
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`${baseUrl}/tickets/freshman_complete/?reservation_id=${reservation_id}`);
+            const response = await axios.get(`https://kahluaband.com/tickets/freshman_complete/?reservation_id=${reservation_id}`);
             
             if (response.data) {
                 setSearched(true);
@@ -76,4 +75,4 @@ const freshman_delete = () => {
     )
 };
 
-export default freshman_delete;
+export default Freshman_delete;
