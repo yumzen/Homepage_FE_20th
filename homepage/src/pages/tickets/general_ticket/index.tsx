@@ -217,8 +217,8 @@ export default function General_ticket(){
                             <span>&nbsp;예매하기</span>
                         </div>
                     <div className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px]">
-                        <div>깔루아 2023 9월 정기공연</div>
-                        <div>2023.09.01 오후 6시</div>
+                        <div>깔루아 2024 3월 정기공연</div>
+                        <div>2023.03.04 오후 7시</div>
                     </div>
                 </div>
                 <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%] ">

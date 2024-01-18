@@ -109,7 +109,7 @@ export default function Tickets() {
                     </Link>
                 </div>
             ) : (
-                <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px]  flex-shrink-0 rounded-[10px] bg-[#B9B9B9]">
+                <button className="w-[45vw] h-[29px] md:w-[270px] md:h-[48px] flex-shrink-0 rounded-[10px] bg-[#B9B9B9] cursor-not-allowed">
                     지금은 예매 가능 기간이 아닙니다.
                 </button>
             )}

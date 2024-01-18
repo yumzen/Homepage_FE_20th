@@ -85,7 +85,7 @@ export default function Freshman_ticket(){
     );
 
     return (
-        <div className="w-[100%] h-[1250px] sm:h-[1900px] md:h-[1850px] lg:h-[1580px] z-60">
+        <div className="w-[100%] h-[1100px] p:h-[1150px] x:h-[1200px] sm:h-[1900px] md:h-[1850px] lg:h-[1580px] z-60">
             <Background>
                 <div className=" font-['pretendard'] px-[12.4vw] flex items-center flex-col mb-[84px]">
                     <div className="flex flex-col items-center mx-[12.5vw] text-center sm:mt-[40px]">
@@ -95,8 +95,8 @@ export default function Freshman_ticket(){
                             <span>&nbsp;예매하기</span>
                         </div>
                         <div className="mt-[16px] sm:mt-[32px] font-[500] text-[10px] sm:text-[14px] leading-[21px]">
-                            <div>깔루아 2023 9월 정기공연</div>
-                            <div>2023.09.01 오후 6시</div>
+                            <div>깔루아 2024 3월 정기공연</div>
+                            <div>2024.03.04 오후 7시</div>
                         </div>
                     </div>
                     <div className="mt-[32px] sm:mt-[64px] flex flex-col mx-auto w-[100%]">
@@ -117,9 +117,9 @@ export default function Freshman_ticket(){
                         </div>
                         <div className="bg-[white] w-[76px] sm:w-[110px] h-[26px] sm:h-[35px] ml-[5vw] sm:mt-[20px] flex flex-shrink-0 border border-solid border-[#D9D9D9] rounded-[10px] items-center justify-center mr-[5vw] sm:mr-0">
                             <div className="flex gap-2 sm:gap-4 text-[20px] sm:text-[26px] font-[700]">
-                                <button className="flex h-[25.9px] sm:h-[35px] my-auto ml-[2px] pr-[7px] sm:ml-[4px] sm:pr-[9px] text-center items-center justify-center border-r text-[#939393] border-[#D9D9D9]" onClick={handleDecrement}>-</button>
+                                <button className="flex h-[25.9px] sm:h-[35px] my-auto ml-[2px] pr-[7px] sm:ml-[4px] sm:pr-[9px] text-center items-center justify-center border-r text-[#939393] border-[#D9D9D9] cursor-default" onClick={handleDecrement}>-</button>
                                 <p>{count}</p>
-                                <button className="flex h-[25.9px] sm:h-[35px] my-auto pl-[6px] sm:pl-[8px] text-center items-center justify-center border-l text-[#939393] border-[#D9D9D9]" onClick={handleIncrement}>+</button>
+                                <button className="flex h-[25.9px] sm:h-[35px] my-auto pl-[6px] sm:pl-[8px] text-center items-center justify-center border-l text-[#939393] border-[#D9D9D9] cursor-default" onClick={handleIncrement}>+</button>
                             </div>
                         </div>
                     </div>
