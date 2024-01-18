@@ -4,9 +4,9 @@ import divider from "/public/assets/images/recruit/divider_medium.svg";
 export default function ApplicationNotice(){
     return(
         <div className="flex flex-col justify-center items-center py-10">
-            <Image src={divider} alt="notice" width={75}/>
-            <p className="font-Gotham text-[32px] mt-4 font-bold">지원하기</p>
-            <p className="text-sm mt-8 text-center">
+            <Image src={divider} alt="notice" width={75} className="w-[50px] h-[11px] s:w-[75px] s:h-[17px]"/>
+            <p className="font-Gotham text-2xl s:text-[32px] mt-4 font-bold">지원하기</p>
+            <p className="text-xs s:text-sm mt-8 text-center">
                 아 우리는~ 깔❗️깔❗️깔❗️깔루아~‼️<br/>
                 안녕하세요 24학번 새내기 여러분🤩<br/>
                 저희는 홍익대학교 컴퓨터공학과 최강 비주얼 밴드 동아리 깔루아입니다~!!<br/><br/>
