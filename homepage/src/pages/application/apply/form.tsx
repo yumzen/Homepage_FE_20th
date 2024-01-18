@@ -97,7 +97,7 @@ export default function Form() {
       }
 
       const response = await axios.post(
-        "http://kahluaband.com/application/apply/",
+        "https://kahluaband.com/application/apply/",
         formData
       );
       console.log(response);
@@ -305,7 +305,7 @@ export default function Form() {
                 value={name}
                 minLength={30}
                 type="text"
-                className="text-base w-full h-full rounded-[10px] p-4 "
+                className="text-sm s:text-base w-full h-full rounded-[10px] p-4 "
                 placeholder="지원자 이름"
                 onChange={(e) => setName(e.target.value)}
               />
@@ -317,7 +317,7 @@ export default function Form() {
               <input
                 value={birthdate}
                 type="text"
-                className="text-base w-full h-full rounded-[10px] p-4"
+                className="text-sm s:text-base w-full h-full rounded-[10px] p-4"
                 placeholder="8자리로 입력해주세요"
                 onChange={(e) => setBirthdate(e.target.value)}
               />
@@ -331,7 +331,7 @@ export default function Form() {
               <input
                 value={phone_num}
                 type="text"
-                className="text-base w-full h-full rounded-[10px] p-4"
+                className="text-sm s:text-base w-full h-full rounded-[10px] p-4"
                 placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'"
                 onChange={(e) => setPhoneNum(e.target.value)}
               />
@@ -354,7 +354,7 @@ export default function Form() {
             <input
               value={address}
               type="text"
-              className="text-base w-full h-full rounded-[10px] p-4"
+              className="text-sm s:text-base w-full h-full rounded-[10px] p-4"
               placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요"
               onChange={(e) => setAddress(e.target.value)}
             />
