@@ -85,7 +85,7 @@ export default function Form(){
                 return;
             }
 
-            const response = await axios.post('http://kahluaband.com/application/apply/', formData);
+            const response = await axios.post('https://kahluaband.com/application/apply/', formData);
             console.log(response)
 
             if (response.status === 200 || response.status === 201) {
@@ -304,7 +304,7 @@ export default function Form(){
             </div>
 
             <div className="flex flex-col justify-center items-center">
-                <button disabled={!isFormComplete} className="w-full s:w-80 h-16 bg-ocean rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleSubmit}>
+                <button disabled={!isFormComplete} className="w-full s:w-80 h-16 bg-ocean disabled:bg-[#B9B9B9] rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleSubmit}>
                     제출하기
                 </button>
             </div>
