@@ -1,72 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 
+interface SocialIconProps {
+  href: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+}
+
+const SocialIcon: React.FC<SocialIconProps> = ({ href, src, alt, width, height, className }) => (
+  <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[20px] h-[20px] sm:w-[28px] sm:h-[28px]">
+    <Link href={href} target="_blank" passHref>
+      <Image src={src} alt={alt} width={width} height={height} className={className} />
+    </Link>
+  </li>
+);
+
 export default function Footer() {
   return (
-    <div className="w-full h-[240px] bg-[#EEEEEE] bottom-0 font-['pretendard']">
+    <div className="w-full h-[100px] sm:h-[240px] relative bg-[#EEEEEE] bottom-0 font-['pretendard'] min-w-[100%]">
       <div className="flex flex-col w-full ">
-        <ul className="flex mt-[60px] mr-[4px] items-center justify-center gap-2">
-          <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
-            <Link href="http://pf.kakao.com/_UaIZG" target="_blank" passHref>
-              <Image
-                src="/assets/images/layout/kakaotalk.svg"
-                alt="kakaotalk"
-                width={1000}
-                height={1000}
-              />
-            </Link>
-          </li>
-          <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
-            <Link
-              href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA=="
-              target="_blank"
-              passHref
-            >
-              <Image
-                src="/assets/images/layout/instagram.svg"
-                alt="instagram"
-                width={1000}
-                height={1000}
-                className="w-[28px] h-[28px] "
-              />
-            </Link>
-          </li>
-          <li className="rounded-full bg-[#8E8E8E] ml-[4px] mt-[4px] w-[28px] h-[28px]">
-            <Link
-              href="https://www.youtube.com/@kahluaband8409"
-              target="_blank"
-              passHref
-            >
-              <Image
-                src="/assets/images/layout/youtube.svg"
-                alt="youtube"
-                width={1000}
-                height={1000}
-                className="w-[28px] h-[28px] "
-              />
-            </Link>
-          </li>
-          <li className="rounded-full bg-[#8E8E8E] ml-[3.0px] mt-[4px] w-[full] h-[full]">
-            <Link href="https://github.com/kahluaband" target="_blank" passHref>
-              <Image
-                src="/assets/images/layout/foot_github.svg"
-                alt="github"
-                width={18}
-                height={18}
-                className=" mx-[4.8px] my-[5px]"
-              />
-            </Link>
-          </li>
-        </ul>
+      <ul className="flex mt-[10px] sm:mt-[60px] mr-[4px] items-center justify-center gap-2">
+      <SocialIcon href="http://pf.kakao.com/_UaIZG" src="/assets/images/layout/kakaotalk.svg" alt="kakaotalk" width={28} height={28} className="w-[20px] h-[20px] sm:w-[28px] sm:h-[28px]"/>
+      <SocialIcon href="https://instagram.com/kahlua_band_?igshid=MzRlODBiNWFlZA==" src="/assets/images/layout/instagram.svg" alt="instagram" width={28} height={28} className="w-[20px] h-[20px] sm:w-[28px] sm:h-[28px]" />
+      <SocialIcon href="https://www.youtube.com/@kahluaband8409" src="/assets/images/layout/youtube.svg" alt="youtube" width={28} height={28} className="mx-[0.8px] w-[20px] h-[20px] sm:w-[28px] sm:h-[28px]" />
+      <SocialIcon href="https://github.com/kahluaband" src="/assets/images/layout/foot_github.svg" alt="github" width={18} height={18} className="mx-auto my-[3.9px] sm:my-[4.9px] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px]" />
+    </ul>
       </div>
-      <div className="flex item-center justify-center mt-[21px]">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="150"
-          height="27"
-          viewBox="0 0 150 27"
-          fill="none"
-        >
+      <div className="flex item-center justify-center mt-[10px] sm:mt-[21px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="27" viewBox="0 0 150 27" fill="none" className="sm:w-[150px] sm:h-[27px] w-[120px] h-[20px]">
           <path
             d="M10.6547 6.71213L16.0627 0.984133H19.4547C21.7161 0.984133 22.8467 1.01613 22.8467 1.08013C22.8467 1.1228 22.6761 1.3148 22.3347 1.65613C22.2707 1.72013 20.6814 3.3308 17.5667 6.48813L13.3107 10.8081L18.5587 18.2321C22.0574 23.1601 23.8067 25.6348 23.8067 25.6561C23.8067 25.6988 22.6547 25.7201 20.3507 25.7201H16.8947C13.6521 20.8135 11.2094 17.1441 9.56672 14.7121C8.20139 16.0775 7.17739 17.1121 6.49472 17.8161V25.7201H0.990723V16.9201L3.13472 14.6481C3.34806 14.4348 4.36139 13.3681 6.17472 11.4481C8.00939 9.5068 9.50272 7.92813 10.6547 6.71213ZM0.990723 5.84813V0.984133H6.49472V4.82413L3.80672 7.70413C2.01472 9.6668 1.10806 10.6481 1.08672 10.6481C1.06539 10.6695 1.04406 10.4988 1.02272 10.1361C1.02272 9.75213 1.01206 9.17613 0.990723 8.40813C0.990723 7.64013 0.990723 6.7868 0.990723 5.84813Z"
             fill="#6A6A6A"
@@ -93,11 +57,9 @@ export default function Footer() {
           />
         </svg>
       </div>
-      <div className="mt-[20px]">
-        <div className="mt-[16px] flex item-center justify-center">
-          <div className="text-[12px] text-[#6A6A6A] font-[600] tracking-[0.015rem] leading-5">
-            © 2023 KAHLUA. All rights reserved.
-          </div>
+      <div className="sm:mt-[20px]">
+        <div className="mt-[10px] sm:mt-[16px] flex item-center justify-center">
+          <div className="text-[8px] sm:text-[12px] text-[#6A6A6A] font-[600] tracking-[0.015rem] leading-5">© 2023 KAHLUA. All rights reserved.</div>
         </div>
       </div>
     </div>
