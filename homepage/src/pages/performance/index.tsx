@@ -28,15 +28,23 @@ const thumbnails = [
 
 export default function Performance() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(0);
+  const [selectedYear, setSelectedYear] = useState("ALL");
   const [btnActive, setBtnActive] = useState(false);
 
   const yearArr1 = ["ALL", "2023", "2022", "2019"];
   const yearArr2 = ["2018", "2017", "2016"];
 
-  function openMenu() {
+  const [colorPickerVisible1, setColorPickerVisible1] = useState(
+    yearArr1.slice().map(() => false)
+  );
+  const [colorPickerVisible2, setColorPickerVisible2] = useState(
+    yearArr2.slice().map(() => false)
+  );
+
+  const openMenu = () => {
     setIsOpen(!isOpen);
-  }
+  };
+
   useEffect(() => {
     const openHandler = () => {
       if (isOpen === false) {
@@ -45,14 +53,15 @@ export default function Performance() {
     };
   }, [isOpen]);
 
-  function yearHandler(year: number) {
+  const yearHandler = (year: string) => {
     setSelectedYear(year);
-  }
+    setBtnActive(!btnActive);
+  };
 
   return (
     <div
       className={`${
-        selectedYear === 0 ? "h-[2500px]" : " h-[1300px]"
+        selectedYear === "ALL" ? "h-[2500px]" : " h-[1300px]"
       }  flex items-center justify-center`}
     >
       <Background>
@@ -70,20 +79,32 @@ export default function Performance() {
             <div
               className={`${
                 isOpen ? "h-[120px]" : "h-[60px]"
-              } flex relative flex-wrap w-[620px] rounded-[10px] mb-[96px] bg-[#EEEEEE]`}
+              } flex relative flex-wrap w-[620px] rounded-[10px] mb-[96px] bg-[#EEEEEE] z-0`}
             >
               {yearArr1.map((year, index) => {
                 return (
                   <button
-                    className="flex justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer"
+                    className={
+                      "flex justify-center items-center min-w-[140px] h-[60px] font-bold text-lg text-black cursor-pointer z-10 rounded-[10px]" +
+                      (colorPickerVisible1[index] && " bg-[#281CFF] text-white")
+                    }
                     key={index}
+                    onClick={() => {
+                      yearHandler(year);
+                      setColorPickerVisible2(yearArr2.slice().map(() => false));
+                      const newVisible = yearArr1.slice().map(() => false);
+                      if (newVisible[index] === false) {
+                        newVisible[index] = !newVisible[index];
+                      }
+                      setColorPickerVisible1(newVisible);
+                    }}
                   >
                     {year}
                   </button>
                 );
               })}
               <button
-                className="justify-center items-center min-w-[60px] h-[60px] cursor-pointer"
+                className="flex justify-center items-center min-w-[60px] h-[60px] cursor-pointer z-0"
                 onClick={openMenu}
               >
                 <Image
@@ -98,10 +119,20 @@ export default function Performance() {
               {yearArr2.map((year, index) => {
                 return (
                   <button
-                    className={`${
-                      isOpen ? "flex" : "hidden"
-                    } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg cursor-pointer`}
+                    className={
+                      `${
+                        isOpen ? "flex" : "hidden"
+                      } justify-center items-center min-w-[140px] h-[60px] font-bold text-lg text-black cursor-pointer z-10 rounded-[10px]` +
+                      (colorPickerVisible2[index] && " bg-[#281CFF] text-white")
+                    }
                     key={index}
+                    onClick={() => {
+                      yearHandler(year);
+                      setColorPickerVisible1(yearArr1.slice().map(() => false));
+                      const newVisible = yearArr2.slice().map(() => false);
+                      newVisible[index] = !newVisible[index];
+                      setColorPickerVisible2(newVisible);
+                    }}
                   >
                     {year}
                   </button>
@@ -109,30 +140,27 @@ export default function Performance() {
               })}
             </div>
 
-            <div className="w-full flex mx-[10rem] justify-center">
-              <div
-                id="gridContainer"
-                className="grid gap-[64px] justify-center grid-cols-3"
-              >
-                {selectedYear === 0 && <All />}
-                {selectedYear === 2023 && (
+            <>
+              <div id="gridContainer" className={styles.gridContainer}>
+                {selectedYear === "ALL" && <All />}
+                {selectedYear === "2023" && (
                   <>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuvOWc_mlR5d5eC3EnYZPiH"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[0]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -160,21 +188,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9Luus1TGr0V9kNhXqSRJJbJkTW"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[1]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -204,24 +232,24 @@ export default function Performance() {
                     </div>
                   </>
                 )}
-                {selectedYear === 2022 && (
+                {selectedYear === "2022" && (
                   <>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9Luusvf1KLF90v1FQBAOejv8_g"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[2]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -248,21 +276,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuutWQhQJW-c1j1_rkFdwsRYt"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[3]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -292,24 +320,24 @@ export default function Performance() {
                     </div>
                   </>
                 )}
-                {selectedYear === 2019 && (
+                {selectedYear === "2019" && (
                   <>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9Luuuq168b0ZO6X0bE5p5W8LbX"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[4]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -337,21 +365,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9Luusva097pGe_sxwVQ5LwBeLN"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[5]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -378,21 +406,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuutTG8UD9hNIWbv_F3JotPS-"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[6]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -423,24 +451,24 @@ export default function Performance() {
                     </div>
                   </>
                 )}
-                {selectedYear === 2018 && (
+                {selectedYear === "2018" && (
                   <>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuuvV3XHuq5t_xgpziwANqfau"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[7]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -469,24 +497,24 @@ export default function Performance() {
                     </div>
                   </>
                 )}
-                {selectedYear === 2017 && (
+                {selectedYear === "2017" && (
                   <>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuIldOPyDdJ-G84HM2zGYR5"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[8]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -513,21 +541,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuutEF-XP649aTv4I8xTaaNKd"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[9]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -556,21 +584,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9Luuv5NBskT0N_LHOGiPNET16p"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[10]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -595,21 +623,21 @@ export default function Performance() {
                       </div>
                     </div>
                     <div
-                      className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                      className={styles.gridItem}
                       onClick={() =>
                         window.open(
                           "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuHdbZ3r2wiFAIXYSHmHNBx"
                         )
                       }
                     >
-                      <div className="relative">
+                      <div className={styles.thumbnail}>
                         <Image
                           src={thumbnails[11]}
                           alt="thumbnail"
-                          sizes="100vw"
                           width={0}
                           height={0}
-                          className={styles.thumbnail}
+                          layout="fill"
+                          className="opacity-70 rounded-[10px]"
                         />
                         <Image
                           src={playIcon}
@@ -638,23 +666,23 @@ export default function Performance() {
                     </div>
                   </>
                 )}
-                {selectedYear === 2016 && (
+                {selectedYear === "2016" && (
                   <div
-                    className="w-[360px] h-[326px] rounded-[10px] cursor-pointer overflow-hidden will-change-transform"
+                    className={styles.gridItem}
                     onClick={() =>
                       window.open(
                         "https://www.youtube.com/playlist?list=PLLmJk1z9LuuuyEwS6WeHKNWWnsAGjwV3c"
                       )
                     }
                   >
-                    <div className="relative">
+                    <div className={styles.thumbnail}>
                       <Image
                         src={thumbnails[12]}
                         alt="thumbnail"
-                        sizes="100vw"
                         width={0}
                         height={0}
-                        className={styles.thumbnail}
+                        layout="fill"
+                        className="opacity-70 rounded-[10px]"
                       />
                       <Image
                         src={playIcon}
@@ -681,7 +709,7 @@ export default function Performance() {
                   </div>
                 )}
               </div>
-            </div>
+            </>
           </div>
         </div>
       </Background>
