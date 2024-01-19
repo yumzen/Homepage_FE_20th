@@ -6,7 +6,7 @@ import Form from "./form";
 
 export default function Recruit() {
     return (
-        <div className="h-[4000px] s:h-[3000px] font-pretendard flex flex-col justify-center items-center content-center">
+        <div className="h-[4800px] s:h-[4000px] font-pretendard flex flex-col justify-center items-center content-center">
             <Background>
                 <div className="w-full felx flex col justify-center items-center">
                     <div className="w-3/4">
