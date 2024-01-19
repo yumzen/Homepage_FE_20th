@@ -211,7 +211,7 @@ export default function Tickets() {
             />
             <div className="w-[50vw] h-[200px] sm:h-[300px] lg:w-[600px] md:h-[300px] lg:h-[400px] xl:w-[720px] xl:h-[460px] ml-[11px] lg:ml-[23px] mt-0 top-0 flex-shrink-0">
               <div className="flex flex-row justify-between">
-                <div className="w-[90px] h-[18px] md:w-[110px] md:h-[22px] md:text-[12px] lg:w-[128px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[14px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">
+                <div className="w-[90px] h-[18px] md:w-[110px] md:h-[22px] md:text-[11px] lg:w-[128px] lg:h-[24px] flex flex-shrink-0 justify-center rounded-[40px] bg-[#281CFF] text-[8px] lg:text-[12px] font-[600] tracking-[0.2px] leading-[20px] text-[#FFF] pt-[2px] text-center whitespace-nowrap items-center">
                   2월 1일 예매 OPEN
                 </div>
                 <div className="flex mt-[3px]">
