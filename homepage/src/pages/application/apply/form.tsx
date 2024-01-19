@@ -42,7 +42,7 @@ export default function Form(){
     const [second_preference, setSecond] = useState('보컬');
     const [play_instrument, setInstrument] = useState('');
     const [motive, setMotive] = useState('');
-    const [experience_and_reason, setExperience] = useState('');
+    const [exprience_and_reason, setExprience] = useState('');
     const [finish_time, setFinishTime] = useState('');
     const [meeting, setMeeting] = useState(true);
     const [readiness, setReadiness] = useState('');
@@ -65,13 +65,15 @@ export default function Form(){
         address.trim() !== '' &&
         first_preference.trim() !== '' &&
         second_preference.trim() !== '' &&
-        experience_and_reason.trim() !== '' &&
+        exprience_and_reason.trim() !== '' &&
+        play_instrument.trim() !== '' &&
         motive.trim() !== '' &&
         finish_time.trim() !== '' &&
+        readiness.trim() !== '' &&
         privacy && monday && duration && cost &&
         true;
         setIsFormComplete(isDataComplete);
-    }, [name, phone_num, birthdate, gender, address, major, first_preference, second_preference, experience_and_reason, play_instrument, motive, finish_time, meeting, readiness]);
+    }, [name, phone_num, birthdate, gender, address, major, first_preference, second_preference, exprience_and_reason, play_instrument, motive, finish_time, meeting, readiness]);
     
     const handleShowConfirmationModal = () => {
         setIsConfirmationModalVisible(true);
@@ -93,7 +95,7 @@ export default function Form(){
                 major,
                 first_preference,
                 second_preference,
-                experience_and_reason,
+                exprience_and_reason,
                 play_instrument,
                 motive,
                 finish_time,
@@ -238,7 +240,6 @@ export default function Form(){
         <label className="flex flex-row items-center justify-center">
         <input
             type="checkbox"
-            name=""
             checked={checked}
             onChange={({ target: { checked } }) => onChange(checked)}
             className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
@@ -261,17 +262,17 @@ export default function Form(){
                 </div>
                 <div className="mt-8 text-base mr-auto">
                     <Checkbox checked={monday} onChange={setMonday}>
-                    홍익대학교 깔루아 23기는 매주 월요일 오후 6시 오프라인으로 정기 회의와 뒷풀이를 진행할 예정이고, 장소는 홍익대학교 T동 건물입니다. 매주 진행되는 깔루아 정기 회의 및 뒷풀이에 필수로 참여할 수 있는 분만 지원해주시기 바랍니다.
+                    홍익대학교 깔루아 23기는 <span className="text-ocean">매주 월요일 오후 6시 오프라인</span>으로 정기 회의와 뒷풀이를 진행할 예정이고, 장소는 홍익대학교 T동 건물입니다. 매주 진행되는 깔루아 정기 회의 및 뒷풀이에 필수로 참여할 수 있는 분만 지원해주시기 바랍니다.
                     </Checkbox>
                 </div>
                 <div className="mt-8 text-base mr-auto">
                     <Checkbox checked={duration} onChange={setDuration}>
-                    홍익대학교 깔루아 23기의 활동 기간은 1년 6개월로, 25년 9월 공연까지는 필수로 참여해야 합니다.
+                    홍익대학교 깔루아 23기의 <span className="text-ocean">활동 기간은 1년 6개월</span>로, 25년 9월 공연까지는 필수로 참여해야 합니다.
                     </Checkbox>
                 </div>
                 <div className="mt-8 text-base mr-auto">
                     <Checkbox checked={cost} onChange={setCost}>
-                    홍익대학교 깔루아는 공연이 있는 3월, 9월을 제외하고 매달 1만원의 회비를 냅니다. 이 회비는 깔루아 전체 회비로 입금되며, 이 전체 회비는 동방 장비 수리, 교체, 공연 준비를 위한 비용으로 사용됩니다.
+                    홍익대학교 깔루아는 공연이 있는 3월, 9월을 제외하고 <span className="text-ocean">매달 1만원의 회비</span>를 냅니다. 이 회비는 깔루아 전체 회비로 입금되며, 이 전체 회비는 동방 장비 수리, 교체, 공연 준비를 위한 비용으로 사용됩니다.
                     </Checkbox>
                 </div>
                 <p className="text-xs text-[#8E8E8E] mt-8">
@@ -284,13 +285,13 @@ export default function Form(){
             <div className="flex flex-col justify-center pb-10">
                 <div className="inline-flex flex-wrap flex-row items-start justify-between">
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <p className="s:text-xl font-bold text-lg">이름 *</p>
+                        <p className="s:text-xl font-bold text-lg">이름</p>
                         <div className="input-with-placeholder relative h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
                             <input value={name} minLength={30} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4 " placeholder="지원자 이름" onChange={(e) => setName(e.target.value)}/>
                         </div>
                     </div>
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <p className="s:text-xl font-bold text-lg">생년월일 *</p>
+                        <p className="s:text-xl font-bold text-lg">생년월일</p>
                         <div className="input-with-placeholder relative h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
                             <input value={birthdate} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="8자리로 입력해주세요" onChange={(e) => setBirthdate(e.target.value)}/>
                         </div>
@@ -298,27 +299,27 @@ export default function Form(){
                 </div>
                 
                 <div className="mt-8">
-                    <p className="s:text-xl font-bold text-lg">전화번호 *</p>
+                    <p className="s:text-xl font-bold text-lg">전화번호</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
                         <input value={phone_num} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="기호없이 11자리로 입력해주세요 '예:01012345678'" onChange={(e) => setPhoneNum(e.target.value)}/>
                     </div>                                              
                 </div>
                 <div className="inline-flex flex-wrap flex-row items-start justify-between">
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <p className="s:text-xl font-bold text-lg">성별 *</p>
+                        <p className="s:text-xl font-bold text-lg">성별</p>
                         <div className="h-[64px] flex-shrink-0 rounded-[10px] mt-4">
                             <SelectBox options={OPTIONS_Gender} onChange={(value) => setGender(value)} value={gender}/>
                         </div>
                     </div>
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <p className="s:text-xl font-bold text-lg">학과 *</p>
+                        <p className="s:text-xl font-bold text-lg">학과</p>
                         <div className="h-[64px] flex-shrink-0 rounded-[10px] mt-4">
                             <SelectBox options={OPTIONS_Major} onChange={(value) => setMajor(value)} value={major}/>
                         </div>
                     </div>
                 </div>
                 <div className="mt-8">
-                    <p className="s:text-xl font-bold text-lg">거주지 *</p>
+                    <p className="s:text-xl font-bold text-lg">거주지</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
                         <input value={address} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="기숙사의 경우 '예:2기숙사/부산'으로 입력해주세요" onChange={(e) => setAddress(e.target.value)}/>
                     </div>
@@ -331,22 +332,22 @@ export default function Form(){
             <div className="flex flex-col justify-center pb-10">
                 <div className="inline-flex flex-wrap flex-row items-start justify-between">
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <span className="s:text-xl font-bold text-lg">1지망 선택 *</span>
+                        <span className="s:text-xl font-bold text-lg">1지망 선택</span>
                         <span className="text-xs text-[#8E8E8E] ml-2">세션 중 1가지 선택</span>
                         <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 rounded-[10px] mt-4">
                             <SelectBox options={OPTIONS_Session1} onChange={(value) => setFirst(value)} value={first_preference}/>
                         </div>
                     </div>
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
-                        <span className="s:text-xl font-bold text-lg">2지망 선택 *</span>
+                        <span className="s:text-xl font-bold text-lg">2지망 선택</span>
                         <span className="text-xs text-[#8E8E8E] ml-2">1지망에 선택한 세션을 제외하고 선택</span>
                         <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 mt-4">
                             <SelectBox options={OPTIONS_Session2} onChange={(value) => setSecond(value)} value={second_preference}/>
                         </div>
                     </div>
                     <div className="mt-8 w-full">
-                        <p className="s:text-xl font-bold text-lg">지원 세션의 경력과 지원 이유 *</p>
-                        <textarea value={experience_and_reason} className="text-sm s:text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder="" onChange={(e) => setExperience(e.target.value)}/>
+                        <p className="s:text-xl font-bold text-lg">지원 세션의 경력과 지원 이유</p>
+                        <textarea value={exprience_and_reason} className="text-sm s:text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder="" onChange={(e) => setExprience(e.target.value)}/>
                     </div>
                 </div>
                 
@@ -356,7 +357,7 @@ export default function Form(){
             
             <div className="flex flex-col justify-center pb-10">
                 <div className="mt-8">
-                    <p className="s:text-xl font-bold text-lg">깔루아 지원 동기 *</p>
+                    <p className="s:text-xl font-bold text-lg">깔루아 지원 동기</p>
                     <textarea value={motive} className="text-sm s:text-base w-full h-[256px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4 p-4" placeholder="" onChange={(e) => setMotive(e.target.value)}/>
                 </div>          
                 <div className="mt-8">
@@ -369,14 +370,14 @@ export default function Form(){
 
             <div className="flex flex-col justify-center pb-10">
                 <div className="mt-8">
-                    <p className="s:text-xl font-bold text-lg">3월 18일 면접 시간 조정을 위한 월요일 수업이 끝나는 시간 *</p>
+                    <p className="s:text-xl font-bold text-lg">3월 18일 면접 시간 조정을 위한 월요일 수업이 끝나는 시간</p>
                     <div className="input-with-placeholder relative w-full h-[64px] flex-shrink-0 border border-[#464646] border-solid rounded-[10px] mt-4">
                         <input value={finish_time} type="text" className="text-sm s:text-base w-full h-full rounded-[10px] p-4" placeholder="예: 5시 / 월공강" onChange={(e) => setFinishTime(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className="mt-8">
-                    <p className="s:text-xl font-bold text-lg">면접 후 뒷풀이 참여 유무 *</p>
+                    <p className="s:text-xl font-bold text-lg">면접 후 뒷풀이 참여 유무</p>
                     <p className="text-xs text-[#8E8E8E] mt-2">참여하시는 분은 신분증을 꼭 지참해주세요</p>
                     <div className="mt-4 text-base flex flex-row gap-[8.8vw]">
                         <RadioButton
