@@ -22,7 +22,7 @@ function Info_AQ(){
         <div className="w-[300px] x:w-[420px] h-auto x:h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-11 h-11 x:w-12 x:h-12 rounded-[24px] bg-ocean">
-                    <p className="leading-[44px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">01</p>
+                    <p className="leading-[44px] x:leading-[48px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">01</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
                     <p className="text-xl x:text-2xl text-ocean font-bold">지원자격</p>
@@ -42,7 +42,7 @@ function Info_Session(){
         <div className="w-[300px] x:w-[420px] h-auto x:h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-11 h-11 x:w-12 x:h-12 rounded-[24px] bg-ocean">
-                    <p className="leading-[44px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">02</p>
+                    <p className="leading-[44px] x:leading-[48px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">02</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
                     <p className="text-xl x:text-2xl text-ocean font-bold">모집 세션</p>
@@ -61,7 +61,7 @@ function Info_Schedule(){
         <div className="w-[300px] x:w-[420px] h-auto x:h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-11 h-11 x:w-12 x:h-12 rounded-[24px] bg-ocean">
-                    <p className="leading-[44px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">03</p>
+                    <p className="leading-[44px] x:leading-[48px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">03</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
                     <p className="text-xl x:text-2xl text-ocean font-bold">모집 일정</p>
@@ -81,7 +81,7 @@ function Info_Audition(){
         <div className="w-[300px] x:w-[420px] h-auto x:h-[184px] rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-11 h-11 x:w-12 x:h-12 rounded-[24px] bg-ocean">
-                    <p className="leading-[44px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">04</p>
+                    <p className="leading-[44px] x:leading-[48px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">04</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
                     <p className="text-xl x:text-2xl text-ocean font-bold">오디션 일정</p>
@@ -101,7 +101,7 @@ function Info_Precautions(){
         <div className="w-[300px] x:w-[420px] s:w-[580px] h-auto rounded-[10px] border-ocean bg-white border-2 py-8 px-10 m-6">
             <div className="flex flex-row">
                 <div className="align-center w-11 h-11 x:w-12 x:h-12 rounded-[24px] bg-ocean">
-                    <p className="leading-[44px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">05</p>
+                    <p className="leading-[44px] x:leading-[48px] text-xl x:text-2xl text-center font-bold text-[#FFFFFF]">05</p>
                 </div>
                 <div className="flex flex-col w-36 h-12 ml-4">
                     <p className="text-xl x:text-2xl text-ocean font-bold">유의사항</p>
