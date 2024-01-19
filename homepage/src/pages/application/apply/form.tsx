@@ -46,6 +46,12 @@ export default function Form(){
     const [finish_time, setFinishTime] = useState('');
     const [meeting, setMeeting] = useState(true);
     const [readiness, setReadiness] = useState('');
+
+    const [privacy, setPrivacy] = useState(false);
+    const [monday, setMonday] = useState(false);
+    const [duration, setDuration] = useState(false);
+    const [cost, setCost] = useState(false);
+
     const [isFormComplete, setIsFormComplete] = useState(false);
     const [isConfirmationModalVisible, setIsConfirmationModalVisible] = useState(false);
 
@@ -62,6 +68,7 @@ export default function Form(){
         experience_and_reason.trim() !== '' &&
         motive.trim() !== '' &&
         finish_time.trim() !== '' &&
+        privacy && monday && duration && cost &&
         true;
         setIsFormComplete(isDataComplete);
     }, [name, phone_num, birthdate, gender, address, major, first_preference, second_preference, experience_and_reason, play_instrument, motive, finish_time, meeting, readiness]);
@@ -123,7 +130,7 @@ export default function Form(){
                 console.log('응답 데이터:', response.data);
                 router.push({
                     pathname: "/application/apply/complete/",
-                    query: { ...router.query, id: response.data.id as string },
+                    query: { ...router.query, id: response.data.data.id },
                 });
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
@@ -165,13 +172,14 @@ export default function Form(){
 
         return !onClose ? (
             <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
-                <div className="font-['pretendard'] w-[200px] h-[200px] sm:w-[580px] sm:h-[300px] bg-[#FFF] flex-shrink-0 fixed rounded-[10px] z-20">
+                <div className="font-['pretendard'] w-[200px] h-[235px] sm:w-[580px] sm:h-[330px] bg-[#FFF] flex-shrink-0 fixed rounded-[10px] z-20">
                     <button onClick={handleIsClose} className="ml-[180px] mt-[2px] h-[22px] sm:h-[30px] sm:ml-[552px] flex-col items-center flex justify-center">
                     <Image src="/assets/images/layout/close.svg" width={36} height={38} alt="close" className="w-[16px] h-[16px] sm:w-[22px] sm:h-[22px]"/>
                     </button>
                     <div className="flex flex-col items-center text-center content-center mt-[12px] sm:mt-[40px] leading-normal">
                         <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12} className="sm:w-[52px] sm:h-[12px] w-[30px] h-[10px]"/>
-                        <p className="font-[700] mt-[12px] text-[12px] sm:text-[24px] leading-[28px]">제출 이후에는 입력한 내용이 변경 불가합니다.</p>
+                        <p className="font-[700] mt-[12px] text-[12px] sm:text-[24px] leading-[28px]">제출한 이후에는 수정할 수 없습니다.</p>
+                        <p className="font-[700] mt-[4px] text-[12px] sm:text-[24px] leading-[28px]">제출하시겠습니까?</p>
                         <p className="mt-[8px] sm:mt-[20px] sm:font-[500] text-[8px] sm:text-[14px] leading-[21px] text-[#4A4A4A]">입력한 정보를 다시 한번 확인해주세요.</p>
                         <button onClick={handleConfirmSubmission}  className="mt-[8px] sm:mt-[28px] flex items-center w-[70px] h-[20px] sm:w-[100px] sm:h-[24px] justify-center rounded-[4px] bg-[#281CFF] text-[white] text-[8px] sm:text-[12px] font-[700] leading-[17px] text-center  hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[1px] sm:border-[2px] border-[#281CFF]">제출하기</button>
                         <button onClick={handleIsClose}  className="mt-[8px] sm:mt-[28px] flex items-center w-[70px] h-[20px] sm:w-[100px] sm:h-[24px] justify-center rounded-[4px] bg-[#281CFF] text-[white] text-[8px] sm:text-[12px] font-[700] leading-[17px] text-center  hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[1px] sm:border-[2px] border-[#281CFF]">다시 확인하기</button>
@@ -226,8 +234,53 @@ export default function Form(){
         </label>
     );
 
+    const Checkbox = ({ children, checked, onChange }: any) => (
+        <label className="flex flex-row items-center justify-center">
+        <input
+            type="checkbox"
+            name=""
+            checked={checked}
+            onChange={({ target: { checked } }) => onChange(checked)}
+            className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
+        />
+        <div className="font-[500]">{children}</div>
+        </label>
+    );
+
+
     return(
         <>
+            <div className="py-8 flex flex-col justify-start">
+                <p className="text-xl font-bold mt-4">주의 사항</p>
+                <div className="mt-2 h-[3px] w-full mx-auto bg-[#000000]"/>
+                
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={privacy} onChange={setPrivacy} className="w-full">
+                        개인정보 수집에 동의하십니까?
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={monday} onChange={setMonday}>
+                    홍익대학교 깔루아 23기는 매주 월요일 오후 6시 오프라인으로 정기 회의와 뒷풀이를 진행할 예정이고, 장소는 홍익대학교 T동 건물입니다. 매주 진행되는 깔루아 정기 회의 및 뒷풀이에 필수로 참여할 수 있는 분만 지원해주시기 바랍니다.
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={duration} onChange={setDuration}>
+                    홍익대학교 깔루아 23기의 활동 기간은 1년 6개월로, 25년 9월 공연까지는 필수로 참여해야 합니다.
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={cost} onChange={setCost}>
+                    홍익대학교 깔루아는 공연이 있는 3월, 9월을 제외하고 매달 1만원의 회비를 냅니다. 이 회비는 깔루아 전체 회비로 입금되며, 이 전체 회비는 동방 장비 수리, 교체, 공연 준비를 위한 비용으로 사용됩니다.
+                    </Checkbox>
+                </div>
+                <p className="text-xs text-[#8E8E8E] mt-8">
+                위 내용을 숙지하시고, 동의하시는 분만 지원해주시기 바랍니다.                                                                  
+                </p>
+            </div>
+
+            <div className="mt-2 h-[3px] w-full mx-auto bg-[#000000]"/>
+
             <div className="flex flex-col justify-center pb-10">
                 <div className="inline-flex flex-wrap flex-row items-start justify-between">
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
