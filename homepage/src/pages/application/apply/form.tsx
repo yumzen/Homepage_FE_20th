@@ -1,5 +1,7 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const OPTIONS_Gender = [
     { value: "남성", name: "남성" },
@@ -22,13 +24,14 @@ const OPTIONS_Session2 = [
     { value: "신디", name: "신디" },
     ];
 
-const OPTIONS_Major = [
-    { value: "컴퓨터공학과", name: "컴퓨터공학과" },
-    { value: "자율전공학과", name: "자율전공학과" },
-    ];
-    
+    const OPTIONS_Major = [
+        { value: "컴퓨터공학과", name: "컴퓨터공학과" },
+        { value: "자율전공학과", name: "자율전공학과" },
+        ];
+
 
 export default function Form(){
+    const router = useRouter();
     const [name, setName] = useState('');
     const [phone_num, setPhoneNum] = useState('');
     const [birthdate, setBirthdate] = useState('');
@@ -50,6 +53,7 @@ export default function Form(){
     const [cost, setCost] = useState(false);
 
     const [isFormComplete, setIsFormComplete] = useState(false);
+    const [isConfirmationModalVisible, setIsConfirmationModalVisible] = useState(false);
 
 
     useEffect(() => {
@@ -69,6 +73,14 @@ export default function Form(){
         setIsFormComplete(isDataComplete);
     }, [name, phone_num, birthdate, gender, address, major, first_preference, second_preference, experience_and_reason, play_instrument, motive, finish_time, meeting, readiness]);
     
+    const handleShowConfirmationModal = () => {
+        setIsConfirmationModalVisible(true);
+    };
+    
+    const handleConfirmSubmission = () => {
+        setIsConfirmationModalVisible(false);
+        handleSubmit();
+    };
 
     const handleSubmit = async () => {
         try {
@@ -116,6 +128,10 @@ export default function Form(){
             if (response.status === 200 || response.status === 201) {
                 console.log('요청이 성공적으로 처리되었습니다.');
                 console.log('응답 데이터:', response.data);
+                router.push({
+                    pathname: "/application/apply/complete/",
+                    query: { ...router.query, id: response.data.data.id },
+                });
             } else {
                 console.error('요청이 실패했습니다. HTTP 상태 코드:', response.status);
                 console.error('에러 응답:', response.data);
@@ -123,6 +139,54 @@ export default function Form(){
         } catch (error) {
             console.error('Error submitting data:', error);
         }
+    };
+
+    const ConfirmationModal = () => {
+        const [onClose, setOnClose] = useState(false);
+    
+        const handleIsClose = () => {
+            setOnClose(true);
+            setIsConfirmationModalVisible(false);
+        };
+        
+        const handleOverlayClick = (
+            event: React.MouseEvent<HTMLDivElement, MouseEvent>
+        ) => {
+            if (event.target === event.currentTarget) {
+            handleIsClose();
+            }
+        };
+        
+        const handleKeyPress = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+            handleIsClose();
+            }
+        };
+        
+        useEffect(() => {
+            document.addEventListener("keydown", handleKeyPress);
+            return () => {
+            document.removeEventListener("keydown", handleKeyPress);
+            };
+        }, [handleKeyPress]);
+
+        return !onClose ? (
+            <div onClick={handleOverlayClick} className= "fixed z-50 top-0 left-0 right-0 bottom-0 bg-[#0000008a] flex justify-center items-center">
+                <div className="font-['pretendard'] w-[200px] h-[235px] sm:w-[580px] sm:h-[330px] bg-[#FFF] flex-shrink-0 fixed rounded-[10px] z-20">
+                    <button onClick={handleIsClose} className="ml-[180px] mt-[2px] h-[22px] sm:h-[30px] sm:ml-[552px] flex-col items-center flex justify-center">
+                    <Image src="/assets/images/layout/close.svg" width={36} height={38} alt="close" className="w-[16px] h-[16px] sm:w-[22px] sm:h-[22px]"/>
+                    </button>
+                    <div className="flex flex-col items-center text-center content-center mt-[12px] sm:mt-[40px] leading-normal">
+                        <Image src="/assets/images/tickets/divider_medium.svg" alt="ticket" width={52} height={12} className="sm:w-[52px] sm:h-[12px] w-[30px] h-[10px]"/>
+                        <p className="font-[700] mt-[12px] text-[12px] sm:text-[24px] leading-[28px]">제출한 이후에는 수정할 수 없습니다.</p>
+                        <p className="font-[700] mt-[4px] text-[12px] sm:text-[24px] leading-[28px]">제출하시겠습니까?</p>
+                        <p className="mt-[8px] sm:mt-[20px] sm:font-[500] text-[8px] sm:text-[14px] leading-[21px] text-[#4A4A4A]">입력한 정보를 다시 한번 확인해주세요.</p>
+                        <button onClick={handleConfirmSubmission}  className="mt-[8px] sm:mt-[28px] flex items-center w-[70px] h-[20px] sm:w-[100px] sm:h-[24px] justify-center rounded-[4px] bg-[#281CFF] text-[white] text-[8px] sm:text-[12px] font-[700] leading-[17px] text-center  hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[1px] sm:border-[2px] border-[#281CFF]">제출하기</button>
+                        <button onClick={handleIsClose}  className="mt-[8px] sm:mt-[28px] flex items-center w-[70px] h-[20px] sm:w-[100px] sm:h-[24px] justify-center rounded-[4px] bg-[#281CFF] text-[white] text-[8px] sm:text-[12px] font-[700] leading-[17px] text-center  hover:bg-[white] hover:text-[#281CFF] hover:border-[#281CFF] transition-all duration-450 border-[1px] sm:border-[2px] border-[#281CFF]">다시 확인하기</button>
+                    </div>
+                    </div>
+            </div>
+        ): null;
     };
 
     type SelectBoxProps = {
@@ -138,50 +202,51 @@ export default function Form(){
     
         return (
             <div className="flex flex-col">
-              <select
-                className="text-base cursor-pointer w-full h-[64px] rounded-[10px] border border-[#464646] border-solid text-center"
-                onChange={handleOptionChange}
-                value={props.value}
-              >
-                <option value="" disabled>
-                  선택
-                </option>
-                {props.options.map((option: any) => (
-                  <option key={option.value} value={option.value}>
-                    {option.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          );
+                <select
+                    className="text-base cursor-pointer w-full h-[64px] rounded-[10px] border border-[#464646] border-solid text-center"
+                    onChange={handleOptionChange}
+                    value={props.value}
+                >
+                    <option value="" disabled>
+                    선택
+                    </option>
+                    {props.options.map((option: any) => (
+                    <option key={option.value} value={option.value}>
+                        {option.name}
+                    </option>
+                    ))}
+                </select>
+                </div>
+            );
     };
 
     const RadioButton = ({ label, value, checked, onChange }: any) => (
         <label className="flex flex-row items-center justify-center">
-          <input
-            type="radio"
-            name="뒷풀이"
-            value={value}
-            checked={checked}
-            onChange={() => onChange(value === 'true')}
-            className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
-          />
-          <div className="font-[500]">{label}</div>
+            <input
+                type="radio"
+                name="뒷풀이"
+                value={value}
+                checked={checked}
+                onChange={() => onChange(value === 'true')}
+                className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
+            />
+            <div className="font-[500]">{label}</div>
         </label>
     );
 
     const Checkbox = ({ children, checked, onChange }: any) => (
         <label className="flex flex-row items-center justify-center">
-          <input
+        <input
             type="checkbox"
             name=""
             checked={checked}
             onChange={({ target: { checked } }) => onChange(checked)}
             className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
-          />
-          <div className="font-[500]">{children}</div>
+        />
+        <div className="font-[500]">{children}</div>
         </label>
     );
+
 
     return(
         <>
@@ -338,12 +403,16 @@ export default function Form(){
             </div>
 
             <div className="flex flex-col justify-center items-center">
-                <button disabled={!isFormComplete} className="w-full s:w-80 h-16 bg-ocean disabled:bg-[#B9B9B9] rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleSubmit}>
+                <button disabled={!isFormComplete} className="w-full s:w-80 h-16 bg-ocean disabled:bg-[#B9B9B9] rounded-[10px] mt-28 mb-32 text-[#FFFFFF]" onClick={handleShowConfirmationModal}>
                     제출하기
                 </button>
             </div>
+            {isConfirmationModalVisible && (
+                <ConfirmationModal />
+            )}
         </>
 
     )
 }
+
 
