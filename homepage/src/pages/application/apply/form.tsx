@@ -43,6 +43,12 @@ export default function Form(){
     const [finish_time, setFinishTime] = useState('');
     const [meeting, setMeeting] = useState(true);
     const [readiness, setReadiness] = useState('');
+
+    const [privacy, setPrivacy] = useState(false);
+    const [monday, setMonday] = useState(false);
+    const [duration, setDuration] = useState(false);
+    const [cost, setCost] = useState(false);
+
     const [isFormComplete, setIsFormComplete] = useState(false);
 
 
@@ -58,6 +64,7 @@ export default function Form(){
         experience_and_reason.trim() !== '' &&
         motive.trim() !== '' &&
         finish_time.trim() !== '' &&
+        privacy && monday && duration && cost &&
         true;
         setIsFormComplete(isDataComplete);
     }, [name, phone_num, birthdate, gender, address, major, first_preference, second_preference, experience_and_reason, play_instrument, motive, finish_time, meeting, readiness]);
@@ -161,10 +168,54 @@ export default function Form(){
           />
           <div className="font-[500]">{label}</div>
         </label>
-      );
+    );
+
+    const Checkbox = ({ children, checked, onChange }: any) => (
+        <label className="flex flex-row items-center justify-center">
+          <input
+            type="checkbox"
+            name=""
+            checked={checked}
+            onChange={({ target: { checked } }) => onChange(checked)}
+            className="mr-[18px] accent-[#281CFF] w-[12px] h-[12px] sm:w-[18px] sm:h-[18px] flex-shrink-0"
+          />
+          <div className="font-[500]">{children}</div>
+        </label>
+    );
 
     return(
         <>
+            <div className="py-8 flex flex-col justify-start">
+                <p className="text-xl font-bold mt-4">주의 사항</p>
+                <div className="mt-2 h-[3px] w-full mx-auto bg-[#000000]"/>
+                
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={privacy} onChange={setPrivacy} className="w-full">
+                        개인정보 수집에 동의하십니까?
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={monday} onChange={setMonday}>
+                    홍익대학교 깔루아 23기는 매주 월요일 오후 6시 오프라인으로 정기 회의와 뒷풀이를 진행할 예정이고, 장소는 홍익대학교 T동 건물입니다. 매주 진행되는 깔루아 정기 회의 및 뒷풀이에 필수로 참여할 수 있는 분만 지원해주시기 바랍니다.
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={duration} onChange={setDuration}>
+                    홍익대학교 깔루아 23기의 활동 기간은 1년 6개월로, 25년 9월 공연까지는 필수로 참여해야 합니다.
+                    </Checkbox>
+                </div>
+                <div className="mt-8 text-base mr-auto">
+                    <Checkbox checked={cost} onChange={setCost}>
+                    홍익대학교 깔루아는 공연이 있는 3월, 9월을 제외하고 매달 1만원의 회비를 냅니다. 이 회비는 깔루아 전체 회비로 입금되며, 이 전체 회비는 동방 장비 수리, 교체, 공연 준비를 위한 비용으로 사용됩니다.
+                    </Checkbox>
+                </div>
+                <p className="text-xs text-[#8E8E8E] mt-8">
+                위 내용을 숙지하시고, 동의하시는 분만 지원해주시기 바랍니다.                                                                  
+                </p>
+            </div>
+
+            <div className="mt-2 h-[3px] w-full mx-auto bg-[#000000]"/>
+
             <div className="flex flex-col justify-center pb-10">
                 <div className="inline-flex flex-wrap flex-row items-start justify-between">
                     <div className="s:w-[calc(50%-16px)] p:w-full h-auto pt-8">
