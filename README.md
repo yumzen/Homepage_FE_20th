@@ -38,9 +38,10 @@
 </br>
 
 # 개발 환경
-* Next.js
-* Typescript
-* Tailwind css
+<img src="https://img.shields.io/badge/typescript-3178C6?style=flat&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/next.js-000000?style=flat&logo=nextdotjs&logoColor=white">
+<img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=flat&logo=tailwindcss&logoColor=white">
 
 <br>
 </br>
