@@ -7,6 +7,7 @@ import rect4 from "/public/assets/images/Main/rectangle_4.svg";
 import circle from "/public/assets/images/Main/circle.svg";
 import cd from "/public/assets/images/Main/image_cd1.svg";
 import axios from "axios";
+import Link from "next/link";
 
 // refreshToken cookie 주고 받기 위함
 axios.defaults.withCredentials = true;
@@ -14,7 +15,7 @@ axios.defaults.withCredentials = true;
 export default function Home() {
   return (
     //배경이 있으려면 높이를 무조건 설정해줘야되는데 nav bar가 높이에 포함이 안돼서 일단 높이를 screen-104px로 해둠
-    <div className="h-[calc(100vh-104px)]">
+    <div className="h-[1500px]">
       <Background>
         <Deco />
         <Headline />
@@ -25,6 +26,9 @@ export default function Home() {
           width={1000}
           className="absolute bottom-0 right-0 h-[450px] z-20 object-cover object-bottom "
         />
+        <div className = "w-[100vw] h-[60px] sm:h-[90px] bg-[#000] items-center content-center flex justify-center text-center bottom-0 fixed z-30">
+        </div>
+        <Link href="/application" className="flex blur-none filter-none fixed text-center bottom-[50%] sm:bottom-[0] z-30  items-center justify-center content-center font-[600] sm:font-[700] text-[#FFF] text-[20px] sm:text-[24px] whitespace-nowrap h-[60px] sm:h-[90px] w-[100vw]">KAHLUA 23기 지원하러 가기</Link>
       </Background>
     </div>
   );
@@ -33,7 +37,7 @@ export default function Home() {
 function Headline() {
   return (
     <div className="ml-[calc(22%)] mt-10 bg-transparent">
-      <Image src={divider} alt="kahlua" width={108} />
+      <Image src={divider} alt="kahlua" width={108} /> 
       <p className="font-GothamBold text-7xl font-bold mt-2">Band Club</p>
       <p className="font-Salvar text-7xl font-bold mt-2">KAHLUA</p>
       <p className=" font-pretendard text-xl text-[#6A6A6A] mt-4">
