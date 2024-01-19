@@ -20,15 +20,18 @@ export default function Home() {
         <Deco />
         <Headline />
         {/* animate-spin origin-bottom */}
+
         <Image
           src={cd}
           alt=".."
-          width={1000}
-          className="absolute bottom-0 right-0 h-[450px] z-20 object-cover object-bottom "
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="absolute bottom-0 right-0 z-20 object-cover object-bottom l:w-[900px] l:h-[450px] m:w-[780px] m:h-[400px] s:w-[720px] s:h-[380px] x:w-[700px] x:h-[360px]"
         />
         <div className = "w-[100vw] h-[60px] sm:h-[90px] bg-[#000] items-center content-center flex justify-center text-center bottom-0 fixed z-30">
         </div>
-        <Link href="/application" className="flex blur-none filter-none fixed text-center bottom-[50%] sm:bottom-[0] z-30  items-center justify-center content-center font-[600] sm:font-[700] text-[#FFF] text-[20px] sm:text-[24px] whitespace-nowrap h-[60px] sm:h-[90px] w-[100vw]">KAHLUA 23기 지원하러 가기</Link>
+        <Link href="/application" className="flex blur-none filter-none fixed text-center bottom-[0] z-30  items-center justify-center content-center font-[600] sm:font-[700] text-[#FFF] text-[20px] sm:text-[24px] whitespace-nowrap h-[60px] sm:h-[90px] w-[100vw]">KAHLUA 23기 지원하러 가기</Link>
       </Background>
     </div>
   );
@@ -36,11 +39,20 @@ export default function Home() {
 
 function Headline() {
   return (
-    <div className="ml-[calc(22%)] mt-10 bg-transparent">
-      <Image src={divider} alt="kahlua" width={108} /> 
-      <p className="font-GothamBold text-7xl font-bold mt-2">Band Club</p>
-      <p className="font-Salvar text-7xl font-bold mt-2">KAHLUA</p>
-      <p className=" font-pretendard text-xl text-[#6A6A6A] mt-4">
+    <div className="mt-10 bg-transparent ml-[calc(8%)] l:ml-[calc(22%)] s:ml-[calc(19%)] x:ml-[calc(16%)] q:ml-[calc(14%)]">
+      <Image
+        src={divider}
+        alt="kahlua"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="w-[80px] x:w-[88px] s:w-[108px]"
+      />
+      <p className="font-GothamBold text-5xl font-bold mt-2 s:text-7xl">
+        Band Club
+      </p>
+      <p className="font-Salvar text-5xl font-bold mt-2 s:text-7xl">KAHLUA</p>
+      <p className=" font-pretendard text-[#6A6A6A] mt-4 l:text-xl m:text-lg s:text-base">
         We are Hongik University Computer Engineering
         <br />
         Band Club KAHLUA!
@@ -62,13 +74,13 @@ function Deco() {
         src={circle}
         alt=".."
         width={160}
-        className="absolute right-[calc(24%)] w-[calc(12%)] top-40"
+        className="hidden absolute w-[calc(12%)] top-40 l:right-[calc(24%)] s:right-[calc(20%)] x:right-[calc(14%)] x:block"
       />
       <Image
         src={circle}
         alt=".."
         width={160}
-        className="absolute left-[calc(5%)] w-[calc(12%)] top-64"
+        className="hidden absolute left-[calc(5%)] w-[calc(12%)] top-64 x:block"
       />
       <Image
         src={rect4}
